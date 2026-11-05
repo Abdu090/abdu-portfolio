@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Abdelrahman (Abdu) Ibrahim — IT Teaching Assistant, Full-Stack Developer and Data Analyst in Giza, Egypt.">
+<meta property="og:title" content="Abdu Ibrahim">
+<meta property="og:image" content="abdu.webp">
+<link rel="icon" href="abdu.webp">
+<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Abdu Ibrahim</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one long page on a faint data-grid, a SQL query as the hero's signature, sections tagged like SQL comments */
+:root{
+  --bg:#eef1ee; --surface:#ffffff; --ink:#10202a; --muted:#56676d; --line:#d2dbd7;
+  --accent:#0d7a6b; --accent-ink:#ffffff; --sand:#b9780c; --soft:#dfe9e5;
+  --f-display:"Bricolage Grotesque","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r:14px; --max:1180px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0b1316; --surface:#111d21; --ink:#e4ecea; --muted:#8ea1a2; --line:#22353a;
+  --accent:#3cc4ab; --accent-ink:#06201b; --sand:#f0bb4c; --soft:#16282c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1316; --surface:#111d21; --ink:#e4ecea; --muted:#8ea1a2; --line:#22353a;
+  --accent:#3cc4ab; --accent-ink:#06201b; --sand:#f0bb4c; --soft:#16282c; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:48px 48px;background-attachment:fixed;background-position:-1px -1px}
+body::after{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 50% 0%,transparent 0%,var(--bg) 75%);pointer-events:none;z-index:-1}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono)}
+h1,h2,h3{font-family:var(--f-display);line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(2rem,4.4vw,3.3rem);letter-spacing:-.02em;font-weight:800}
+h3{font-size:1.3rem;font-weight:700}
+p{margin:0}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{font-family:var(--f-body);letter-spacing:0;line-height:1.3}
+
+/* language toggling */
+html[lang="en"] .ar{display:none!important}
+html[lang="ar"] .en{display:none!important}
+
+/* intro */
+.intro{position:fixed;inset:0;z-index:100;background:var(--ink);color:var(--bg);display:grid;place-items:center;text-align:center;
+  transition:opacity .5s ease,visibility .5s;cursor:pointer;padding:24px}
+.intro.done{opacity:0;visibility:hidden}
+.intro .big{font-family:var(--f-display);font-weight:800;font-size:clamp(3rem,10vw,7rem);letter-spacing:-.03em;line-height:.95}
+.intro .sub{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-top:14px}
+.intro .start{margin-top:36px;font-family:var(--f-mono);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;animation:blink 1.1s steps(2) infinite}
+.intro .load{margin-top:10px;font-family:var(--f-mono);font-size:.75rem;opacity:.55;font-variant-numeric:tabular-nums}
+@keyframes blink{50%{opacity:.25}}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:18px;height:64px}
+.logo{font-family:var(--f-display);font-weight:800;font-size:1.25rem;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo b{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:var(--accent);color:var(--accent-ink);font-size:.95rem}
+.links{display:flex;gap:4px;margin-inline-start:auto}
+.links a{text-decoration:none;font-size:.9rem;color:var(--muted);padding:6px 10px;border-radius:8px}
+.links a:hover{color:var(--ink);background:var(--soft)}
+.tools{display:flex;gap:8px;align-items:center}
+.chip-btn{font:600 .78rem var(--f-mono);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 12px;cursor:pointer}
+.chip-btn:hover{border-color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 .95rem var(--f-body);text-decoration:none;border-radius:999px;padding:12px 20px;border:1px solid transparent;cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{border-color:var(--line);background:var(--surface);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--accent)}
+.nav .btn{padding:8px 16px;font-size:.88rem}
+@media (max-width:900px){.links{display:none}.tools{margin-inline-start:auto}}
+@media (max-width:480px){.nav .btn{display:none}}
+
+/* sections */
+section{padding-block:clamp(64px,9vw,120px)}
+.eyebrow{font-family:var(--f-mono);font-size:.8rem;color:var(--accent);letter-spacing:.04em;margin-bottom:14px;display:block;direction:ltr;unicode-bidi:isolate}
+html[lang="ar"] .eyebrow{text-align:right}
+.lead{color:var(--muted);font-size:1.08rem;max-width:62ch;margin-top:16px}
+
+/* hero */
+.hero{padding-block:clamp(48px,7vw,96px) clamp(56px,8vw,100px)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,64px);align-items:center}
+.hero-grid>*{min-width:0}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted);border:1px solid var(--line);background:var(--surface);padding:6px 14px 6px 10px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px transparent}}
+.hero h1{font-size:clamp(3rem,8vw,6.4rem);font-weight:800;letter-spacing:-.035em;margin-top:22px}
+.hero h1 .hl{color:var(--accent)}
+html[lang="ar"] .hero h1{font-size:clamp(2.6rem,7vw,5.2rem);font-weight:600}
+.roles{font-family:var(--f-mono);font-size:.95rem;color:var(--muted);margin-top:18px}
+.roles span+span::before{content:" · ";color:var(--accent)}
+.hero .lead{font-size:1.15rem}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;border-top:1px solid var(--line)}
+.stat{padding:18px 16px 0 0}
+html[lang="ar"] .stat{padding:18px 0 0 16px}
+.stat b{display:block;font-family:var(--f-display);font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat small{color:var(--muted);font-size:.82rem;line-height:1.35;display:block}
+@media (max-width:620px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* sql card */
+.sql{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -30px color-mix(in srgb,var(--ink) 35%,transparent);direction:ltr;text-align:left}
+.sql-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);font-family:var(--f-mono);font-size:.75rem;color:var(--muted)}
+.sql-bar i{width:10px;height:10px;border-radius:50%;background:var(--line);display:block}
+.sql-bar span{margin-left:auto}
+.sql pre{margin:0;padding:18px 20px;font-family:var(--f-mono);font-size:.86rem;line-height:1.7;white-space:pre-wrap;overflow-x:auto}
+.k{color:var(--accent);font-weight:600}.s{color:var(--sand)}.c{color:var(--muted)}
+.result{border-top:1px solid var(--line);overflow-x:auto}
+.result table{width:100%;border-collapse:collapse;font-family:var(--f-mono);font-size:.8rem;font-variant-numeric:tabular-nums}
+.result th,.result td{padding:9px 16px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+.result th{color:var(--muted);font-weight:400;background:var(--soft)}
+.result tr:last-child td{border-bottom:0}
+.result .ok{color:var(--accent)}
+.sql-foot{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);padding:10px 16px;border-top:1px solid var(--line)}
+
+/* projects */
+.head-row{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0;transition:transform .25s,border-color .25s}
+.proj:hover{transform:translateY(-4px);border-color:var(--accent)}
+.proj.feature{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.proj.feature>*{min-width:0}
+.ptype{font-family:var(--f-mono);font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.proj h3{font-size:1.6rem}
+.proj p{color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-family:var(--f-mono);font-size:.72rem;padding:4px 9px;border-radius:6px;background:var(--soft);color:var(--ink)}
+.flow{display:grid;gap:10px;font-family:var(--f-mono);font-size:.8rem;direction:ltr}
+.flow div{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px dashed var(--line);border-radius:10px;background:var(--bg)}
+.flow b{color:var(--accent);font-weight:600;min-width:70px}
+.bars{display:flex;align-items:flex-end;gap:8px;height:120px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.bars i{flex:1;background:var(--accent);border-radius:4px 4px 0 0;opacity:.85}
+.bars i:nth-child(odd){background:var(--sand)}
+@media (max-width:820px){.projects{grid-template-columns:1fr}.proj.feature{grid-template-columns:1fr}}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,5vw,72px);align-items:start}
+.about-grid>*{min-width:0}
+.portrait{aspect-ratio:4/5;max-width:100%;border-radius:20px;background:linear-gradient(160deg,var(--accent),color-mix(in srgb,var(--accent) 40%,var(--ink)));color:var(--accent-ink);display:flex;flex-direction:column;justify-content:space-between;padding:26px;position:relative;overflow:hidden}
+.portrait .mono-big{font-family:var(--f-display);font-weight:800;font-size:clamp(6rem,14vw,10rem);line-height:.8;letter-spacing:-.05em}
+.portrait .meta{font-family:var(--f-mono);font-size:.78rem;opacity:.85;line-height:1.6}
+.portrait::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+.badge{position:absolute;top:22px;inset-inline-end:22px;font-family:var(--f-mono);font-size:.72rem;background:var(--surface);color:var(--ink);padding:6px 10px;border-radius:999px;z-index:1}
+.about-text p{font-size:1.08rem;color:var(--muted);max-width:62ch}
+.about-text p+p{margin-top:16px}
+.about-text strong{color:var(--ink);font-weight:600}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:32px}
+.facts div{background:var(--surface);padding:16px 18px}
+.facts small{display:block;font-family:var(--f-mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.facts span{font-weight:600}
+@media (max-width:820px){.about-grid{grid-template-columns:1fr}.portrait{aspect-ratio:16/10}}
+@media (max-width:480px){.facts{grid-template-columns:1fr}}
+
+/* teaching */
+.teach{background:var(--ink);color:var(--bg);border-radius:28px;padding:clamp(28px,5vw,64px);position:relative;overflow:hidden}
+.teach .eyebrow{color:var(--sand)}
+.teach .lead{color:color-mix(in srgb,var(--bg) 72%,transparent)}
+.labs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.lab{border:1px solid color-mix(in srgb,var(--bg) 18%,transparent);border-radius:var(--r);padding:22px;min-width:0}
+.lab .code{font-family:var(--f-mono);font-size:.75rem;color:var(--sand)}
+.lab h3{margin-top:10px;font-size:1.2rem}
+.lab p{margin-top:8px;font-size:.92rem;color:color-mix(in srgb,var(--bg) 68%,transparent)}
+.teach-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.teach-row div{padding:18px 22px;border-radius:var(--r);background:color-mix(in srgb,var(--bg) 7%,transparent);min-width:0}
+.teach-row b{display:block;font-family:var(--f-display);font-size:1.05rem}
+.teach-row span{font-size:.88rem;color:color-mix(in srgb,var(--bg) 68%,transparent)}
+@media (max-width:820px){.labs,.teach-row{grid-template-columns:1fr}}
+
+/* timeline */
+.tl{list-style:none;margin:48px 0 0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;top:8px;bottom:8px;inset-inline-start:118px;width:2px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:100px 1fr;gap:38px;padding-block:18px;position:relative}
+.tl li::before{content:"";position:absolute;inset-inline-start:112px;top:28px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.tl li.next::before{border-style:dashed;border-color:var(--sand)}
+.tl time{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);padding-top:4px;font-variant-numeric:tabular-nums}
+.tl h3{font-size:1.25rem}
+.tl p{color:var(--muted);margin-top:6px;max-width:60ch}
+@media (max-width:560px){.tl::before{inset-inline-start:6px}.tl li{grid-template-columns:1fr;gap:4px;padding-inline-start:34px}.tl li::before{inset-inline-start:0}}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.cat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;min-width:0}
+.cat h3{font-size:1.05rem;display:flex;justify-content:space-between;align-items:baseline}
+.cat h3 small{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);font-weight:400}
+.cat ul{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.cat li{font-size:.85rem;padding:5px 10px;border:1px solid var(--line);border-radius:999px}
+@media (max-width:900px){.stack{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.stack{grid-template-columns:1fr}}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.svc{padding:24px;border-top:3px solid var(--accent);background:var(--surface);border-radius:0 0 var(--r) var(--r);min-width:0}
+.svc:nth-child(even){border-top-color:var(--sand)}
+.svc h3{font-size:1.15rem}
+.svc p{color:var(--muted);font-size:.92rem;margin-top:8px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:28px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.steps div{padding:18px 20px;border-inline-end:1px solid var(--line);min-width:0}
+.steps div:last-child{border-inline-end:0}
+.steps small{font-family:var(--f-mono);color:var(--accent);font-size:.75rem}
+.steps b{display:block;font-family:var(--f-display);font-size:1.1rem}
+.steps span{font-size:.85rem;color:var(--muted)}
+.note{margin-top:18px;color:var(--muted);font-size:.9rem}
+@media (max-width:900px){.services{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.steps div:nth-child(2){border-inline-end:0}.steps div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:480px){.services,.steps{grid-template-columns:1fr}.steps div{border-inline-end:0;border-bottom:1px solid var(--line)}}
+
+/* terminal */
+.term{background:#0a1214;color:#cfe3de;border-radius:18px;overflow:hidden;border:1px solid #1d3236;direction:ltr;text-align:left;margin-top:32px}
+.term-bar{display:flex;gap:8px;align-items:center;padding:12px 16px;background:#0f1b1e;font-family:var(--f-mono);font-size:.75rem;color:#7d9894}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:#28403f;display:block}
+.term-bar span{margin-left:8px}
+.term-out{padding:18px 20px 6px;font-family:var(--f-mono);font-size:.85rem;line-height:1.7;height:280px;overflow-y:auto;white-space:pre-wrap;word-break:break-word}
+.term-out .p{color:#3cc4ab}.term-out .y{color:#f0bb4c}.term-out .m{color:#7d9894}
+.term-in{display:flex;align-items:center;gap:8px;padding:6px 20px 18px;font-family:var(--f-mono);font-size:.85rem}
+.term-in label{color:#3cc4ab}
+.term-in input{flex:1;min-width:0;background:transparent;border:0;color:#e9f4f1;font:inherit;outline:none;caret-color:#f0bb4c}
+.term-hints{display:flex;flex-wrap:wrap;gap:6px;padding:0 20px 16px}
+.term-hints button{font:.75rem var(--f-mono);background:#13262a;color:#cfe3de;border:1px solid #23393c;border-radius:6px;padding:4px 9px;cursor:pointer}
+.term-hints button:hover{border-color:#3cc4ab}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.contact-grid>*{min-width:0}
+form{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:14px}
+label.f{display:grid;gap:6px;font-size:.85rem;font-weight:500}
+input.i,textarea.i{font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+input.i:focus,textarea.i:focus{outline:none;border-color:var(--accent)}
+textarea.i{min-height:130px;resize:vertical}
+.form-msg{font-size:.88rem;color:var(--accent);min-height:1.3em}
+.channels{display:grid;gap:12px;margin-top:28px}
+.ch{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);min-width:0}
+.ch small{display:block;font-family:var(--f-mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.ch span{font-weight:600;word-break:break-all;user-select:all}
+.ch a{text-decoration:none}
+.where{margin-top:20px;font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+@media (max-width:820px){.contact-grid{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
+.foot{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center;font-size:.88rem;color:var(--muted)}
+.foot nav{display:flex;flex-wrap:wrap;gap:14px}
+.foot a{text-decoration:none}.foot a:hover{color:var(--accent)}
+
+
+/* added: photo, project mockups, course chips */
+.avatar{width:22px;height:22px;border-radius:50%;object-fit:cover;background:var(--accent);margin-inline-start:-4px}
+.portrait{background:linear-gradient(165deg,var(--accent),color-mix(in srgb,var(--accent) 35%,#04100e));padding:0;justify-content:flex-end}
+.portrait img{position:absolute;inset:auto 0 0 0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0}
+.portrait .meta{position:relative;z-index:1;padding:60px 22px 20px;background:linear-gradient(transparent,rgba(4,16,14,.82));color:#fff}
+.portrait::after{z-index:0;opacity:.5}
+.portrait img{z-index:0}
+.plinks{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.plinks .chip-btn{text-decoration:none}
+.shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg);direction:ltr;text-align:left;font-family:var(--f-mono);font-size:.72rem}
+.shot-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid var(--line);background:var(--surface);color:var(--muted)}
+.shot-bar i{width:8px;height:8px;border-radius:50%;background:var(--line);display:block}
+.shot-bar span{margin-left:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot-body{padding:14px;min-height:150px}
+.shot.sm .shot-body{min-height:118px}
+.shot-img{display:block;width:100%;height:auto;max-width:100%}
+.shot .bars{height:100px;border:0;padding:0;background:transparent}
+.shot u{text-decoration:none;font-size:.66rem;padding:2px 8px;border-radius:999px;background:var(--soft);color:var(--muted)}
+.shot u.g{background:color-mix(in srgb,var(--accent) 18%,transparent);color:var(--accent)}
+.shot u.a{background:color-mix(in srgb,var(--sand) 20%,transparent);color:var(--sand)}
+.shot em{font-style:normal}
+.erp{display:grid;grid-template-columns:44px 1fr;gap:12px}
+.erp .side{display:flex;flex-direction:column;gap:8px}
+.erp .side b{height:22px;border-radius:6px;background:var(--accent)}
+.erp .side i{height:8px;border-radius:4px;background:var(--line)}
+.erp .side i.on{background:var(--sand)}
+.erp .main{min-width:0;display:grid;gap:10px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kpis div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px;min-width:0}
+.kpis small{display:block;color:var(--muted);font-size:.62rem}
+.kpis b{font-size:.85rem;color:var(--ink);white-space:nowrap}
+.rows,.recon{display:grid;gap:6px}
+.rows span,.recon span{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.home .say{padding:10px 12px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-size:.74rem}
+.home .devs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.home .devs span{padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.home .devs span.on{border-color:var(--accent);color:var(--accent)}
+.flow2{display:grid;gap:6px}
+.flow2 span{padding:7px 10px;border:1px dashed var(--line);border-radius:8px}
+.flow2 b{color:var(--accent);font-weight:600;display:inline-block;min-width:64px}
+.course-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.course-list span{font-size:.82rem;padding:6px 12px;border-radius:999px;border:1px solid color-mix(in srgb,var(--bg) 18%,transparent);color:color-mix(in srgb,var(--bg) 80%,transparent)}
+
+.reveal{transition:transform .7s ease,opacity .7s ease}
+.reveal.pre{transform:translateY(18px);opacity:.35}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.reveal.pre{transform:none;opacity:1}}
+</style>
+
+</head>
+<body>
+<div class="intro" id="intro" role="button" tabindex="0" aria-label="Enter site">
+  <div>
+    <div class="big">Abdu<span style="color:var(--accent)">.</span></div>
+    <div class="sub">Teaching Assistant · Full-Stack · Data Analyst</div>
+    <div class="start">▶ Press Start</div>
+    <div class="load" id="load">Loading 000%</div>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="#home"><b>A</b>Abdu</a>
+    <nav class="links" aria-label="Sections">
+      <a href="#work"><span class="en">Work</span><span class="ar">الأعمال</span></a>
+      <a href="#about"><span class="en">About</span><span class="ar">عنّي</span></a>
+      <a href="#teaching"><span class="en">Teaching</span><span class="ar">التدريس</span></a>
+      <a href="#journey"><span class="en">Journey</span><span class="ar">المسيرة</span></a>
+      <a href="#services"><span class="en">Services</span><span class="ar">الخدمات</span></a>
+    </nav>
+    <div class="tools">
+      <button class="chip-btn" id="langBtn" type="button" aria-label="Switch language"><span class="en">عربي</span><span class="ar">EN</span></button>
+      <button class="chip-btn" id="themeBtn" type="button" aria-label="Toggle theme">◐</button>
+      <a class="btn primary" href="#contact"><span class="en">Let's talk</span><span class="ar">تواصل معي</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="home">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="status"><img class="avatar" src="abdu.webp" alt=""><span class="dot"></span><span class="en">Open to remote roles, freelance projects &amp; funded M.Sc. offers</span><span class="ar">متاح للوظائف عن بُعد والمشاريع الحرة ومنح الماجستير الممولة</span></span>
+      <h1><span class="en">Hi, I'm <span class="hl">Abdu</span>.</span><span class="ar">أهلاً، أنا <span class="hl">عبدالرحمن</span>.</span></h1>
+      <div class="roles"><span class="en">IT Teaching Assistant</span><span class="en">Full-Stack Developer</span><span class="en">Data Analyst</span><span class="ar">معيد تقنية معلومات</span><span class="ar">مطور Full-Stack</span><span class="ar">محلل بيانات</span></div>
+      <p class="lead"><span class="en">I teach AI, web and database labs at university, ship production web platforms with React, Next.js, Node and PostgreSQL, and turn data into decisions with SQL, Python and Power BI. Based in Giza, Egypt.</span><span class="ar">أدرّس معامل الذكاء الاصطناعي والويب وقواعد البيانات في الجامعة، وأطلق منصات ويب حقيقية باستخدام React وNext.js وNode وPostgreSQL، وأحوّل البيانات إلى قرارات باستخدام SQL وPython وPower BI. مقيم في الجيزة، مصر.</span></p>
+      <div class="cta">
+        <a class="btn primary" href="#work"><span class="en">Explore my work</span><span class="ar">استكشف أعمالي</span> →</a>
+        <a class="btn ghost" href="Abdelrahman_Ibrahim_CV.pdf" target="_blank" rel="noopener"><span class="en">View CV (PDF)</span><span class="ar">السيرة الذاتية (PDF)</span> ↗</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/abdelrahman-ibrahim-77a171282/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>13</b><small><span class="en">university lab courses taught</span><span class="ar">مقرراً معملياً درّستها</span></small></div>
+        <div class="stat"><b>3.72</b><small><span class="en">final-year GPA · project graded A</span><span class="ar">معدل السنة النهائية · مشروع التخرج A</span></small></div>
+        <div class="stat"><b>90%</b><small><span class="en">Data Analysis Diploma, AMIT</span><span class="ar">دبلومة تحليل البيانات، AMIT</span></small></div>
+        <div class="stat"><b>4</b><small><span class="en">apps live in production</span><span class="ar">تطبيقات تعمل فعلياً</span></small></div>
+      </div>
+    </div>
+
+    <div class="sql" aria-label="SQL query describing Abdu">
+      <div class="sql-bar"><i></i><i></i><i></i><span>abdu.sql — PostgreSQL</span></div>
+<pre><span class="c">-- who is Abdu, as a query</span>
+<span class="k">SELECT</span> role, org, since
+<span class="k">FROM</span>   abdu.experience
+<span class="k">WHERE</span>  status = <span class="s">'active'</span>
+<span class="k">ORDER BY</span> since <span class="k">DESC</span>;</pre>
+      <div class="result">
+        <table>
+          <thead><tr><th>role</th><th>org</th><th>since</th></tr></thead>
+          <tbody>
+            <tr><td>Teaching Assistant</td><td>National Univ.</td><td>2024-12</td></tr>
+            <tr><td>E-Learning Admin</td><td>National Univ.</td><td>2024-12</td></tr>
+            <tr><td>Marketing &amp; CX</td><td>AIALT</td><td>2024-10</td></tr>
+            <tr><td>M.Sc. CS student</td><td>Sudan Open Univ.</td><td>2024</td></tr>
+            <tr><td>Tech Partner</td><td>Comerica LLC</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sql-foot"><span style="color:var(--accent)">✓</span> 5 rows · next: <span style="color:var(--sand)">funded M.Sc. abroad</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <span class="eyebrow">-- projects</span>
+        <h2><span class="en">Things I've shipped</span><span class="ar">مشاريع أطلقتها</span></h2>
+      </div>
+      <p class="lead" style="margin:0;max-width:44ch"><span class="en">Four of these are live right now. Open them and click around.</span><span class="ar">أربعة منها تعمل الآن. افتحها وجرّبها بنفسك.</span></p>
+    </div>
+
+    <div class="projects">
+      <article class="proj feature reveal">
+        <div style="display:grid;gap:14px">
+          <span class="ptype">2026 · <span class="en">Business operations platform</span><span class="ar">منصة إدارة أعمال</span></span>
+          <h3>Officify Enterprise OS</h3>
+          <p><span class="en">Offline-first ERP-style platform for Saudi SMEs, fully bilingual (Arabic RTL / English). Finance posting, inventory, procurement and team modules, a full audit log with undo, JWT auth and a 5-role permission matrix. Works offline in IndexedDB and syncs to PostgreSQL.</span><span class="ar">منصة ERP تعمل دون اتصال للشركات الصغيرة والمتوسطة في السعودية، ثنائية اللغة بالكامل (عربي/إنجليزي). وحدات للمالية والمخزون والمشتريات والفريق، وسجل تدقيق كامل مع التراجع، وتسجيل دخول JWT وصلاحيات لخمسة أدوار. تعمل دون إنترنت عبر IndexedDB وتتزامن مع PostgreSQL.</span></p>
+          <div class="tags"><span>React 19</span><span>TypeScript</span><span>Vite</span><span>IndexedDB</span><span>PostgreSQL</span><span>JWT · RBAC</span><span>Shopify API</span></div>
+          <div class="plinks"><a class="btn primary" href="https://officify-enterprise-os.vercel.app/" target="_blank" rel="noopener"><span class="en">Live demo</span><span class="ar">جرّب المنصة</span> ↗</a></div>
+        </div>
+        <div class="shot" aria-hidden="true">
+          <div class="shot-bar"><i></i><i></i><i></i><span>officify-enterprise-os.vercel.app</span></div>
+          <img class="shot-img" src="images/officify.webp" alt="" width="1000" height="640" loading="lazy">
+        </div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="shot sm" aria-hidden="true">
+          <div class="shot-bar"><i></i><i></i><i></i><span>bankak-reports.vercel.app</span></div>
+          <img class="shot-img" src="images/durjak.webp" alt="" width="1000" height="640" loading="lazy">
+        </div>
+        <span class="ptype">2026 · <span class="en">Payments &amp; reconciliation</span><span class="ar">مدفوعات ومطابقة</span></span>
+        <h3><span class="en">Durjak – Bankak Reports</span><span class="ar">دُرجك – تقارير بنكك</span></h3>
+        <p><span class="en">Matches payment receipts from Bankak (Bank of Khartoum mobile banking) to client records, with correct Sudan time-zone handling and zero-downtime schema migrations.</span><span class="ar">يطابق إيصالات الدفع من تطبيق بنكك (بنك الخرطوم) مع سجلات العملاء، مع ضبط توقيت السودان وترحيل قاعدة البيانات دون توقف.</span></p>
+        <div class="tags"><span>Next.js</span><span>TypeScript</span><span>SQL</span><span>GitHub Actions CI</span></div>
+        <div class="plinks"><a class="chip-btn" href="https://bankak-reports.vercel.app/" target="_blank" rel="noopener"><span class="en">Live</span><span class="ar">مباشر</span> ↗</a></div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="shot sm" aria-hidden="true">
+          <div class="shot-bar"><i></i><i></i><i></i><span>smart-home-abdu.vercel.app</span></div>
+          <img class="shot-img" src="images/smart-home.webp" alt="" width="1000" height="640" loading="lazy">
+        </div>
+        <span class="ptype"><span class="en">AI · IoT · Thesis</span><span class="ar">ذكاء اصطناعي · إنترنت الأشياء · رسالة</span></span>
+        <h3><span class="en">"Friday" Smart Home</span><span class="ar">المنزل الذكي «Friday»</span></h3>
+        <p><span class="en">Home-automation system with a voice-driven AI assistant called Friday that controls devices and answers questions. The subject of my M.Sc. thesis.</span><span class="ar">نظام أتمتة منزلية مع مساعد ذكي صوتي اسمه Friday يتحكم في الأجهزة ويجيب عن الأسئلة، وهو موضوع رسالة الماجستير.</span></p>
+        <div class="tags"><span>Python</span><span>AI assistant</span><span>IoT</span><span>Web dashboard</span></div>
+        <div class="plinks"><a class="chip-btn" href="https://smart-home-abdu.vercel.app/" target="_blank" rel="noopener"><span class="en">Live</span><span class="ar">مباشر</span> ↗</a></div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="shot sm" aria-hidden="true">
+          <div class="shot-bar"><i></i><i></i><i></i><span>carepathworldwide.com</span></div>
+          <img class="shot-img" src="carepath.webp" alt="" width="1000" height="640" loading="lazy">
+        </div>
+        <span class="ptype"><span class="en">B2B2C · Medical tourism</span><span class="ar">B2B2C · سياحة علاجية</span></span>
+        <h3>CarePath World Wide</h3>
+        <p><span class="en">Medical-tourism platform in English, Arabic and French that connects international patients with partner hospitals across Egypt. Online treatment booking, agency referral links, and an admin panel for patients, agencies, departments, hospitals and promotions.</span><span class="ar">منصة سياحة علاجية بالإنجليزية والعربية والفرنسية تربط المرضى الدوليين بالمستشفيات الشريكة في مصر. حجز العلاج أونلاين، وروابط إحالة للوكالات، ولوحة إدارة للمرضى والوكالات والأقسام والمستشفيات والعروض.</span></p>
+        <div class="tags"><span>Next.js</span><span>Node.js / Express</span><span>PostgreSQL</span><span>AWS S3</span><span>EN · AR · FR</span></div>
+        <div class="plinks"><a class="chip-btn" href="https://carepathworldwide.com" target="_blank" rel="noopener"><span class="en">Live</span><span class="ar">مباشر</span> ↗</a></div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="shot sm" aria-hidden="true">
+          <div class="shot-bar"><i></i><i></i><i></i><span>Power BI — Sales overview</span></div>
+          <div class="shot-body"><div class="bars"><i style="height:38%"></i><i style="height:55%"></i><i style="height:47%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:84%"></i><i style="height:76%"></i><i style="height:95%"></i></div></div>
+        </div>
+        <span class="ptype">2024 · <span class="en">Data analytics</span><span class="ar">تحليل بيانات</span></span>
+        <h3><span class="en">E-Commerce Analytics Dashboard</span><span class="ar">لوحة تحليلات متجر إلكتروني</span></h3>
+        <p><span class="en">Interactive Power BI dashboard on a SQL data model tracking sales, customers and product performance. AMIT diploma capstone.</span><span class="ar">لوحة Power BI تفاعلية على نموذج بيانات SQL تتابع المبيعات والعملاء وأداء المنتجات. مشروع التخرج في دبلومة AMIT.</span></p>
+        <div class="tags"><span>Power BI</span><span>DAX</span><span>SQL</span><span>Excel</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="portrait reveal">
+      <span class="badge">B.Sc. IT (Hons) · 2024</span>
+      <img src="abdu.webp" alt="Portrait of Abdelrahman Ibrahim" width="720" height="720">
+      <div class="meta">Abdelrahman Mohamed Hassan Ibrahim<br>Giza · Egypt — GMT+2</div>
+    </div>
+    <div class="about-text">
+      <span class="eyebrow">-- about</span>
+      <h2><span class="en">The teacher behind the code</span><span class="ar">المعلّم خلف الكود</span></h2>
+      <div style="margin-top:24px">
+        <p class="en">I'm <strong>Abdelrahman (Abdu) Ibrahim</strong>. I earned a <strong>B.Sc. (Honours) in Information Technology</strong> from National University, Sudan, finishing with a <strong>3.72 final-year GPA</strong> and an A on my graduation project. Months later I was back in the lab as a <strong>Teaching Assistant</strong>, now running 13 lab courses across two universities, from AI and Advanced Databases to Compilers and Distributed Computing.</p>
+        <p class="en">Teaching made me a better engineer. I explain things simply, document what I build and care about the person using it. I bring the same habits to client work: bilingual business platforms, payment reconciliation and data dashboards that people use every day.</p>
+        <p class="en">I'm completing an <strong>M.Sc. in Computer Science</strong> at Sudan Open University and looking for a <strong>fully funded M.Sc. in CS, AI or Data Analytics</strong> abroad, plus remote roles where I can build and teach.</p>
+        <p class="ar">أنا <strong>عبدالرحمن محمد حسن إبراهيم (عبدو)</strong>. حصلت على <strong>بكالوريوس تقنية المعلومات (مرتبة الشرف)</strong> من الجامعة الوطنية بالسودان، بمعدل <strong>3.72 في السنة النهائية</strong> وتقدير A في مشروع التخرج. وبعد أشهر عدت إلى المعمل <strong>معيداً</strong>، وأدرّس اليوم 13 مقرراً معملياً في جامعتين، من الذكاء الاصطناعي وقواعد البيانات المتقدمة إلى المترجمات والحوسبة الموزعة.</p>
+        <p class="ar">التدريس جعلني مهندساً أفضل: أشرح ببساطة، وأوثّق ما أبنيه، وأهتم بالمستخدم. وأحمل هذه العادات إلى أعمال العملاء: منصات أعمال ثنائية اللغة، ومطابقة مدفوعات، ولوحات بيانات يستخدمها الناس يومياً.</p>
+        <p class="ar">أدرس حالياً <strong>ماجستير علوم الحاسب</strong> في جامعة السودان المفتوحة، وأبحث عن <strong>ماجستير ممول بالكامل في علوم الحاسب أو الذكاء الاصطناعي أو تحليل البيانات</strong> بالخارج، ووظائف عن بُعد أبني وأعلّم فيها.</p>
+      </div>
+      <div class="facts">
+        <div><small><span class="en">Degree</span><span class="ar">المؤهل</span></small><span><span class="en">B.Sc. (Hons) IT, National University · 2024</span><span class="ar">بكالوريوس IT، الجامعة الوطنية · 2024</span></span></div>
+        <div><small><span class="en">Now studying</span><span class="ar">أدرس حالياً</span></small><span><span class="en">M.Sc. CS, Sudan Open University</span><span class="ar">ماجستير علوم الحاسب، جامعة السودان المفتوحة</span></span></div>
+        <div><small><span class="en">Programs</span><span class="ar">برامج</span></small><span>McKinsey Forward · AWS Student Builders</span></div>
+        <div><small><span class="en">Languages</span><span class="ar">اللغات</span></small><span><span class="en">Arabic (native) · English (all study in English)</span><span class="ar">العربية (الأم) · الإنجليزية (الدراسة كاملة بها)</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching" style="padding-block:clamp(32px,5vw,60px)">
+  <div class="wrap">
+    <div class="teach reveal">
+      <span class="eyebrow">-- teaching &amp; community</span>
+      <h2><span class="en">I teach what I build</span><span class="ar">أُدرّس ما أبنيه</span></h2>
+      <p class="lead"><span class="en">Teaching Assistant &amp; E-Learning Administrator at National University since December 2024. Also part-time TA at Bahri National University (Dec 2024 – Mar 2025).</span><span class="ar">معيد ومسؤول التعليم الإلكتروني في الجامعة الوطنية منذ ديسمبر 2024، ومعيد بدوام جزئي في جامعة بحري الوطنية (ديسمبر 2024 – مارس 2025).</span></p>
+      <div class="labs">
+        <div class="lab"><span class="code">LAB · AI</span><h3><span class="en">Artificial Intelligence</span><span class="ar">الذكاء الاصطناعي</span></h3><p><span class="en">Search, ML basics and hands-on Python.</span><span class="ar">خوارزميات البحث وأساسيات تعلم الآلة وتطبيقات Python.</span></p></div>
+        <div class="lab"><span class="code">LAB · WEB</span><h3><span class="en">Web Systems &amp; Applications</span><span class="ar">نظم وتطبيقات الويب</span></h3><p><span class="en">From HTML to full-stack apps with APIs.</span><span class="ar">من HTML إلى تطبيقات متكاملة مع واجهات برمجية.</span></p></div>
+        <div class="lab"><span class="code">LAB · DB</span><h3><span class="en">Advanced Databases</span><span class="ar">قواعد البيانات المتقدمة</span></h3><p><span class="en">Schema design, complex SQL, indexing, transactions.</span><span class="ar">تصميم المخططات وSQL المتقدم والفهرسة والمعاملات.</span></p></div>
+      </div>
+      <div class="course-list"><span>OOP</span><span>Parallel &amp; Distributed Computing</span><span>Compilers Design</span><span>IT Project Management</span><span>Internet Technology</span><span>Distributed Databases</span><span>Data Mining</span><span>E-Government</span><span>Advanced Multimedia</span><span>Software Engineering</span></div>
+      <div class="teach-row">
+        <div><b><span class="en">Moodle LMS admin &amp; project mentor</span><span class="ar">إدارة Moodle والإشراف على المشاريع</span></b><span><span class="en">Course structures, enrolment, exams, and graduation-project mentoring.</span><span class="ar">هيكلة المقررات والتسجيل والاختبارات والإشراف على مشاريع التخرج.</span></span></div>
+        <div><b><span class="en">"Teach Me, Thank You"</span><span class="ar">«علّمني شكراً»</span></b><span><span class="en">Organized free tech-literacy workshops at British International Center, Egypt.</span><span class="ar">نظّمت ورشاً مجانية لمحو الأمية التقنية في المركز البريطاني الدولي بمصر.</span></span></div>
+        <div><b><span class="en">Community IT support</span><span class="ar">دعم تقني مجتمعي</span></b><span><span class="en">Repairing devices for underprivileged students since 2020.</span><span class="ar">صيانة أجهزة الطلاب غير القادرين منذ 2020.</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="wrap">
+    <span class="eyebrow">-- journey</span>
+    <h2><span class="en">From student to teacher</span><span class="ar">من طالب إلى معلّم</span></h2>
+    <ol class="tl">
+      <li class="reveal"><time>2020</time><div><h3><span class="en">Started B.Sc. IT, National University</span><span class="ar">بداية بكالوريوس IT، الجامعة الوطنية</span></h3><p><span class="en">Also began volunteering as a community IT repair technician.</span><span class="ar">وبدأت التطوع في صيانة الأجهزة للمجتمع.</span></p></div></li>
+      <li class="reveal"><time>2024 · 07</time><div><h3><span class="en">Graduated with Honours</span><span class="ar">التخرج بمرتبة الشرف</span></h3><p><span class="en">Grade Very Good, final-year GPA 3.72, graduation project graded A. Started M.Sc. CS at Sudan Open University.</span><span class="ar">تقدير جيد جداً، ومعدل 3.72 في السنة النهائية، ومشروع تخرج بتقدير A. وبدأت ماجستير علوم الحاسب في جامعة السودان المفتوحة.</span></p></div></li>
+      <li class="reveal"><time>2024 · 11</time><div><h3><span class="en">Data Analysis Diploma, AMIT Cairo</span><span class="ar">دبلومة تحليل البيانات، AMIT القاهرة</span></h3><p><span class="en">80 hours, graded 90%: Python, SQL, Power BI, statistics.</span><span class="ar">80 ساعة بتقدير 90%: Python وSQL وPower BI والإحصاء.</span></p></div></li>
+      <li class="reveal"><time>2024 · 12</time><div><h3><span class="en">Teaching Assistant at two universities</span><span class="ar">معيد في جامعتين</span></h3><p><span class="en">National University and Bahri National University, after a TA internship and ICDL training for first-years.</span><span class="ar">الجامعة الوطنية وجامعة بحري الوطنية، بعد تدريب كمعيد وتدريس ICDL لطلاب السنة الأولى.</span></p></div></li>
+      <li class="reveal"><time>2026</time><div><h3><span class="en">Officify &amp; Durjak in production</span><span class="ar">إطلاق Officify ودُرجك</span></h3><p><span class="en">Two client platforms shipped to production on Vercel.</span><span class="ar">منصتان لعملاء تعملان فعلياً على Vercel.</span></p></div></li>
+      <li class="reveal next"><time>next</time><div><h3><span class="en">Funded M.Sc. in CS / AI / Data</span><span class="ar">ماجستير ممول في الحاسب / الذكاء الاصطناعي / البيانات</span></h3><p><span class="en">Applying to fully funded programs in Canada, Europe and the Gulf.</span><span class="ar">أتقدم لبرامج ممولة بالكامل في كندا وأوروبا والخليج.</span></p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">-- stack</span>
+    <h2><span class="en">Tools I use every week</span><span class="ar">الأدوات التي أستخدمها أسبوعياً</span></h2>
+    <div class="stack">
+      <div class="cat reveal"><h3><span class="en">Languages</span><span class="ar">اللغات البرمجية</span></h3><ul><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>Java</li><li>PHP</li><li>Dart</li></ul></div>
+      <div class="cat reveal"><h3><span class="en">Web &amp; Backend</span><span class="ar">الويب والخادم</span></h3><ul><li>React</li><li>Next.js</li><li>Node.js</li><li>Express</li><li>Vite</li><li>REST</li><li>JWT · RBAC</li></ul></div>
+      <div class="cat reveal"><h3><span class="en">Data</span><span class="ar">البيانات</span></h3><ul><li>PostgreSQL</li><li>MySQL</li><li>IndexedDB</li><li>Power BI</li><li>Pandas</li><li>Excel</li></ul></div>
+      <div class="cat reveal"><h3><span class="en">Cloud &amp; Tools</span><span class="ar">السحابة والأدوات</span></h3><ul><li>Vercel</li><li>AWS S3</li><li>Hostinger VPS</li><li>GitHub Actions</li><li>Flutter</li><li>Moodle</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">-- services</span>
+    <h2><span class="en">Work with me</span><span class="ar">اعمل معي</span></h2>
+    <p class="lead"><span class="en">Available for freelance and remote work.</span><span class="ar">متاح للعمل الحر والعمل عن بُعد.</span></p>
+    <div class="services">
+      <div class="svc reveal"><h3><span class="en">Web platforms</span><span class="ar">منصات الويب</span></h3><p><span class="en">Full-stack apps with auth, roles, dashboards and file storage, in Arabic and English.</span><span class="ar">تطبيقات متكاملة بتسجيل دخول وصلاحيات ولوحات تحكم وتخزين ملفات، بالعربية والإنجليزية.</span></p></div>
+      <div class="svc reveal"><h3><span class="en">Dashboards &amp; analysis</span><span class="ar">لوحات وتحليل</span></h3><p><span class="en">Power BI reports and data cleaning that answer business questions.</span><span class="ar">تقارير Power BI وتنظيف بيانات يجيب عن أسئلة العمل.</span></p></div>
+      <div class="svc reveal"><h3><span class="en">Business systems</span><span class="ar">أنظمة الأعمال</span></h3><p><span class="en">Inventory, finance, procurement and reconciliation tools for SMEs.</span><span class="ar">أدوات المخزون والمالية والمشتريات والمطابقة للشركات الصغيرة.</span></p></div>
+      <div class="svc reveal"><h3><span class="en">Training &amp; LMS</span><span class="ar">التدريب والتعليم الإلكتروني</span></h3><p><span class="en">Moodle setup and hands-on workshops in SQL, Python and web.</span><span class="ar">إعداد Moodle وورش عملية في SQL وPython والويب.</span></p></div>
+    </div>
+    <div class="steps">
+      <div><small>01</small><b><span class="en">Discover</span><span class="ar">الاكتشاف</span></b><span><span class="en">Understand the problem and users.</span><span class="ar">فهم المشكلة والمستخدمين.</span></span></div>
+      <div><small>02</small><b><span class="en">Design</span><span class="ar">التصميم</span></b><span><span class="en">Data model, flows and screens.</span><span class="ar">نموذج البيانات والمسارات والشاشات.</span></span></div>
+      <div><small>03</small><b><span class="en">Build</span><span class="ar">البناء</span></b><span><span class="en">Weekly demos, tested code.</span><span class="ar">عروض أسبوعية وكود مُختبر.</span></span></div>
+      <div><small>04</small><b><span class="en">Launch</span><span class="ar">الإطلاق</span></b><span><span class="en">Deploy, document, train your team.</span><span class="ar">النشر والتوثيق وتدريب فريقك.</span></span></div>
+    </div>
+
+    <div class="term" id="term">
+      <div class="term-bar"><i></i><i></i><i></i><span>abdu@giza: ~ — abdu.sh</span></div>
+      <div class="term-out" id="termOut" aria-live="polite"></div>
+      <div class="term-hints" id="termHints"></div>
+      <div class="term-in"><label for="termIn">$</label><input id="termIn" autocomplete="off" spellcheck="false" placeholder="type help"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow">-- contact</span>
+      <h2><span class="en">Have a project, a role or a scholarship in mind?</span><span class="ar">لديك مشروع أو وظيفة أو منحة؟</span></h2>
+      <p class="lead"><span class="en">I usually reply within a day.</span><span class="ar">عادةً أرد خلال يوم.</span></p>
+      <div class="channels">
+        <div class="ch"><div style="min-width:0"><small>Email</small><span id="mail">abdelrahman.ibrahim.job@gmail.com</span></div><button class="chip-btn" type="button" data-copy="abdelrahman.ibrahim.job@gmail.com"><span class="en">Copy</span><span class="ar">نسخ</span></button></div>
+        <div class="ch"><div style="min-width:0"><small>WhatsApp</small><span dir="ltr">+20 127 653 8240</span></div><a class="chip-btn" href="https://wa.me/201276538240" target="_blank" rel="noopener"><span class="en">Chat</span><span class="ar">محادثة</span> ↗</a></div>
+        <div class="ch"><div style="min-width:0"><small>LinkedIn</small><span>abdelrahman-ibrahim-77a171282</span></div><a class="chip-btn" href="https://www.linkedin.com/in/abdelrahman-ibrahim-77a171282/" target="_blank" rel="noopener"><span class="en">Open</span><span class="ar">فتح</span> ↗</a></div>
+        <div class="ch"><div style="min-width:0"><small>GitHub</small><span>github.com/Abdu090</span></div><a class="chip-btn" href="https://github.com/Abdu090" target="_blank" rel="noopener"><span class="en">Open</span><span class="ar">فتح</span> ↗</a></div>
+      </div>
+      <p class="where">Giza, Egypt · GMT+2</p>
+    </div>
+    <form id="form" novalidate>
+      <label class="f" for="fName"><span class="en">Your name</span><span class="ar">اسمك</span><input class="i" id="fName" required></label>
+      <label class="f" for="fEmail"><span class="en">Your email</span><span class="ar">بريدك الإلكتروني</span><input class="i" id="fEmail" type="email" required></label>
+      <label class="f" for="fMsg"><span class="en">What do you have in mind?</span><span class="ar">ما الذي تفكر فيه؟</span><textarea class="i" id="fMsg" required></textarea></label>
+      <button class="btn primary" type="submit" style="justify-content:center"><span class="en">Copy message for email</span><span class="ar">انسخ الرسالة للإرسال</span></button>
+      <p class="form-msg" id="formMsg" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Abdelrahman Ibrahim</span>
+    <nav aria-label="Footer"><a href="#work"><span class="en">Work</span><span class="ar">الأعمال</span></a><a href="#about"><span class="en">About</span><span class="ar">عنّي</span></a><a href="Abdelrahman_Ibrahim_CV.pdf" target="_blank" rel="noopener">CV</a><a href="#contact"><span class="en">Contact</span><span class="ar">تواصل</span></a></nav>
+    <a href="#home"><span class="en">Back to top ↑</span><span class="ar">للأعلى ↑</span></a>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  const root=document.documentElement;
+  const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+  // language
+  function setLang(l){root.lang=l;root.dir=l==='ar'?'rtl':'ltr';store.set('lang',l)}
+  setLang(store.get('lang')||'en');
+  document.getElementById('langBtn').onclick=()=>setLang(root.lang==='ar'?'en':'ar');
+
+  // theme
+  const tb=document.getElementById('themeBtn');
+  const saved=store.get('theme'); if(saved) root.setAttribute('data-theme',saved);
+  tb.onclick=()=>{const cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    const n=cur==='dark'?'light':'dark';root.setAttribute('data-theme',n);store.set('theme',n)};
+
+  // intro: counts up, closes itself, or on click / Enter
+  const intro=document.getElementById('intro'),load=document.getElementById('load');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let p=0,closed=false;
+  function close(){if(closed)return;closed=true;intro.classList.add('done');setTimeout(()=>intro.hidden=true,600)}
+  if(reduce||store.get('seenIntro')){intro.hidden=true;closed=true}
+  else{store.set('seenIntro','1');
+    const t=setInterval(()=>{p=Math.min(100,p+Math.ceil(Math.random()*9));load.textContent='Loading '+String(p).padStart(3,'0')+'%';
+      if(p>=100){clearInterval(t);setTimeout(close,350)}},45);
+    intro.addEventListener('click',close);
+    addEventListener('keydown',e=>{if(!closed&&(e.key==='Enter'||e.key===' ')){e.preventDefault();close()}});
+  }
+
+  // gentle reveal (content stays readable before it runs)
+  if(!reduce&&'IntersectionObserver' in window){
+    const els=[...document.querySelectorAll('.reveal')];
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target)}}),{threshold:.12});
+    els.forEach(el=>{const r=el.getBoundingClientRect();if(r.top>innerHeight){el.classList.add('pre');io.observe(el)}});
+  }
+
+  // copy helpers
+  function copy(text,onOk,onFail){
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(onOk,onFail)}else onFail();
+  }
+  document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+    const orig=b.innerHTML;
+    copy(b.dataset.copy,()=>{b.textContent=root.lang==='ar'?'تم النسخ':'Copied';setTimeout(()=>b.innerHTML=orig,1500)},
+      ()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('mail'));const s=getSelection();s.removeAllRanges();s.addRange(r)});
+  }));
+
+  // contact form: builds the message and copies it
+  const form=document.getElementById('form'),msg=document.getElementById('formMsg');
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const n=fName.value.trim(),m=fEmail.value.trim(),t=fMsg.value.trim(),ar=root.lang==='ar';
+    if(!n||!m||!t){msg.style.color='var(--sand)';msg.textContent=ar?'من فضلك املأ الحقول الثلاثة.':'Please fill in all three fields.';return}
+    if(!/^\S+@\S+\.\S+$/.test(m)){msg.style.color='var(--sand)';msg.textContent=ar?'البريد الإلكتروني غير صحيح.':'That email address looks incomplete.';return}
+    const body='Hi Abdu,\n\n'+t+'\n\n— '+n+' ('+m+')';
+    msg.style.color='var(--accent)';
+    copy(body,()=>{msg.textContent=ar?'تم نسخ رسالتك. الصقها في بريدك وأرسلها إلى abdelrahman.ibrahim.job@gmail.com':'Your message is copied. Paste it into an email to abdelrahman.ibrahim.job@gmail.com.'},
+      ()=>{fMsg.select();msg.textContent=ar?'حدّد الرسالة وانسخها، ثم أرسلها إلى abdelrahman.ibrahim.job@gmail.com':'Select and copy your message, then send it to abdelrahman.ibrahim.job@gmail.com.'});
+  });
+
+  // terminal
+  const out=document.getElementById('termOut'),inp=document.getElementById('termIn'),hints=document.getElementById('termHints');
+  const cmds={
+    help:()=>'<span class="y">available commands</span>\n  about     who I am\n  cv        open my CV\n  skills    my stack\n  projects  what I built\n  teach     what I teach\n  goals     what\'s next\n  contact   how to reach me\n  lang      switch English / عربي\n  clear     clear the screen',
+    about:()=>'Abdelrahman "Abdu" Ibrahim — B.Sc. (Hons) IT, Teaching Assistant at National University, full-stack developer and data analyst in Giza, Egypt.',
+    cv:()=>'open <a href="Abdelrahman_Ibrahim_CV.pdf" target="_blank" rel="noopener" style="color:#f0bb4c">Abdelrahman_Ibrahim_CV.pdf</a>',
+    skills:()=>'<span class="p">lang</span>   Python · TypeScript · SQL · Java · PHP\n<span class="p">web</span>    React · Next.js · Node.js · Express\n<span class="p">data</span>   PostgreSQL · Power BI · Pandas · Excel\n<span class="p">cloud</span>  Vercel · AWS S3 · GitHub Actions',
+    projects:()=>'1. Officify Enterprise OS  bilingual ERP for SMEs (live)\n2. Durjak                  Bankak payment reconciliation (live)\n3. "Friday"                AI smart-home assistant (live)\n4. CarePath World Wide    medical tourism, EN/AR/FR (live)\n5. E-Commerce Dashboard    Power BI analytics',
+    teach:()=>'13 lab courses incl. AI · Web Systems · Advanced Databases · Compilers\n+ Moodle admin and graduation-project mentoring',
+    goals:()=>'<span class="y">→</span> fully funded M.Sc. in CS / AI / Data Analytics\n<span class="y">→</span> remote tech roles (Gulf · Europe · US)',
+    contact:()=>'email     abdelrahman.ibrahim.job@gmail.com\nwhatsapp  +20 127 653 8240\nlinkedin  linkedin.com/in/abdelrahman-ibrahim-77a171282\ngithub    github.com/Abdu090',
+    lang:()=>{setLang(root.lang==='ar'?'en':'ar');return 'language → '+root.lang},
+    sudo:()=>'nice try. permission denied.',
+    clear:()=>{out.innerHTML='';return null}
+  };
+  function print(h){const d=document.createElement('div');d.innerHTML=h;out.appendChild(d);out.scrollTop=out.scrollHeight}
+  function run(c){c=c.trim().toLowerCase();if(!c)return;print('<span class="p">$</span> '+c.replace(/</g,'&lt;'));
+    const f=cmds[c];const r=f?f():'<span class="m">command not found: '+c.replace(/</g,'&lt;')+' — try help</span>';if(r!==null)print(r)}
+  print('<span class="m">Welcome to abdu.sh — type a command or tap one below.</span>');
+  run('help');
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter'){run(inp.value);inp.value=''}});
+  ['about','skills','projects','cv','contact','clear'].forEach(c=>{const b=document.createElement('button');b.type='button';b.textContent=c;b.onclick=()=>run(c);hints.appendChild(b)});
+})();
+</script>
+
+</body>
+</html>
