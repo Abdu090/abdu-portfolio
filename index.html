@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Abdelrahman (Abdu) Ibrahim — IT Teaching Assistant, Full-Stack Developer and Data Analyst in Giza, Egypt.">
 <meta property="og:title" content="Abdu Ibrahim">
-<meta property="og:image" content="abdu.webp">
+<meta property="og:image" content="abdu-pro-portrait.webp">
 <link rel="icon" href="abdu.webp">
 <style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Abdu Ibrahim</title>
@@ -390,7 +390,7 @@ html[lang="ar"] .typer{font-family:var(--f-body);font-weight:600}
 /* ===== mini-Abdu guide v2 ===== */
 .portrait img.real{opacity:0;transition:opacity .45s ease}
 .portrait:hover img.real,.portrait:focus-within img.real,.portrait:focus img.real{opacity:1}
-.portrait .swap-hint{position:absolute;top:22px;inset-inline-start:22px;z-index:1;font-family:var(--f-mono);font-size:.72rem;background:rgba(4,16,14,.7);color:#fff;padding:5px 10px;border-radius:999px}
+.portrait .swap-hint{position:absolute;bottom:78px;inset-inline-start:22px;z-index:1;font-family:var(--f-mono);font-size:.72rem;background:rgba(4,16,14,.7);color:#fff;padding:5px 10px;border-radius:999px}
 .spot{position:fixed;z-index:85;pointer-events:none;border:2px solid var(--sand);border-radius:16px;box-shadow:0 0 0 9999px rgba(4,10,12,.6),0 0 0 6px color-mix(in srgb,var(--sand) 25%,transparent);transition:top .45s cubic-bezier(.2,.8,.2,1),left .45s cubic-bezier(.2,.8,.2,1),width .45s cubic-bezier(.2,.8,.2,1),height .45s cubic-bezier(.2,.8,.2,1),opacity .3s;opacity:0}
 .spot.on{opacity:1}
 .guide{position:fixed;z-index:90;bottom:calc(16px + env(safe-area-inset-bottom,0px));right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:flex-end;gap:12px;direction:ltr;max-width:calc(100vw - 32px)}
@@ -422,15 +422,16 @@ html[lang="ar"] .guide-title{font-family:var(--f-body)}
 .dots i.on{background:var(--sand);width:14px}
 .guide-hint{font-family:var(--f-mono);font-size:.68rem;color:var(--muted);margin-top:6px;direction:ltr}
 html[lang="ar"] .guide-hint{text-align:right}
-.guide-me{width:88px;height:88px;flex:none;padding:0;cursor:pointer;border-radius:18px;background:linear-gradient(165deg,var(--accent),color-mix(in srgb,var(--accent) 35%,#04100e));box-shadow:5px 5px 0 var(--ink);border:2px solid var(--ink);position:relative;overflow:hidden}
-.guide-me i{position:absolute;inset:6px 6px 0;background:url(mini-abdu.png) 0 0/300% 100% no-repeat;image-rendering:pixelated;animation:bob 1.6s ease-in-out infinite}
+.guide-me{width:72px;height:126px;flex:none;padding:0;cursor:pointer;background:none;border:0;position:relative;filter:drop-shadow(3px 4px 0 rgba(0,0,0,.35))}
+.guide-me i{position:absolute;inset:0;background:url(abdu-character.png) 0 0/300% 100% no-repeat;image-rendering:pixelated;animation:bob 1.6s ease-in-out infinite}
 .guide-me i.talk{background-position:50% 0}
 .guide-me i.blink{background-position:100% 0}
-.guide-me::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.08) 0 1px,transparent 1px 3px);pointer-events:none}
-.guide-me .ping{position:absolute;top:6px;right:6px;width:10px;height:10px;border-radius:50%;background:var(--sand);border:2px solid var(--ink);display:none}
+.guide-me::before{content:"";position:absolute;left:10%;right:10%;bottom:-6px;height:8px;border-radius:50%;background:rgba(0,0,0,.25);filter:blur(2px)}
+
+.guide-me .ping{position:absolute;top:0;right:4px;width:10px;height:10px;border-radius:50%;background:var(--sand);border:2px solid var(--ink);display:none}
 .guide.min .guide-me .ping{display:block}
 @keyframes bob{50%{transform:translateY(-3px)}}
-@media (max-width:480px){.guide-me{width:70px;height:70px}.guide-bubble{font-size:.92rem;width:calc(100vw - 32px - 82px)}.guide-hint{display:none}}
+@media (max-width:480px){.guide-me{width:56px;height:98px}.guide-bubble{font-size:.92rem;width:calc(100vw - 32px - 82px)}.guide-hint{display:none}}
 @media (prefers-reduced-motion:reduce){.guide-me i,.marquee-track{animation:none}.spot{transition:none}}
 </style>
 
@@ -582,9 +583,9 @@ html[lang="ar"] .guide-hint{text-align:right}
   <div class="wrap about-grid">
     <div class="portrait reveal" tabindex="0">
       <span class="badge">B.Sc. IT (Hons) · 2024</span>
-      <img src="abdu-illustrated.webp" alt="Illustrated portrait of Abdelrahman Ibrahim" width="720" height="720">
-      <img class="real" src="abdu.webp" alt="Photo of Abdelrahman Ibrahim" width="720" height="720">
-      <span class="swap-hint"><span class="en">hover or tap for the real me</span><span class="ar">اضغط لترى الصورة الحقيقية</span></span>
+      <img src="abdu-pro-portrait.webp" alt="Portrait of Abdelrahman Ibrahim" width="864" height="1080">
+      <img class="real" src="abdu-illustrated.webp" alt="Illustrated portrait of Abdelrahman Ibrahim" width="720" height="720">
+      <span class="swap-hint"><span class="en">hover or tap for the comic version</span><span class="ar">اضغط لترى النسخة الكرتونية</span></span>
       <div class="meta">Abdelrahman Mohamed Hassan Ibrahim<br>Giza · Egypt — GMT+2</div>
     </div>
     <div class="about-text">
@@ -951,7 +952,7 @@ html[lang="ar"] .guide-hint{text-align:right}
     {sel:'.sql',t:{en:'Me, as a query',ar:'أنا كاستعلام SQL'},s:{en:'I teach databases, so here is my CV written as SQL. Every row is a role I hold right now.',ar:'بدرّس قواعد بيانات، فكتبت الـ CV بتاعي كاستعلام SQL. كل صف دور أنا شغال فيه دلوقتي.'}},
     {sel:'#work .proj.feature',t:{en:'Featured: Officify',ar:'المشروع المميز: Officify'},s:{en:'An offline-first ERP for Saudi SMEs in Arabic and English. Finance, inventory, procurement and 5 user roles. Hit "Live demo" to try it.',ar:'نظام ERP للشركات السعودية بيشتغل من غير إنترنت، عربي وإنجليزي. مالية ومخزون ومشتريات و5 صلاحيات. اضغط «جرّب المنصة».'}},
     {sel:'#work .projects',t:{en:'More shipped work',ar:'شغل تاني متسلّم'},s:{en:'Bankak payment reconciliation, CarePath medical tourism in 3 languages, and a Power BI dashboard. Hover a card, it tilts.',ar:'مطابقة مدفوعات بنكك، ومنصة CarePath للسياحة العلاجية بـ3 لغات، ولوحة Power BI. حرّك الماوس على أي كارت هتلاقيه بيتحرك.'}},
-    {sel:'.portrait',t:{en:'Two of me',ar:'نسختين مني'},s:{en:'That’s my illustrated portrait. Hover or tap it to see the real photo.',ar:'دي صورتي المرسومة. مرّر الماوس أو اضغط عليها عشان تشوف الصورة الحقيقية.'}},
+    {sel:'.portrait',t:{en:'Two of me',ar:'نسختين مني'},s:{en:'That’s me, studio edition. Hover or tap the photo to flip it into my comic-book version.',ar:'ده أنا بنسخة الاستوديو. مرّر الماوس أو اضغط على الصورة عشان تتحول لنسخة الكوميكس.'}},
     {sel:'.teach',t:{en:'In the lab',ar:'في المعمل'},s:{en:'13 lab courses across two universities, Moodle admin, and graduation-project mentoring.',ar:'13 مقرر عملي في جامعتين، وإدارة Moodle، والإشراف على مشاريع التخرج.'}},
     {sel:'#linkedin .posts',t:{en:'Straight from LinkedIn',ar:'من LinkedIn مباشرة'},s:{en:'Real moments: co-supervising the Bayan sign-language AI project, first-year labs, and my Power BI work. Tap a photo for the gallery.',ar:'لحظات حقيقية: إشرافي على مشروع «بيان» لترجمة لغة الإشارة، ومعامل سنة أولى، وشغلي في Power BI. اضغط على أي صورة.'}},
     {sel:'.tl',t:{en:'The journey',ar:'المسيرة'},s:{en:'From starting my degree in 2020 to teaching at two universities. Next stop: a fully funded master’s abroad.',ar:'من أول يوم في الجامعة سنة 2020 لحد ما بقيت معيد في جامعتين. المحطة الجاية: ماجستير ممول بره.'}},
@@ -976,7 +977,7 @@ html[lang="ar"] .guide-hint{text-align:right}
 
   function renderDots(){dots.innerHTML='';const n=tour.length;for(let i=0;i<n;i++){const d=document.createElement('i');if(i===idx)d.className='on';dots.appendChild(d)}}
   function welcome(){idx=-1;touring=false;place();choice.hidden=false;ctrl.hidden=true;ttl.textContent='';stepEl.textContent='';
-    type(L()==='ar'?`${greet.ar} أنا عبدو الصغير، النسخة الـ pixel من عبدالرحمن. تحب تتفرّج لوحدك ولا أخدك في جولة؟`:`${greet.en} I'm Abdu's pixel twin. Want to explore on your own, or should I give you the grand tour?`)}
+    type(L()==='ar'?`${greet.ar} أنا عبدو الصغير، النسخة الـ pixel من عبدالرحمن. تحب تتفرّج لوحدك ولا أخدك في جولة؟`:`${greet.en} I'm Abdu's pixel twin, the 8-bit edition. Want to explore on your own, or should I give you the grand tour?`)}
   function step(i){
     if(i>=tour.length){end(true);return}
     idx=Math.max(0,i);touring=true;choice.hidden=true;ctrl.hidden=false;
