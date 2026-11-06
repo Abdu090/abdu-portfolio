@@ -422,16 +422,18 @@ html[lang="ar"] .guide-title{font-family:var(--f-body)}
 .dots i.on{background:var(--sand);width:14px}
 .guide-hint{font-family:var(--f-mono);font-size:.68rem;color:var(--muted);margin-top:6px;direction:ltr}
 html[lang="ar"] .guide-hint{text-align:right}
-.guide-me{width:72px;height:126px;flex:none;padding:0;cursor:pointer;background:none;border:0;position:relative;filter:drop-shadow(3px 4px 0 rgba(0,0,0,.35))}
-.guide-me i{position:absolute;inset:0;background:url(abdu-character.png) 0 0/300% 100% no-repeat;image-rendering:pixelated;animation:bob 1.6s ease-in-out infinite}
-.guide-me i.talk{background-position:50% 0}
-.guide-me i.blink{background-position:100% 0}
+.guide-me{width:83px;height:126px;flex:none;padding:0;cursor:pointer;background:none;border:0;position:relative;filter:drop-shadow(3px 4px 0 rgba(0,0,0,.35))}
+.guide-me i{position:absolute;inset:0;background:url(abdu-character.png?v=2) 0 0/400% 100% no-repeat;animation:bob 1.6s ease-in-out infinite}
+.guide-me i.talk{background-position:33.333% 0}
+.guide-me i.blink{background-position:66.667% 0}
+.guide-me i.wave{background-position:100% 0;animation:wave .5s ease-in-out 3}
+@keyframes wave{50%{transform:rotate(-3deg) translateY(-2px)}}
 .guide-me::before{content:"";position:absolute;left:10%;right:10%;bottom:-6px;height:8px;border-radius:50%;background:rgba(0,0,0,.25);filter:blur(2px)}
 
 .guide-me .ping{position:absolute;top:0;right:4px;width:10px;height:10px;border-radius:50%;background:var(--sand);border:2px solid var(--ink);display:none}
 .guide.min .guide-me .ping{display:block}
 @keyframes bob{50%{transform:translateY(-3px)}}
-@media (max-width:480px){.guide-me{width:56px;height:98px}.guide-bubble{font-size:.92rem;width:calc(100vw - 32px - 82px)}.guide-hint{display:none}}
+@media (max-width:480px){.guide-me{width:65px;height:98px}.guide-bubble{font-size:.92rem;width:calc(100vw - 32px - 82px)}.guide-hint{display:none}}
 @media (prefers-reduced-motion:reduce){.guide-me i,.marquee-track{animation:none}.spot{transition:none}}
 </style>
 
@@ -964,8 +966,9 @@ html[lang="ar"] .guide-hint{text-align:right}
   bSound.setAttribute('aria-pressed',sound);bVoice.setAttribute('aria-pressed',voice);
   let idx=-1,touring=false,typing=null,talkT=null,target=null;
 
-  setInterval(()=>{if(sprite.classList.contains('talk'))return;sprite.classList.add('blink');setTimeout(()=>sprite.classList.remove('blink'),140)},3200);
-  function talk(on){clearInterval(talkT);sprite.classList.remove('talk');if(on&&!reduce)talkT=setInterval(()=>sprite.classList.toggle('talk'),120)}
+  setInterval(()=>{if(sprite.classList.contains('talk')||sprite.classList.contains('wave'))return;sprite.classList.add('blink');setTimeout(()=>sprite.classList.remove('blink'),140)},3200);
+  let waveT=null;function wave(){if(reduce)return;clearTimeout(waveT);sprite.classList.add('wave');waveT=setTimeout(()=>sprite.classList.remove('wave'),1800)}
+  function talk(on){clearInterval(talkT);sprite.classList.remove('talk');if(on&&!reduce)talkT=setInterval(()=>{if(!sprite.classList.contains('wave'))sprite.classList.toggle('talk')},130)}
   function type(s){clearInterval(typing);speak(s);if(reduce){txt.textContent=s;return}
     let n=0;txt.textContent='';talk(true);const cur=document.createElement('span');cur.className='cur';
     typing=setInterval(()=>{n+=2;txt.textContent=s.slice(0,n);txt.appendChild(cur);if(n%4===0)sfx('blip');if(n>=s.length){clearInterval(typing);txt.textContent=s;txt.appendChild(cur);talk(false)}},24)}
@@ -976,7 +979,7 @@ html[lang="ar"] .guide-hint{text-align:right}
   addEventListener('scroll',()=>requestAnimationFrame(place),{passive:true});addEventListener('resize',place);
 
   function renderDots(){dots.innerHTML='';const n=tour.length;for(let i=0;i<n;i++){const d=document.createElement('i');if(i===idx)d.className='on';dots.appendChild(d)}}
-  function welcome(){idx=-1;touring=false;place();choice.hidden=false;ctrl.hidden=true;ttl.textContent='';stepEl.textContent='';
+  function welcome(){wave();idx=-1;touring=false;place();choice.hidden=false;ctrl.hidden=true;ttl.textContent='';stepEl.textContent='';
     type(L()==='ar'?`${greet.ar} أنا عبدو الصغير، النسخة الـ pixel من عبدالرحمن. تحب تتفرّج لوحدك ولا أخدك في جولة؟`:`${greet.en} I'm Abdu's pixel twin, the 8-bit edition. Want to explore on your own, or should I give you the grand tour?`)}
   function step(i){
     if(i>=tour.length){end(true);return}
@@ -987,7 +990,7 @@ html[lang="ar"] .guide-hint{text-align:right}
     if(target){target.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});setTimeout(place,reduce?0:500);place()}
   }
   function end(done){touring=false;target=null;place();choice.hidden=true;ctrl.hidden=false;dots.innerHTML='';stepEl.textContent='';ttl.textContent='';
-    if(done){type(L()==='ar'?'تقدر تشغّل الجولة تاني في أي وقت بالضغط عليّ.':'You can restart the tour any time by tapping me.')}
+    if(done){wave();type(L()==='ar'?'تقدر تشغّل الجولة تاني في أي وقت بالضغط عليّ.':'You can restart the tour any time by tapping me.')}
     st.set('g-seen','1')}
   function minimize(){g.classList.add('min');st.set('g-min','1');end(false);sfx('close');talk(false);clearInterval(typing);try{speechSynthesis.cancel()}catch(e){}}
 
