@@ -439,7 +439,7 @@ html[lang="ar"] .guide-hint{text-align:right}
 .guide-me .ping{position:absolute;top:0;right:4px;width:10px;height:10px;border-radius:50%;background:var(--sand);border:2px solid var(--ink);display:none}
 .guide.min .guide-me .ping{display:block}
 @keyframes bob{50%{transform:translateY(-3px)}}
-@media (max-width:480px){.guide .dots{display:none}.guide-me{width:65px;height:98px}.guide-bubble{font-size:.92rem;width:calc(100vw - 32px - 82px)}.guide-hint{display:none}}
+@media (max-width:480px){.guide .dots{display:none}.guide-me{width:65px;height:98px}.guide.min .guide-me{width:54px;height:82px}.guide-bubble{font-size:.92rem;width:calc(100vw - 32px - 82px)}.guide-hint{display:none}}
 @media (prefers-reduced-motion:reduce){.guide-me i,.marquee-track{animation:none}.spot{transition:none}}
 
 /* ===== v3: pixel font, menu, progress, launcher, walker ===== */
@@ -460,9 +460,8 @@ html[lang="ar"] .guide-ctrl .go,html[lang="ar"] .guide-choice .yes{font-family:v
 /* minimised: small launcher in the corner, like a game HUD */
 .guide.min{right:auto;left:max(16px,env(safe-area-inset-left,0px))}
 html[lang="ar"] .guide.min{left:auto;right:max(16px,env(safe-area-inset-right,0px))}
-.guide.min .guide-me{width:54px;height:54px;border-radius:12px;background:linear-gradient(165deg,var(--accent),color-mix(in srgb,var(--accent) 35%,#04100e));border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);overflow:hidden;filter:none}
-.guide.min .guide-me::before{display:none}
-.guide.min .guide-me i{animation:none;background-size:299px 114px;background-position:-12px 0;inset:0}
+.guide.min .guide-me{width:60px;height:91px}
+.guide.min .guide-me::before{bottom:-4px}
 /* progress bar */
 .progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;z-index:70;background:linear-gradient(90deg,var(--accent),var(--sand));transition:width .1s linear}
 /* hamburger + full-screen menu */
@@ -575,12 +574,11 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
             <tr><td>Teaching Assistant</td><td>National Univ.</td><td>2024-12</td></tr>
             <tr><td>E-Learning Admin</td><td>National Univ.</td><td>2024-12</td></tr>
             <tr><td>Marketing &amp; CX</td><td>AIALT</td><td>2024-10</td></tr>
-            <tr><td>M.Sc. CS student</td><td>Sudan Open Univ.</td><td>2024</td></tr>
             <tr><td>Tech Partner</td><td>Comerica LLC</td><td>—</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="sql-foot"><span style="color:var(--accent)">✓</span> 5 rows · status: <span style="color:var(--sand)">available for work</span></div>
+      <div class="sql-foot"><span style="color:var(--accent)">✓</span> 4 rows · status: <span style="color:var(--sand)">available for work</span></div>
     </div>
   </div>
 </section>
@@ -667,16 +665,14 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
       <div style="margin-top:24px">
         <p class="en">I'm <strong>Abdelrahman (Abdu) Ibrahim</strong>. I earned a <strong>B.Sc. (Honours) in Information Technology</strong> from National University, Sudan, finishing with a <strong>3.72 final-year GPA</strong> and an A on my graduation project. Months later I was back in the lab as a <strong>Teaching Assistant</strong>, now running 13 lab courses across two universities, from AI and Advanced Databases to Compilers and Distributed Computing.</p>
         <p class="en">Teaching made me a better engineer. I explain things simply, document what I build and care about the person using it. I bring the same habits to client work: bilingual business platforms, payment reconciliation and data dashboards that people use every day.</p>
-        <p class="en">I'm completing an <strong>M.Sc. in Computer Science</strong> at Sudan Open University, and I'm open to <strong>remote and freelance roles</strong> where I can build and teach.</p>
         <p class="en">I'm also upfront about how I work: <strong>I vibe-code</strong>. I plan the product and the data model, pair with AI tools like Claude and Gemini to write code faster, then review, test and take responsibility for every line that ships.</p>
         <p class="ar">أنا <strong>عبدالرحمن محمد حسن إبراهيم (عبدو)</strong>. حصلت على <strong>بكالوريوس تقنية المعلومات (مرتبة الشرف)</strong> من الجامعة الوطنية بالسودان، بمعدل <strong>3.72 في السنة النهائية</strong> وتقدير A في مشروع التخرج. وبعد أشهر عدت إلى المعمل <strong>معيداً</strong>، وأدرّس اليوم 13 مقرراً معملياً في جامعتين، من الذكاء الاصطناعي وقواعد البيانات المتقدمة إلى المترجمات والحوسبة الموزعة.</p>
         <p class="ar">التدريس جعلني مهندساً أفضل: أشرح ببساطة، وأوثّق ما أبنيه، وأهتم بالمستخدم. وأحمل هذه العادات إلى أعمال العملاء: منصات أعمال ثنائية اللغة، ومطابقة مدفوعات، ولوحات بيانات يستخدمها الناس يومياً.</p>
-        <p class="ar">أدرس حالياً <strong>ماجستير علوم الحاسب</strong> في جامعة السودان المفتوحة، ومتاح <strong>للعمل عن بُعد والعمل الحر</strong> في أدوار أبني وأعلّم فيها.</p>
         <p class="ar">وأنا صريح في طريقة عملي: <strong>أبرمج بأسلوب الـ vibe coding</strong>؛ أخطط للمنتج ونموذج البيانات، وأستعين بأدوات ذكاء اصطناعي مثل Claude وGemini لكتابة الكود أسرع، ثم أراجع وأختبر وأتحمّل مسؤولية كل سطر يُنشر.</p>
       </div>
       <div class="facts">
         <div><small><span class="en">Degree</span><span class="ar">المؤهل</span></small><span><span class="en">B.Sc. (Hons) IT, National University · 2024</span><span class="ar">بكالوريوس IT، الجامعة الوطنية · 2024</span></span></div>
-        <div><small><span class="en">Now studying</span><span class="ar">أدرس حالياً</span></small><span><span class="en">M.Sc. CS, Sudan Open University</span><span class="ar">ماجستير علوم الحاسب، جامعة السودان المفتوحة</span></span></div>
+        <div><small><span class="en">Teaching</span><span class="ar">التدريس</span></small><span><span class="en">TA, National University · since 2024</span><span class="ar">معيد، الجامعة الوطنية · منذ 2024</span></span></div>
         <div><small><span class="en">Programs</span><span class="ar">برامج</span></small><span>McKinsey Forward · AWS Student Builders</span></div>
         <div><small><span class="en">Languages</span><span class="ar">اللغات</span></small><span><span class="en">Arabic (native) · English (all study in English)</span><span class="ar">العربية (الأم) · الإنجليزية (الدراسة كاملة بها)</span></span></div>
       </div>
@@ -754,11 +750,10 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
     <ol class="tl" id="tl">
       <li class="tl-walker" id="tlWalker" aria-hidden="true"><i></i></li>
       <li class="reveal"><time>2020</time><div><h3><span class="en">Started B.Sc. IT, National University</span><span class="ar">بداية بكالوريوس IT، الجامعة الوطنية</span></h3><p><span class="en">Also began volunteering as a community IT repair technician.</span><span class="ar">وبدأت التطوع في صيانة الأجهزة للمجتمع.</span></p></div></li>
-      <li class="reveal"><time>2024 · 07</time><div><h3><span class="en">Graduated with Honours</span><span class="ar">التخرج بمرتبة الشرف</span></h3><p><span class="en">Grade Very Good, final-year GPA 3.72, graduation project graded A. Started M.Sc. CS at Sudan Open University.</span><span class="ar">تقدير جيد جداً، ومعدل 3.72 في السنة النهائية، ومشروع تخرج بتقدير A. وبدأت ماجستير علوم الحاسب في جامعة السودان المفتوحة.</span></p></div></li>
+      <li class="reveal"><time>2024 · 07</time><div><h3><span class="en">Graduated with Honours</span><span class="ar">التخرج بمرتبة الشرف</span></h3><p><span class="en">Grade Very Good, final-year GPA 3.72, graduation project graded A.</span><span class="ar">تقدير جيد جداً، ومعدل 3.72 في السنة النهائية، ومشروع تخرج بتقدير A.</span></p></div></li>
       <li class="reveal"><time>2024 · 11</time><div><h3><span class="en">Data Analysis Diploma, AMIT Cairo</span><span class="ar">دبلومة تحليل البيانات، AMIT القاهرة</span></h3><p><span class="en">80 hours, graded 90%: Python, SQL, Power BI, statistics.</span><span class="ar">80 ساعة بتقدير 90%: Python وSQL وPower BI والإحصاء.</span></p></div></li>
       <li class="reveal"><time>2024 · 12</time><div><h3><span class="en">Teaching Assistant at two universities</span><span class="ar">معيد في جامعتين</span></h3><p><span class="en">National University and Bahri National University, after a TA internship and ICDL training for first-years.</span><span class="ar">الجامعة الوطنية وجامعة بحري الوطنية، بعد تدريب كمعيد وتدريس ICDL لطلاب السنة الأولى.</span></p></div></li>
       <li class="reveal"><time>2026</time><div><h3><span class="en">Officify &amp; Durjak in production</span><span class="ar">إطلاق Officify ودُرجك</span></h3><p><span class="en">Two client platforms shipped to production on Vercel.</span><span class="ar">منصتان لعملاء تعملان فعلياً على Vercel.</span></p></div></li>
-      <li class="reveal next"><time>next</time><div><h3><span class="en">Your team?</span><span class="ar">فريقك؟</span></h3><p><span class="en">Open to full-stack, backend, data and IT roles, remote or in Cairo.</span><span class="ar">متاح لأدوار Full-Stack والـ Backend والبيانات والـ IT، عن بُعد أو في القاهرة.</span></p></div></li>
     </ol>
   </div>
 </section>
@@ -1076,19 +1071,19 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
     if(i>=tour.length){end(true);return}
     center(false);idx=Math.max(0,i);touring=true;choice.hidden=true;ctrl.hidden=false;
     const s=tour[idx];target=document.querySelector(s.sel);
-    stepEl.textContent=(L()==='ar'?'الفصل ':'CHAPTER ')+(idx+1)+'/'+tour.length;ttl.textContent=s.t[L()];renderDots();
+    stepEl.textContent=(L()==='ar'?'الفصل ':'CHAPTER ')+(idx+1)+'/'+tour.length;const last=idx===tour.length-1;$('gNext').innerHTML=last?(L()==='ar'?'إنهاء ✓':'FINISH ✓'):(L()==='ar'?'التالي ◀':'NEXT ▶');ttl.textContent=s.t[L()];renderDots();
     sfx('step');type(s.s[L()]);
     if(target){requestAnimationFrame(()=>{scrollToTarget();place()});setTimeout(place,reduce?0:700);setTimeout(place,1400)}
   }
-  function end(done){center(false);touring=false;target=null;place();choice.hidden=true;ctrl.hidden=false;dots.innerHTML='';stepEl.textContent='';ttl.textContent='';
-    if(done){wave();type(L()==='ar'?'تقدر تشغّل الجولة تاني في أي وقت بالضغط عليّ.':'You can restart the tour any time by tapping me.')}
+  let finT=null;function end(done){clearTimeout(finT);center(false);touring=false;target=null;place();choice.hidden=true;ctrl.hidden=!!done;dots.innerHTML='';stepEl.textContent='';ttl.textContent='';
+    if(done){wave();sfx('start');type(L()==='ar'?'خلصت الجولة! شكراً لزيارتك. اضغط عليّ لو حبيت تعيدها.':'Tour complete! Thanks for visiting. Tap me any time to replay it.');finT=setTimeout(()=>{if(!touring)minimize()},5000)}
     st.set('g-seen','1')}
-  function minimize(){center(false);g.classList.add('min');ss.set('g-dismissed','1');end(false);sfx('close');talk(false);clearInterval(typing);try{speechSynthesis.cancel()}catch(e){}}
+  function minimize(){clearTimeout(finT);center(false);g.classList.add('min');ss.set('g-dismissed','1');end(false);sfx('close');talk(false);clearInterval(typing);try{speechSynthesis.cancel()}catch(e){}}
 
   $('gYes').onclick=()=>{arm();sfx('click');step(0)};
   $('gNo').onclick=()=>{sfx('click');minimize()};
   bd.onclick=()=>{sfx('click');minimize()};
-  $('gNext').onclick=()=>{sfx('click');touring?step(idx+1):step(0)};
+  $('gNext').onclick=()=>{sfx('click');if(touring)step(idx+1)};
   $('gPrev').onclick=()=>{sfx('click');step(Math.max(0,idx-1))};
   $('gSkip').onclick=()=>{sfx('click');minimize()};
   $('gMin').onclick=minimize;
