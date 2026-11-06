@@ -391,6 +391,11 @@ html[lang="ar"] .typer{font-family:var(--f-body);font-weight:600}
 .portrait img.real{opacity:0;transition:opacity .45s ease}
 .portrait:hover img.real,.portrait:focus-within img.real,.portrait:focus img.real{opacity:1}
 .portrait .swap-hint{position:absolute;bottom:78px;inset-inline-start:22px;z-index:1;font-family:var(--f-mono);font-size:.72rem;background:rgba(4,16,14,.7);color:#fff;padding:5px 10px;border-radius:999px}
+.g-backdrop{position:fixed;inset:0;z-index:88;background:rgba(4,10,12,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .3s}
+.g-backdrop.on{opacity:1;pointer-events:auto}
+.guide.welcome{left:50%!important;right:auto!important;top:50%;bottom:auto;transform:translate(-50%,-50%);flex-direction:row!important;align-items:center}
+html[lang="ar"] .guide.welcome{flex-direction:row-reverse!important}
+.guide.welcome .guide-hint{display:block}
 .spot{position:fixed;z-index:85;pointer-events:none;border:2px solid var(--sand);border-radius:16px;box-shadow:0 0 0 9999px rgba(4,10,12,.6),0 0 0 6px color-mix(in srgb,var(--sand) 25%,transparent);transition:top .45s cubic-bezier(.2,.8,.2,1),left .45s cubic-bezier(.2,.8,.2,1),width .45s cubic-bezier(.2,.8,.2,1),height .45s cubic-bezier(.2,.8,.2,1),opacity .3s;opacity:0}
 .spot.on{opacity:1}
 .guide{position:fixed;z-index:90;bottom:calc(16px + env(safe-area-inset-bottom,0px));right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:flex-end;gap:12px;direction:ltr;max-width:calc(100vw - 32px)}
@@ -433,7 +438,7 @@ html[lang="ar"] .guide-hint{text-align:right}
 .guide-me .ping{position:absolute;top:0;right:4px;width:10px;height:10px;border-radius:50%;background:var(--sand);border:2px solid var(--ink);display:none}
 .guide.min .guide-me .ping{display:block}
 @keyframes bob{50%{transform:translateY(-3px)}}
-@media (max-width:480px){.guide-me{width:65px;height:98px}.guide-bubble{font-size:.92rem;width:calc(100vw - 32px - 82px)}.guide-hint{display:none}}
+@media (max-width:480px){.guide .dots{display:none}.guide-me{width:65px;height:98px}.guide-bubble{font-size:.92rem;width:calc(100vw - 32px - 82px)}.guide-hint{display:none}}
 @media (prefers-reduced-motion:reduce){.guide-me i,.marquee-track{animation:none}.spot{transition:none}}
 </style>
 
@@ -853,6 +858,7 @@ html[lang="ar"] .guide-hint{text-align:right}
 
 
 
+<div class="g-backdrop" id="gBackdrop" aria-hidden="true"></div>
 <div class="spot" id="spot" aria-hidden="true"></div>
 <div class="guide" id="guide" aria-live="polite">
   <div class="guide-bubble" id="guideBubble" role="dialog" aria-label="Mini Abdu, site guide">
@@ -933,8 +939,9 @@ html[lang="ar"] .guide-hint{text-align:right}
 
   /* ---------- 8-bit sound ---------- */
   let ac=null,armed=false,sound=st.get('g-sound')!=='0';
-  function arm(){armed=true;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();ac.resume&&ac.resume()}catch(e){}}
-  ['pointerdown','keydown'].forEach(ev=>addEventListener(ev,arm,{passive:true}));
+  function arm(){armed=true;try{if(navigator.audioSession)navigator.audioSession.type='playback'}catch(e){}
+    try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state!=='running')ac.resume();const bf=ac.createBuffer(1,1,22050),src=ac.createBufferSource();src.buffer=bf;src.connect(ac.destination);src.start(0)}catch(e){}}
+  ['touchend','click','keydown','pointerdown'].forEach(ev=>addEventListener(ev,arm,{passive:true,capture:true}));
   function beep(f,d,vol,when){if(!sound||!armed||!ac)return;try{const t=ac.currentTime+(when||0),o=ac.createOscillator(),v=ac.createGain();o.type='square';o.frequency.setValueAtTime(f,t);v.gain.setValueAtTime(vol||.04,t);v.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(v).connect(ac.destination);o.start(t);o.stop(t+d+.02)}catch(e){}}
   function sfx(k){({blip:()=>beep(520+Math.random()*260,.05,.022),click:()=>beep(880,.06),open:()=>{beep(523,.08);beep(784,.1,.04,.08)},close:()=>{beep(784,.08);beep(392,.12,.04,.08)},start:()=>[523,659,784,1047].forEach((f,i)=>beep(f,.12,.05,i*.09)),step:()=>{beep(660,.06);beep(990,.08,.035,.06)}})[k]?.()}
   const intro=$('intro');
@@ -971,40 +978,51 @@ html[lang="ar"] .guide-hint{text-align:right}
   function talk(on){clearInterval(talkT);sprite.classList.remove('talk');if(on&&!reduce)talkT=setInterval(()=>{if(!sprite.classList.contains('wave'))sprite.classList.toggle('talk')},130)}
   function type(s){clearInterval(typing);speak(s);if(reduce){txt.textContent=s;return}
     let n=0;txt.textContent='';talk(true);const cur=document.createElement('span');cur.className='cur';
-    typing=setInterval(()=>{n+=2;txt.textContent=s.slice(0,n);txt.appendChild(cur);if(n%4===0)sfx('blip');if(n>=s.length){clearInterval(typing);txt.textContent=s;txt.appendChild(cur);talk(false)}},24)}
+    typing=setInterval(()=>{n+=2;txt.textContent=s.slice(0,n);txt.appendChild(cur);if(n%4===0)sfx('blip');if(n>=s.length){clearInterval(typing);txt.textContent=s;txt.appendChild(cur);talk(false);place()}},24)}
 
   /* spotlight follows its target */
-  function place(){if(!target||!touring){spot.classList.remove('on');return}const r=target.getBoundingClientRect(),p=10;
-    Object.assign(spot.style,{top:(r.top-p)+'px',left:(r.left-p)+'px',width:(r.width+p*2)+'px',height:(Math.min(r.height,innerHeight*.7)+p*2)+'px'});spot.classList.add('on')}
+  const ss={get(k){try{return sessionStorage.getItem(k)}catch(e){return null}},set(k,v){try{sessionStorage.setItem(k,v)}catch(e){}}};
+  const bd=$('gBackdrop');
+  function bounds(){const hd=document.querySelector('header.top');const top=(hd?hd.getBoundingClientRect().bottom:64)+8;const bb=$('guideBubble').getBoundingClientRect();
+    const bot=(g.classList.contains('min')||bb.height<10)?innerHeight-12:Math.min(innerHeight-12,bb.top-14);return {top,bot}}
+  function place(){if(!target||!touring){spot.classList.remove('on');return}const r=target.getBoundingClientRect(),p=8,{top,bot}=bounds();
+    const t=Math.max(r.top-p,top),b=Math.min(r.bottom+p,bot);if(b-t<36){spot.classList.remove('on');return}
+    const l=Math.max(r.left-p,6),w=Math.min(r.right+p,innerWidth-6)-l;
+    Object.assign(spot.style,{top:t+'px',left:l+'px',width:w+'px',height:(b-t)+'px'});spot.classList.add('on')}
+  function scrollToTarget(){const r=target.getBoundingClientRect(),{top,bot}=bounds(),avail=bot-top;let y=scrollY+r.top-top-10;if(r.height+20<avail)y-=(avail-r.height-20)/2;
+    scrollTo({top:Math.max(0,y),behavior:reduce?'auto':'smooth'})}
+  function center(on){g.classList.toggle('welcome',on);bd.classList.toggle('on',on)}
   addEventListener('scroll',()=>requestAnimationFrame(place),{passive:true});addEventListener('resize',place);
 
   function renderDots(){dots.innerHTML='';const n=tour.length;for(let i=0;i<n;i++){const d=document.createElement('i');if(i===idx)d.className='on';dots.appendChild(d)}}
-  function welcome(){wave();idx=-1;touring=false;place();choice.hidden=false;ctrl.hidden=true;ttl.textContent='';stepEl.textContent='';
+  function welcome(){center(true);g.classList.remove('min');wave();idx=-1;touring=false;place();choice.hidden=false;ctrl.hidden=true;ttl.textContent='';stepEl.textContent='';
     type(L()==='ar'?`${greet.ar} أنا عبدو الصغير، النسخة الـ pixel من عبدالرحمن. تحب تتفرّج لوحدك ولا أخدك في جولة؟`:`${greet.en} I'm Abdu's pixel twin, the 8-bit edition. Want to explore on your own, or should I give you the grand tour?`)}
   function step(i){
     if(i>=tour.length){end(true);return}
-    idx=Math.max(0,i);touring=true;choice.hidden=true;ctrl.hidden=false;
+    center(false);idx=Math.max(0,i);touring=true;choice.hidden=true;ctrl.hidden=false;
     const s=tour[idx];target=document.querySelector(s.sel);
     stepEl.textContent=(L()==='ar'?'الفصل ':'CHAPTER ')+(idx+1)+'/'+tour.length;ttl.textContent=s.t[L()];renderDots();
     sfx('step');type(s.s[L()]);
-    if(target){target.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});setTimeout(place,reduce?0:500);place()}
+    if(target){requestAnimationFrame(()=>{scrollToTarget();place()});setTimeout(place,reduce?0:700);setTimeout(place,1400)}
   }
-  function end(done){touring=false;target=null;place();choice.hidden=true;ctrl.hidden=false;dots.innerHTML='';stepEl.textContent='';ttl.textContent='';
+  function end(done){center(false);touring=false;target=null;place();choice.hidden=true;ctrl.hidden=false;dots.innerHTML='';stepEl.textContent='';ttl.textContent='';
     if(done){wave();type(L()==='ar'?'تقدر تشغّل الجولة تاني في أي وقت بالضغط عليّ.':'You can restart the tour any time by tapping me.')}
     st.set('g-seen','1')}
-  function minimize(){g.classList.add('min');st.set('g-min','1');end(false);sfx('close');talk(false);clearInterval(typing);try{speechSynthesis.cancel()}catch(e){}}
+  function minimize(){center(false);g.classList.add('min');ss.set('g-dismissed','1');end(false);sfx('close');talk(false);clearInterval(typing);try{speechSynthesis.cancel()}catch(e){}}
 
   $('gYes').onclick=()=>{arm();sfx('click');step(0)};
-  $('gNo').onclick=()=>{sfx('click');st.set('g-seen','1');minimize()};
+  $('gNo').onclick=()=>{sfx('click');minimize()};
+  bd.onclick=()=>{sfx('click');minimize()};
   $('gNext').onclick=()=>{sfx('click');touring?step(idx+1):step(0)};
   $('gPrev').onclick=()=>{sfx('click');step(Math.max(0,idx-1))};
   $('gSkip').onclick=()=>{sfx('click');minimize()};
   $('gMin').onclick=minimize;
   bSound.onclick=()=>{sound=!sound;st.set('g-sound',sound?'1':'0');bSound.setAttribute('aria-pressed',sound);if(sound){arm();sfx('click')}};
   bVoice.onclick=()=>{voice=!voice;st.set('g-voice',voice?'1':'0');bVoice.setAttribute('aria-pressed',voice);sfx('click');if(voice)speak(txt.textContent);else try{speechSynthesis.cancel()}catch(e){}};
-  $('guideMe').onclick=()=>{if(g.classList.contains('min')){g.classList.remove('min');st.set('g-min','0');sfx('open');welcome()}else if(touring){step(idx+1)}else{step(0)}};
+  $('guideMe').onclick=()=>{if(g.classList.contains('min')){sfx('open');welcome()}else if(touring){step(idx+1)}else{step(0)}};
   addEventListener('keydown',e=>{
     if(!lb.hidden){if(e.key==='Escape')$('lbX').click();if(e.key==='ArrowRight')$('lbN').click();if(e.key==='ArrowLeft')$('lbP').click();return}
+    if(g.classList.contains('welcome')){if(e.key==='Escape')minimize();if(e.key==='Enter'){e.preventDefault();$('gYes').click()}return}
     if(!touring||/INPUT|TEXTAREA/.test(document.activeElement.tagName))return;
     const fwd=L()==='ar'?'ArrowLeft':'ArrowRight',back=L()==='ar'?'ArrowRight':'ArrowLeft';
     if(e.key===fwd||e.key==='Enter'){e.preventDefault();step(idx+1)}else if(e.key===back){e.preventDefault();step(idx-1)}else if(e.key==='Escape'){minimize()}
@@ -1012,9 +1030,9 @@ html[lang="ar"] .guide-hint{text-align:right}
   new MutationObserver(()=>{touring?step(idx):welcome()}).observe(root,{attributes:true,attributeFilter:['lang']});
 
   /* start: show the welcome after the intro; on phones start tucked away */
-  const gm=st.get('g-min');
-  if(gm==='1'||(gm===null&&innerWidth<600)){g.classList.add('min')}
-  const begin=()=>{if(!g.classList.contains('min'))welcome()};
+  /* every new visit opens with the welcome, centred like a game dialog; after "explore myself" it stays tucked away for this visit */
+  g.classList.add('min');
+  const begin=()=>{if(ss.get('g-dismissed')!=='1')welcome()};
   if(intro&&!intro.hidden&&!intro.classList.contains('done')){const mo=new MutationObserver(()=>{if(intro.classList.contains('done')||intro.hidden){mo.disconnect();setTimeout(begin,500)}});mo.observe(intro,{attributes:true})}else begin();
 })();
 </script>
