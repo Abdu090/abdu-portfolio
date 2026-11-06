@@ -297,6 +297,141 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
 .reveal{transition:transform .7s ease,opacity .7s ease}
 .reveal.pre{transform:translateY(18px);opacity:.35}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.reveal.pre{transform:none;opacity:1}}
+
+
+/* ===== v2: clearer type, more room ===== */
+body{font-size:17px;line-height:1.75}
+html[lang="ar"] body{font-size:17.5px;line-height:1.95}
+:root{--muted:#46575d;--max:1200px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--muted:#a3b5b5}}
+:root[data-theme="dark"]{--muted:#a3b5b5}
+body{background-size:64px 64px}
+body::after{background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--bg) 40%,transparent) 0%,var(--bg) 70%)}
+section{padding-block:clamp(88px,11vw,144px)}
+h2{font-size:clamp(2.2rem,4.8vw,3.6rem);line-height:1.08}
+html[lang="ar"] h2{line-height:1.35}
+.lead{font-size:1.15rem;line-height:1.75;max-width:60ch;margin-top:20px}
+.eyebrow{font-size:.85rem;margin-bottom:18px}
+.hero .lead{font-size:1.2rem}
+.roles{font-size:1rem;margin-top:22px}
+.stats{margin-top:52px}
+.stat{padding:22px 18px 0 0}
+.stat small{font-size:.88rem;margin-top:4px}
+.head-row{margin-bottom:56px}
+.projects{grid-template-columns:repeat(3,1fr);gap:28px}
+.proj{padding:32px;gap:18px;border-radius:20px}
+.proj h3{font-size:1.55rem;line-height:1.2}
+.proj p{font-size:1rem;line-height:1.75}
+.proj.feature{gap:48px;padding:40px}
+.proj.feature h3{font-size:2rem}
+.tags{gap:8px}.tags span{font-size:.78rem;padding:5px 10px}
+.about-grid{gap:clamp(40px,6vw,96px)}
+.about-text p{font-size:1.1rem;line-height:1.8}
+.about-text p+p{margin-top:20px}
+.facts div{padding:20px 22px}
+.teach{padding:clamp(32px,6vw,80px)}
+.labs,.teach-row{gap:20px}.lab{padding:26px}
+.tl li{padding-block:24px}.tl p{font-size:1rem}
+.stack,.services{gap:20px}.cat,.svc{padding:28px}
+.svc p{font-size:.98rem;line-height:1.7}
+.steps div{padding:22px 24px}
+.channels{gap:14px}.ch{padding:18px 20px}
+form{padding:32px;gap:18px}
+@media (max-width:1000px){.projects{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.projects{grid-template-columns:1fr}.proj,.proj.feature{padding:24px}body{font-size:16.5px}}
+
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.sql{max-width:560px}}
+@media (max-width:480px){.status{border-radius:14px;align-items:flex-start;padding:8px 12px}.roles{font-size:.9rem}.hero h1{font-size:clamp(2.8rem,13vw,4rem)}}
+/* hero typer */
+.typer{margin-top:14px;font-family:var(--f-display);font-size:clamp(1.3rem,2.4vw,1.75rem);font-weight:700;letter-spacing:-.01em;min-height:1.5em}
+html[lang="ar"] .typer{font-family:var(--f-body);font-weight:600}
+.typer b{color:var(--accent);font-weight:inherit}
+.typer i{display:inline-block;width:.5em;height:1em;background:var(--sand);vertical-align:-3px;margin-inline-start:4px;animation:blink 1s steps(2) infinite}
+
+/* tech marquee */
+.marquee{border-block:1px solid var(--line);background:var(--surface);overflow:hidden;padding-block:20px;direction:ltr}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:marq 38s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{font-family:var(--f-display);font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:700;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:56px}
+.marquee span::after{content:"✦";color:var(--sand);font-size:.8em}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* card tilt */
+.proj{transform-style:preserve-3d;will-change:transform}
+.proj.tilting{transition:transform .08s linear,border-color .25s}
+
+/* linkedin section */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
+.post{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .25s,border-color .25s}
+.post:hover{transform:translateY(-4px);border-color:var(--accent)}
+.post-media{position:relative;aspect-ratio:4/3;background:var(--soft);border:0;padding:0;cursor:zoom-in;display:block;width:100%;overflow:hidden}
+.post-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.post:hover .post-media img{transform:scale(1.04)}
+.post-media .count{position:absolute;bottom:12px;inset-inline-end:12px;font:600 .75rem var(--f-mono);background:rgba(4,16,14,.75);color:#fff;padding:4px 10px;border-radius:999px}
+.post-body{padding:26px;display:flex;flex-direction:column;gap:12px;flex:1}
+.post-meta{font-family:var(--f-mono);font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.post h3{font-size:1.3rem;line-height:1.3}
+.post p{color:var(--muted);font-size:.98rem;line-height:1.7}
+.post .more{margin-top:auto;font-weight:600;color:var(--accent);text-decoration:none;font-size:.92rem}
+.post .more:hover{text-decoration:underline}
+@media (max-width:1000px){.posts{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.posts{grid-template-columns:1fr}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:120;background:rgba(4,10,12,.92);display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left,0px))}
+.lb img{max-width:min(1000px,100%);max-height:80vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb-cap{color:#dfe9e5;font-size:.95rem;margin-top:14px;text-align:center;font-family:var(--f-mono)}
+.lb button{position:absolute;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;width:48px;height:48px;font-size:1.3rem;cursor:pointer;display:grid;place-items:center}
+.lb button:hover{background:rgba(255,255,255,.2)}
+.lb .x{top:calc(16px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px))}
+.lb .prev{left:max(16px,env(safe-area-inset-left,0px));top:50%}
+.lb .nxt{right:max(16px,env(safe-area-inset-right,0px));top:50%}
+
+/* ===== mini-Abdu guide v2 ===== */
+.portrait img.real{opacity:0;transition:opacity .45s ease}
+.portrait:hover img.real,.portrait:focus-within img.real,.portrait:focus img.real{opacity:1}
+.portrait .swap-hint{position:absolute;top:22px;inset-inline-start:22px;z-index:1;font-family:var(--f-mono);font-size:.72rem;background:rgba(4,16,14,.7);color:#fff;padding:5px 10px;border-radius:999px}
+.spot{position:fixed;z-index:85;pointer-events:none;border:2px solid var(--sand);border-radius:16px;box-shadow:0 0 0 9999px rgba(4,10,12,.6),0 0 0 6px color-mix(in srgb,var(--sand) 25%,transparent);transition:top .45s cubic-bezier(.2,.8,.2,1),left .45s cubic-bezier(.2,.8,.2,1),width .45s cubic-bezier(.2,.8,.2,1),height .45s cubic-bezier(.2,.8,.2,1),opacity .3s;opacity:0}
+.spot.on{opacity:1}
+.guide{position:fixed;z-index:90;bottom:calc(16px + env(safe-area-inset-bottom,0px));right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:flex-end;gap:12px;direction:ltr;max-width:calc(100vw - 32px)}
+html[lang="ar"] .guide{right:auto;left:max(16px,env(safe-area-inset-left,0px));flex-direction:row-reverse}
+.guide-bubble{position:relative;background:var(--surface);color:var(--ink);border:2px solid var(--ink);border-radius:16px;padding:16px 18px 12px;width:min(380px,calc(100vw - 32px - 96px));box-shadow:5px 5px 0 var(--ink);font-size:.98rem;line-height:1.6;transform-origin:bottom right;transition:transform .2s ease,opacity .2s ease}
+html[lang="ar"] .guide-bubble{transform-origin:bottom left;text-align:right;direction:rtl;line-height:1.8}
+.guide-bubble::after{content:"";position:absolute;bottom:20px;right:-9px;width:14px;height:14px;background:var(--surface);border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(-45deg)}
+html[lang="ar"] .guide-bubble::after{right:auto;left:-9px;transform:rotate(135deg)}
+.guide.min .guide-bubble{transform:scale(.6);opacity:0;pointer-events:none;width:0;padding:0;border-width:0;overflow:hidden}
+.guide-name{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:8px;direction:ltr}
+.guide-name b{background:var(--sand);color:#1a1205;padding:2px 8px;border-radius:4px;font-weight:600}
+.guide-name span{color:var(--muted)}
+.guide-title{font-family:var(--f-display);font-weight:700;font-size:1.08rem;color:var(--accent);margin-bottom:2px}
+html[lang="ar"] .guide-title{font-family:var(--f-body)}
+.guide-text{min-height:4.8em}
+.guide-text .cur{display:inline-block;width:.55em;height:1em;background:var(--accent);vertical-align:-2px;margin-inline-start:2px;animation:blink 1s steps(2) infinite}
+.guide-choice{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.guide-choice button{font:600 .88rem var(--f-body);padding:10px 12px;border-radius:10px;cursor:pointer;border:2px solid var(--ink)}
+.guide-choice .yes{background:var(--sand);color:#1a1205;box-shadow:3px 3px 0 var(--ink)}
+.guide-choice .no{background:var(--bg);color:var(--ink)}
+.guide-ctrl{display:flex;align-items:center;gap:6px;margin-top:10px;border-top:1px dashed var(--line);padding-top:10px;direction:ltr;flex-wrap:wrap}
+.guide-ctrl button{display:grid;place-items:center;min-width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;padding:0 8px;font:600 .75rem var(--f-mono)}
+.guide-ctrl button:hover{border-color:var(--accent)}
+.guide-ctrl button[aria-pressed="false"]{opacity:.45}
+.guide-ctrl button svg{width:16px;height:16px}
+.guide-ctrl .go{background:var(--sand);color:#1a1205;border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);margin-inline-start:auto;padding:0 12px}
+.dots{display:flex;gap:3px;align-items:center;margin-inline:auto}
+.dots i{width:6px;height:6px;border-radius:2px;background:var(--line)}
+.dots i.on{background:var(--sand);width:14px}
+.guide-hint{font-family:var(--f-mono);font-size:.68rem;color:var(--muted);margin-top:6px;direction:ltr}
+html[lang="ar"] .guide-hint{text-align:right}
+.guide-me{width:88px;height:88px;flex:none;padding:0;cursor:pointer;border-radius:18px;background:linear-gradient(165deg,var(--accent),color-mix(in srgb,var(--accent) 35%,#04100e));box-shadow:5px 5px 0 var(--ink);border:2px solid var(--ink);position:relative;overflow:hidden}
+.guide-me i{position:absolute;inset:6px 6px 0;background:url(mini-abdu.png) 0 0/300% 100% no-repeat;image-rendering:pixelated;animation:bob 1.6s ease-in-out infinite}
+.guide-me i.talk{background-position:50% 0}
+.guide-me i.blink{background-position:100% 0}
+.guide-me::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.08) 0 1px,transparent 1px 3px);pointer-events:none}
+.guide-me .ping{position:absolute;top:6px;right:6px;width:10px;height:10px;border-radius:50%;background:var(--sand);border:2px solid var(--ink);display:none}
+.guide.min .guide-me .ping{display:block}
+@keyframes bob{50%{transform:translateY(-3px)}}
+@media (max-width:480px){.guide-me{width:70px;height:70px}.guide-bubble{font-size:.92rem;width:calc(100vw - 32px - 82px)}.guide-hint{display:none}}
+@media (prefers-reduced-motion:reduce){.guide-me i,.marquee-track{animation:none}.spot{transition:none}}
 </style>
 
 </head>
@@ -317,6 +452,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
       <a href="#work"><span class="en">Work</span><span class="ar">الأعمال</span></a>
       <a href="#about"><span class="en">About</span><span class="ar">عنّي</span></a>
       <a href="#teaching"><span class="en">Teaching</span><span class="ar">التدريس</span></a>
+      <a href="#linkedin"><span class="en">Posts</span><span class="ar">المنشورات</span></a>
       <a href="#journey"><span class="en">Journey</span><span class="ar">المسيرة</span></a>
       <a href="#services"><span class="en">Services</span><span class="ar">الخدمات</span></a>
     </nav>
@@ -336,6 +472,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
       <span class="status"><img class="avatar" src="abdu.webp" alt=""><span class="dot"></span><span class="en">Open to remote roles, freelance projects &amp; funded M.Sc. offers</span><span class="ar">متاح للوظائف عن بُعد والمشاريع الحرة ومنح الماجستير الممولة</span></span>
       <h1><span class="en">Hi, I'm <span class="hl">Abdu</span>.</span><span class="ar">أهلاً، أنا <span class="hl">عبدالرحمن</span>.</span></h1>
       <div class="roles"><span class="en">IT Teaching Assistant</span><span class="en">Full-Stack Developer</span><span class="en">Data Analyst</span><span class="ar">معيد تقنية معلومات</span><span class="ar">مطور Full-Stack</span><span class="ar">محلل بيانات</span></div>
+      <p class="typer" aria-live="off"><span class="en">I build </span><span class="ar">أنا ببني </span><b id="typer"></b><i></i></p>
       <p class="lead"><span class="en">I teach AI, web and database labs at university, ship production web platforms with React, Next.js, Node and PostgreSQL, and turn data into decisions with SQL, Python and Power BI. Based in Giza, Egypt.</span><span class="ar">أدرّس معامل الذكاء الاصطناعي والويب وقواعد البيانات في الجامعة، وأطلق منصات ويب حقيقية باستخدام React وNext.js وNode وPostgreSQL، وأحوّل البيانات إلى قرارات باستخدام SQL وPython وPower BI. مقيم في الجيزة، مصر.</span></p>
       <div class="cta">
         <a class="btn primary" href="#work"><span class="en">Explore my work</span><span class="ar">استكشف أعمالي</span> →</a>
@@ -346,7 +483,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
         <div class="stat"><b>13</b><small><span class="en">university lab courses taught</span><span class="ar">مقرراً معملياً درّستها</span></small></div>
         <div class="stat"><b>3.72</b><small><span class="en">final-year GPA · project graded A</span><span class="ar">معدل السنة النهائية · مشروع التخرج A</span></small></div>
         <div class="stat"><b>90%</b><small><span class="en">Data Analysis Diploma, AMIT</span><span class="ar">دبلومة تحليل البيانات، AMIT</span></small></div>
-        <div class="stat"><b>4</b><small><span class="en">apps live in production</span><span class="ar">تطبيقات تعمل فعلياً</span></small></div>
+        <div class="stat"><b>3</b><small><span class="en">apps live in production</span><span class="ar">تطبيقات تعمل فعلياً</span></small></div>
       </div>
     </div>
 
@@ -374,6 +511,8 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
   </div>
 </section>
 
+<div class="marquee" aria-label="Technologies"><div class="marquee-track"><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span><span>Python</span><span>Power BI</span><span>SQL</span><span>Vercel</span><span>AWS S3</span><span>GitHub Actions</span><span>IndexedDB</span><span>Flutter</span><span>Moodle</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span><span>Python</span><span>Power BI</span><span>SQL</span><span>Vercel</span><span>AWS S3</span><span>GitHub Actions</span><span>IndexedDB</span><span>Flutter</span><span>Moodle</span></div></div>
+
 <!-- WORK -->
 <section id="work">
   <div class="wrap">
@@ -382,7 +521,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
         <span class="eyebrow">-- projects</span>
         <h2><span class="en">Things I've shipped</span><span class="ar">مشاريع أطلقتها</span></h2>
       </div>
-      <p class="lead" style="margin:0;max-width:44ch"><span class="en">Four of these are live right now. Open them and click around.</span><span class="ar">أربعة منها تعمل الآن. افتحها وجرّبها بنفسك.</span></p>
+      <p class="lead" style="margin:0;max-width:44ch"><span class="en">Three of these are live right now. Open them and click around.</span><span class="ar">ثلاثة منها تعمل الآن. افتحها وجرّبها بنفسك.</span></p>
     </div>
 
     <div class="projects">
@@ -396,20 +535,14 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
         </div>
         <div class="shot" aria-hidden="true">
           <div class="shot-bar"><i></i><i></i><i></i><span>officify-enterprise-os.vercel.app</span></div>
-          <div class="shot-body erp">
-            <div class="side"><b></b><i></i><i class="on"></i><i></i><i></i><i></i></div>
-            <div class="main">
-              <div class="kpis"><div><small>Revenue</small><b>SAR 184k</b></div><div><small>Stock items</small><b>1,240</b></div><div><small>Open POs</small><b>18</b></div></div>
-              <div class="rows"><span><em>PO-0192</em><u class="g">Approved</u></span><span><em>INV-2210</em><u class="a">Pending</u></span><span><em>PO-0191</em><u class="g">Received</u></span><span><em>JV-0087</em><u>Posted</u></span></div>
-            </div>
-          </div>
+          <img class="shot-img" src="images/officify.webp" alt="" width="1000" height="640" loading="lazy">
         </div>
       </article>
 
       <article class="proj reveal">
         <div class="shot sm" aria-hidden="true">
           <div class="shot-bar"><i></i><i></i><i></i><span>bankak-reports.vercel.app</span></div>
-          <div class="shot-body recon"><span><em>Receipt #88412</em><u class="g">matched</u></span><span><em>Receipt #88413</em><u class="g">matched</u></span><span><em>Receipt #88414</em><u class="a">review</u></span><span><em>Receipt #88415</em><u class="g">matched</u></span></div>
+          <img class="shot-img" src="images/durjak.webp" alt="" width="1000" height="640" loading="lazy">
         </div>
         <span class="ptype">2026 · <span class="en">Payments &amp; reconciliation</span><span class="ar">مدفوعات ومطابقة</span></span>
         <h3><span class="en">Durjak – Bankak Reports</span><span class="ar">دُرجك – تقارير بنكك</span></h3>
@@ -418,19 +551,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
         <div class="plinks"><a class="chip-btn" href="https://bankak-reports.vercel.app/" target="_blank" rel="noopener"><span class="en">Live</span><span class="ar">مباشر</span> ↗</a></div>
       </article>
 
-      <article class="proj reveal">
-        <div class="shot sm" aria-hidden="true">
-          <div class="shot-bar"><i></i><i></i><i></i><span>smart-home-abdu.vercel.app</span></div>
-          <div class="shot-body home"><div class="say">“Friday, turn off the living-room lights.”</div><div class="devs"><span class="on">Lights</span><span>AC · 24°</span><span class="on">Door lock</span><span>Camera</span></div></div>
-        </div>
-        <span class="ptype"><span class="en">AI · IoT · Thesis</span><span class="ar">ذكاء اصطناعي · إنترنت الأشياء · رسالة</span></span>
-        <h3><span class="en">"Friday" Smart Home</span><span class="ar">المنزل الذكي «Friday»</span></h3>
-        <p><span class="en">Home-automation system with a voice-driven AI assistant called Friday that controls devices and answers questions. The subject of my M.Sc. thesis.</span><span class="ar">نظام أتمتة منزلية مع مساعد ذكي صوتي اسمه Friday يتحكم في الأجهزة ويجيب عن الأسئلة، وهو موضوع رسالة الماجستير.</span></p>
-        <div class="tags"><span>Python</span><span>AI assistant</span><span>IoT</span><span>Web dashboard</span></div>
-        <div class="plinks"><a class="chip-btn" href="https://smart-home-abdu.vercel.app/" target="_blank" rel="noopener"><span class="en">Live</span><span class="ar">مباشر</span> ↗</a></div>
-      </article>
-
-      <article class="proj reveal">
+            <article class="proj reveal">
         <div class="shot sm" aria-hidden="true">
           <div class="shot-bar"><i></i><i></i><i></i><span>carepathworldwide.com</span></div>
           <img class="shot-img" src="carepath.webp" alt="" width="1000" height="640" loading="lazy">
@@ -445,7 +566,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
       <article class="proj reveal">
         <div class="shot sm" aria-hidden="true">
           <div class="shot-bar"><i></i><i></i><i></i><span>Power BI — Sales overview</span></div>
-          <div class="shot-body"><div class="bars"><i style="height:38%"></i><i style="height:55%"></i><i style="height:47%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:84%"></i><i style="height:76%"></i><i style="height:95%"></i></div></div>
+          <img class="shot-img" src="images/powerbi.webp" alt="" width="1000" height="640" loading="lazy">
         </div>
         <span class="ptype">2024 · <span class="en">Data analytics</span><span class="ar">تحليل بيانات</span></span>
         <h3><span class="en">E-Commerce Analytics Dashboard</span><span class="ar">لوحة تحليلات متجر إلكتروني</span></h3>
@@ -459,9 +580,11 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
 <!-- ABOUT -->
 <section id="about">
   <div class="wrap about-grid">
-    <div class="portrait reveal">
+    <div class="portrait reveal" tabindex="0">
       <span class="badge">B.Sc. IT (Hons) · 2024</span>
-      <img src="abdu.webp" alt="Portrait of Abdelrahman Ibrahim" width="720" height="720">
+      <img src="abdu-illustrated.webp" alt="Illustrated portrait of Abdelrahman Ibrahim" width="720" height="720">
+      <img class="real" src="abdu.webp" alt="Photo of Abdelrahman Ibrahim" width="720" height="720">
+      <span class="swap-hint"><span class="en">hover or tap for the real me</span><span class="ar">اضغط لترى الصورة الحقيقية</span></span>
       <div class="meta">Abdelrahman Mohamed Hassan Ibrahim<br>Giza · Egypt — GMT+2</div>
     </div>
     <div class="about-text">
@@ -499,11 +622,51 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
       </div>
       <div class="course-list"><span>OOP</span><span>Parallel &amp; Distributed Computing</span><span>Compilers Design</span><span>IT Project Management</span><span>Internet Technology</span><span>Distributed Databases</span><span>Data Mining</span><span>E-Government</span><span>Advanced Multimedia</span><span>Software Engineering</span></div>
       <div class="teach-row">
-        <div><b><span class="en">Moodle LMS admin &amp; project mentor</span><span class="ar">إدارة Moodle والإشراف على المشاريع</span></b><span><span class="en">Course structures, enrolment, exams, and graduation-project mentoring.</span><span class="ar">هيكلة المقررات والتسجيل والاختبارات والإشراف على مشاريع التخرج.</span></span></div>
+        <div><b><span class="en">Co-supervisor, "Bayan"</span><span class="ar">مشرف مشارك، «بيان»</span></b><span><span class="en">Graduation project that translates sign language with computer vision (MediaPipe). Plus Moodle admin.</span><span class="ar">مشروع تخرج يترجم لغة الإشارة بالرؤية الحاسوبية (MediaPipe)، بجانب إدارة Moodle.</span></span></div>
         <div><b><span class="en">"Teach Me, Thank You"</span><span class="ar">«علّمني شكراً»</span></b><span><span class="en">Organized free tech-literacy workshops at British International Center, Egypt.</span><span class="ar">نظّمت ورشاً مجانية لمحو الأمية التقنية في المركز البريطاني الدولي بمصر.</span></span></div>
         <div><b><span class="en">Community IT support</span><span class="ar">دعم تقني مجتمعي</span></b><span><span class="en">Repairing devices for underprivileged students since 2020.</span><span class="ar">صيانة أجهزة الطلاب غير القادرين منذ 2020.</span></span></div>
       </div>
     </div>
+  </div>
+</section>
+
+
+<!-- LINKEDIN -->
+<section id="linkedin" style="padding-top:clamp(40px,6vw,80px)">
+  <div class="wrap">
+    <span class="eyebrow">-- linkedin</span>
+    <h2><span class="en">From my LinkedIn</span><span class="ar">من حسابي على LinkedIn</span></h2>
+    <p class="lead"><span class="en">Moments from the lab, the defense hall and my data work. Tap a photo to open the gallery.</span><span class="ar">لحظات من المعمل وقاعة المناقشات وشغلي في البيانات. اضغط على أي صورة لفتح المعرض.</span></p>
+    <div class="posts">
+      <article class="post reveal">
+        <button class="post-media" type="button" data-gallery="bayan" aria-label="Open Bayan photos"><img src="images/li-bayan1.webp" alt="Bayan project team with the defense committee" loading="lazy" width="480" height="360"><span class="count">1/3</span></button>
+        <div class="post-body">
+          <span class="post-meta">Aug 2026 · <span class="en">Co-supervisor</span><span class="ar">مشرف مشارك</span></span>
+          <h3><span class="en">"Bayan": sign language, translated by AI</span><span class="ar">«بيان»: ترجمة لغة الإشارة بالذكاء الاصطناعي</span></h3>
+          <p><span class="en">I co-supervised Batch 5's graduation project Bayan, which recognises sign language and translates it using computer vision (MediaPipe hand tracking). Watching the team defend it with confidence was the best reward.</span><span class="ar">كنت مشرفاً مشاركاً على مشروع تخرج الدفعة الخامسة «بيان»، اللي بيتعرّف على لغة الإشارة ويترجمها باستخدام الرؤية الحاسوبية (تتبع اليد بـ MediaPipe). أجمل مكافأة كانت إني أشوف الفريق بيقدّم شغله بثقة قدام اللجنة.</span></p>
+          <a class="more" href="https://www.linkedin.com/feed/update/urn:li:activity:7489629301995335680/" target="_blank" rel="noopener"><span class="en">Read on LinkedIn</span><span class="ar">اقرأ على LinkedIn</span> ↗</a>
+        </div>
+      </article>
+      <article class="post reveal">
+        <button class="post-media" type="button" data-gallery="lab" aria-label="Open lab photo"><img src="images/li-computer1.webp" alt="First-year students during a Computer 1 lab session" loading="lazy" width="480" height="354"></button>
+        <div class="post-body">
+          <span class="post-meta">Aug 2026 · <span class="en">Teaching</span><span class="ar">تدريس</span></span>
+          <h3><span class="en">Strong foundations from day one</span><span class="ar">أساس قوي من أول يوم</span></h3>
+          <p><span class="en">Lab sessions for Computer 1 with first-year students across departments, bridging basic digital literacy and real problem-solving. Watching them go from day one to confidently handling lab tasks is why I teach.</span><span class="ar">معامل مقرر «حاسوب 1» مع طلاب السنة الأولى من أقسام مختلفة، بنربط فيها بين أساسيات الكمبيوتر وحل المشكلات العملية. إني أشوفهم من أول يوم لحد ما يحلّوا مهام المعمل بثقة، ده سبب حبي للتدريس.</span></p>
+          <a class="more" href="https://www.linkedin.com/feed/update/urn:li:activity:7493866895725633536/" target="_blank" rel="noopener"><span class="en">Read on LinkedIn</span><span class="ar">اقرأ على LinkedIn</span> ↗</a>
+        </div>
+      </article>
+      <article class="post reveal">
+        <button class="post-media" type="button" data-gallery="bi" aria-label="Open Power BI dashboard"><img src="images/powerbi.webp" alt="Power BI e-commerce dashboard" loading="lazy" width="1000" height="640"></button>
+        <div class="post-body">
+          <span class="post-meta">Jul 2026 · <span class="en">Data analysis</span><span class="ar">تحليل بيانات</span></span>
+          <h3><span class="en">End-to-end Power BI project</span><span class="ar">مشروع Power BI متكامل</span></h3>
+          <p><span class="en">Cleaned raw e-commerce data in Power Query, wrote DAX measures for price, sales volume, ratings and climate-friendly products, and compared Amazon's Choice against Best Sellers in one dashboard.</span><span class="ar">نظّفت بيانات متجر إلكتروني بـ Power Query، وكتبت مقاييس DAX للسعر وحجم المبيعات والتقييمات والمنتجات الصديقة للبيئة، وقارنت Amazon's Choice بالـ Best Sellers في لوحة واحدة.</span></p>
+          <a class="more" href="https://www.linkedin.com/feed/update/urn:li:activity:7486315947830444032/" target="_blank" rel="noopener"><span class="en">Read on LinkedIn</span><span class="ar">اقرأ على LinkedIn</span> ↗</a>
+        </div>
+      </article>
+    </div>
+    <p style="margin-top:28px"><a class="btn ghost" href="https://www.linkedin.com/in/abdelrahman-ibrahim-77a171282/recent-activity/all/" target="_blank" rel="noopener"><span class="en">See all posts</span><span class="ar">كل المنشورات</span> ↗</a></p>
   </div>
 </section>
 
@@ -666,7 +829,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
     about:()=>'Abdelrahman "Abdu" Ibrahim — B.Sc. (Hons) IT, Teaching Assistant at National University, full-stack developer and data analyst in Giza, Egypt.',
     cv:()=>'open <a href="Abdelrahman_Ibrahim_CV.pdf" target="_blank" rel="noopener" style="color:#f0bb4c">Abdelrahman_Ibrahim_CV.pdf</a>',
     skills:()=>'<span class="p">lang</span>   Python · TypeScript · SQL · Java · PHP\n<span class="p">web</span>    React · Next.js · Node.js · Express\n<span class="p">data</span>   PostgreSQL · Power BI · Pandas · Excel\n<span class="p">cloud</span>  Vercel · AWS S3 · GitHub Actions',
-    projects:()=>'1. Officify Enterprise OS  bilingual ERP for SMEs (live)\n2. Durjak                  Bankak payment reconciliation (live)\n3. "Friday"                AI smart-home assistant (live)\n4. CarePath World Wide    medical tourism, EN/AR/FR (live)\n5. E-Commerce Dashboard    Power BI analytics',
+    projects:()=>'1. Officify Enterprise OS  bilingual ERP for SMEs (live)\n2. Durjak                  Bankak payment reconciliation (live)\n3. CarePath World Wide    medical tourism, EN/AR/FR (live)\n4. E-Commerce Dashboard    Power BI analytics',
     teach:()=>'13 lab courses incl. AI · Web Systems · Advanced Databases · Compilers\n+ Moodle admin and graduation-project mentoring',
     goals:()=>'<span class="y">→</span> fully funded M.Sc. in CS / AI / Data Analytics\n<span class="y">→</span> remote tech roles (Gulf · Europe · US)',
     contact:()=>'email     abdelrahman.ibrahim.job@gmail.com\nwhatsapp  +20 127 653 8240\nlinkedin  linkedin.com/in/abdelrahman-ibrahim-77a171282\ngithub    github.com/Abdu090',
@@ -684,5 +847,172 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
 })();
 </script>
 
+
+
+
+<div class="spot" id="spot" aria-hidden="true"></div>
+<div class="guide" id="guide" aria-live="polite">
+  <div class="guide-bubble" id="guideBubble" role="dialog" aria-label="Mini Abdu, site guide">
+    <div class="guide-name"><b>ABDU.EXE</b><span class="dots" id="gDots"></span><span id="guideStep"></span></div>
+    <div class="guide-title" id="guideTitle"></div>
+    <div class="guide-text" id="guideText"></div>
+    <div class="guide-choice" id="guideChoice" hidden>
+      <button type="button" class="yes" id="gYes"><span class="en">▶ Show me around</span><span class="ar">▶ خذني في جولة</span></button>
+      <button type="button" class="no" id="gNo"><span class="en">I'll explore myself</span><span class="ar">هتفرّج لوحدي</span></button>
+    </div>
+    <div class="guide-ctrl" id="guideCtrl">
+      <button type="button" id="gSkip"><span class="en">SKIP</span><span class="ar">تخطي</span></button>
+      <button type="button" id="gPrev" aria-label="Previous"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3 5 8l5 5"/></svg></button>
+      <button type="button" id="gSound" aria-label="Sound effects" aria-pressed="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h3l4-3v10l-4-3H2z" fill="currentColor"/><path d="M11.5 5.5a3.5 3.5 0 0 1 0 5M13 3.5a6 6 0 0 1 0 9"/></svg></button>
+      <button type="button" id="gVoice" aria-label="Read aloud" aria-pressed="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5.5" y="1.5" width="5" height="8" rx="2.5"/><path d="M3 7.5a5 5 0 0 0 10 0M8 12.5V15"/></svg></button>
+      <button type="button" id="gMin" aria-label="Hide guide"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10"/></svg></button>
+      <button type="button" class="go" id="gNext"><span class="en">NEXT ▶</span><span class="ar">التالي ◀</span></button>
+    </div>
+    <div class="guide-hint">← / → · ENTER · ESC</div>
+  </div>
+  <button type="button" class="guide-me" id="guideMe" aria-label="Mini Abdu — open guide"><i id="guideSprite"></i><span class="ping"></span></button>
+</div>
+<div class="lb" id="lb" hidden role="dialog" aria-label="Photo gallery">
+  <button class="x" type="button" id="lbX" aria-label="Close">✕</button>
+  <button class="prev" type="button" id="lbP" aria-label="Previous photo">‹</button>
+  <div style="display:grid;justify-items:center"><img id="lbImg" alt=""><div class="lb-cap" id="lbCap"></div></div>
+  <button class="nxt" type="button" id="lbN" aria-label="Next photo">›</button>
+</div>
+
+<script>
+/* v2 interactions: typer, count-up, tilt, lightbox, mini-Abdu spotlight tour */
+(function(){
+  const root=document.documentElement;
+  const st={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const L=()=>root.lang==='ar'?'ar':'en';
+  const $=id=>document.getElementById(id);
+
+  /* ---------- hero typer ---------- */
+  const phrases={en:['bilingual ERP platforms.','payment reconciliation tools.','Power BI dashboards.','AI & database labs.','medical-tourism platforms.'],
+                 ar:['منصات ERP ثنائية اللغة.','أنظمة لمطابقة المدفوعات.','لوحات Power BI.','معامل الذكاء الاصطناعي وقواعد البيانات.','منصات سياحة علاجية.']};
+  const typer=$('typer');let pi=0,ci=0,del=false;
+  function tick(){if(!typer)return;const list=phrases[L()],w=list[pi%list.length];
+    if(reduce){typer.textContent=w;return setTimeout(()=>{pi++;tick()},2600)}
+    ci+=del?-1:1;typer.textContent=w.slice(0,ci);
+    let t=del?28:55;if(!del&&ci>=w.length){del=true;t=1700}else if(del&&ci<=0){del=false;pi++;t=300}
+    setTimeout(tick,t)}
+  tick();
+
+  /* ---------- count-up stats ---------- */
+  const nums=[...document.querySelectorAll('.stat b')];
+  nums.forEach(b=>{const m=b.textContent.trim().match(/^([\d.]+)(.*)$/);if(!m)return;b.dataset.to=m[1];b.dataset.suf=m[2];b.dataset.dec=(m[1].split('.')[1]||'').length});
+  function count(b){const to=parseFloat(b.dataset.to),dec=+b.dataset.dec,t0=performance.now(),d=1200;
+    (function f(t){const p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3);b.textContent=(to*e).toFixed(dec)+b.dataset.suf;if(p<1)requestAnimationFrame(f)})(t0)}
+  if(!reduce&&'IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){count(e.target);io.unobserve(e.target)}}),{threshold:.6});nums.forEach(b=>b.dataset.to&&io.observe(b))}
+
+  /* ---------- card tilt ---------- */
+  if(!reduce&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+    document.querySelectorAll('.proj').forEach(c=>{
+      c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.classList.add('tilting');c.style.transform=`perspective(900px) rotateX(${(-y*5).toFixed(2)}deg) rotateY(${(x*6).toFixed(2)}deg) translateY(-4px)`});
+      c.addEventListener('pointerleave',()=>{c.classList.remove('tilting');c.style.transform=''});
+    });
+  }
+
+  /* ---------- lightbox ---------- */
+  const galleries={
+    bayan:[['images/li-bayan1.webp','Bayan team with the defense committee'],['images/li-bayan2.webp','Presenting data extraction & normalisation'],['images/li-bayan3.webp','User sequence flow']],
+    lab:[['images/li-computer1.webp','Computer 1 lab session, first-year students']],
+    bi:[['images/powerbi.webp','Power BI e-commerce dashboard']]
+  };
+  const lb=$('lb'),lbImg=$('lbImg'),lbCap=$('lbCap');let gal=[],gi=0;
+  function show(){lbImg.src=gal[gi][0];lbImg.alt=gal[gi][1];lbCap.textContent=gal[gi][1]+(gal.length>1?`  ·  ${gi+1}/${gal.length}`:'');$('lbP').hidden=$('lbN').hidden=gal.length<2}
+  document.querySelectorAll('[data-gallery]').forEach(b=>b.addEventListener('click',()=>{gal=galleries[b.dataset.gallery];gi=0;show();lb.hidden=false;sfx('open');$('lbX').focus()}));
+  $('lbX').onclick=()=>{lb.hidden=true;sfx('close')};
+  $('lbP').onclick=()=>{gi=(gi-1+gal.length)%gal.length;show();sfx('click')};
+  $('lbN').onclick=()=>{gi=(gi+1)%gal.length;show();sfx('click')};
+  lb.addEventListener('click',e=>{if(e.target===lb){lb.hidden=true}});
+
+  /* ---------- 8-bit sound ---------- */
+  let ac=null,armed=false,sound=st.get('g-sound')!=='0';
+  function arm(){armed=true;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();ac.resume&&ac.resume()}catch(e){}}
+  ['pointerdown','keydown'].forEach(ev=>addEventListener(ev,arm,{passive:true}));
+  function beep(f,d,vol,when){if(!sound||!armed||!ac)return;try{const t=ac.currentTime+(when||0),o=ac.createOscillator(),v=ac.createGain();o.type='square';o.frequency.setValueAtTime(f,t);v.gain.setValueAtTime(vol||.04,t);v.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(v).connect(ac.destination);o.start(t);o.stop(t+d+.02)}catch(e){}}
+  function sfx(k){({blip:()=>beep(520+Math.random()*260,.05,.022),click:()=>beep(880,.06),open:()=>{beep(523,.08);beep(784,.1,.04,.08)},close:()=>{beep(784,.08);beep(392,.12,.04,.08)},start:()=>[523,659,784,1047].forEach((f,i)=>beep(f,.12,.05,i*.09)),step:()=>{beep(660,.06);beep(990,.08,.035,.06)}})[k]?.()}
+  const intro=$('intro');
+  if(intro&&!intro.hidden){const go=()=>{arm();sfx('start')};intro.addEventListener('click',go,{once:true});addEventListener('keydown',e=>{if(!intro.classList.contains('done')&&(e.key==='Enter'||e.key===' '))go()},{once:true})}
+
+  /* ---------- voice ---------- */
+  let voice=st.get('g-voice')==='1';
+  function speak(s){if(!voice||!('speechSynthesis' in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(s);u.lang=L()==='ar'?'ar-EG':'en-US';const v=speechSynthesis.getVoices().find(v=>v.lang&&v.lang.toLowerCase().startsWith(L()));if(v)u.voice=v;u.pitch=1.1;speechSynthesis.speak(u)}catch(e){}}
+
+  /* ---------- tour script ---------- */
+  const hr=new Date().getHours();
+  const greet={en:hr<5?'Up late?':hr<12?'Good morning!':hr<18?'Good afternoon!':'Good evening!',ar:hr<5?'سهران؟':hr<12?'صباح الخير!':hr<18?'مساء النور!':'مساء الخير!'};
+  const tour=[
+    {sel:'.hero h1',t:{en:'Meet Abdu',ar:'تعرّف على عبدو'},s:{en:'First things first: this is Abdelrahman, but everyone calls me Abdu. Teaching Assistant, full-stack developer and data analyst.',ar:'أول حاجة: ده عبدالرحمن، بس الكل بيقولّي عبدو. معيد ومطوّر Full-Stack ومحلل بيانات.'}},
+    {sel:'.typer',t:{en:'What I build',ar:'بعمل إيه'},s:{en:'Watch this line type itself. These are the kinds of things I build and teach every week.',ar:'شوف السطر ده وهو بيكتب نفسه. دي الحاجات اللي ببنيها وبدرّسها كل أسبوع.'}},
+    {sel:'.stats',t:{en:'The numbers',ar:'بالأرقام'},s:{en:'13 lab courses taught, a 3.72 final-year GPA, 90% in my data diploma, and 3 apps running in production.',ar:'13 مقرر عملي درّستها، ومعدل 3.72 في السنة النهائية، و90% في دبلومة البيانات، و3 تطبيقات شغالة فعلاً.'}},
+    {sel:'.sql',t:{en:'Me, as a query',ar:'أنا كاستعلام SQL'},s:{en:'I teach databases, so here is my CV written as SQL. Every row is a role I hold right now.',ar:'بدرّس قواعد بيانات، فكتبت الـ CV بتاعي كاستعلام SQL. كل صف دور أنا شغال فيه دلوقتي.'}},
+    {sel:'#work .proj.feature',t:{en:'Featured: Officify',ar:'المشروع المميز: Officify'},s:{en:'An offline-first ERP for Saudi SMEs in Arabic and English. Finance, inventory, procurement and 5 user roles. Hit "Live demo" to try it.',ar:'نظام ERP للشركات السعودية بيشتغل من غير إنترنت، عربي وإنجليزي. مالية ومخزون ومشتريات و5 صلاحيات. اضغط «جرّب المنصة».'}},
+    {sel:'#work .projects',t:{en:'More shipped work',ar:'شغل تاني متسلّم'},s:{en:'Bankak payment reconciliation, CarePath medical tourism in 3 languages, and a Power BI dashboard. Hover a card, it tilts.',ar:'مطابقة مدفوعات بنكك، ومنصة CarePath للسياحة العلاجية بـ3 لغات، ولوحة Power BI. حرّك الماوس على أي كارت هتلاقيه بيتحرك.'}},
+    {sel:'.portrait',t:{en:'Two of me',ar:'نسختين مني'},s:{en:'That’s my illustrated portrait. Hover or tap it to see the real photo.',ar:'دي صورتي المرسومة. مرّر الماوس أو اضغط عليها عشان تشوف الصورة الحقيقية.'}},
+    {sel:'.teach',t:{en:'In the lab',ar:'في المعمل'},s:{en:'13 lab courses across two universities, Moodle admin, and graduation-project mentoring.',ar:'13 مقرر عملي في جامعتين، وإدارة Moodle، والإشراف على مشاريع التخرج.'}},
+    {sel:'#linkedin .posts',t:{en:'Straight from LinkedIn',ar:'من LinkedIn مباشرة'},s:{en:'Real moments: co-supervising the Bayan sign-language AI project, first-year labs, and my Power BI work. Tap a photo for the gallery.',ar:'لحظات حقيقية: إشرافي على مشروع «بيان» لترجمة لغة الإشارة، ومعامل سنة أولى، وشغلي في Power BI. اضغط على أي صورة.'}},
+    {sel:'.tl',t:{en:'The journey',ar:'المسيرة'},s:{en:'From starting my degree in 2020 to teaching at two universities. Next stop: a fully funded master’s abroad.',ar:'من أول يوم في الجامعة سنة 2020 لحد ما بقيت معيد في جامعتين. المحطة الجاية: ماجستير ممول بره.'}},
+    {sel:'#term',t:{en:'Try the terminal',ar:'جرّب الـ terminal'},s:{en:'Type "help", "projects" or "cv" in here. It actually answers.',ar:'اكتب help أو projects أو cv هنا. هيرد عليك فعلاً.'}},
+    {sel:'#contact .channels',t:{en:'Let’s talk',ar:'يلا نتكلم'},s:{en:'That’s the tour! Email, WhatsApp or LinkedIn, I usually reply within a day. Thanks for visiting.',ar:'كده خلصنا الجولة! إيميل أو واتساب أو LinkedIn، عادةً برد خلال يوم. شكراً لزيارتك.'}}
+  ];
+  const g=$('guide'),txt=$('guideText'),ttl=$('guideTitle'),stepEl=$('guideStep'),sprite=$('guideSprite'),spot=$('spot'),dots=$('gDots'),choice=$('guideChoice'),ctrl=$('guideCtrl');
+  const bSound=$('gSound'),bVoice=$('gVoice');
+  bSound.setAttribute('aria-pressed',sound);bVoice.setAttribute('aria-pressed',voice);
+  let idx=-1,touring=false,typing=null,talkT=null,target=null;
+
+  setInterval(()=>{if(sprite.classList.contains('talk'))return;sprite.classList.add('blink');setTimeout(()=>sprite.classList.remove('blink'),140)},3200);
+  function talk(on){clearInterval(talkT);sprite.classList.remove('talk');if(on&&!reduce)talkT=setInterval(()=>sprite.classList.toggle('talk'),120)}
+  function type(s){clearInterval(typing);speak(s);if(reduce){txt.textContent=s;return}
+    let n=0;txt.textContent='';talk(true);const cur=document.createElement('span');cur.className='cur';
+    typing=setInterval(()=>{n+=2;txt.textContent=s.slice(0,n);txt.appendChild(cur);if(n%4===0)sfx('blip');if(n>=s.length){clearInterval(typing);txt.textContent=s;txt.appendChild(cur);talk(false)}},24)}
+
+  /* spotlight follows its target */
+  function place(){if(!target||!touring){spot.classList.remove('on');return}const r=target.getBoundingClientRect(),p=10;
+    Object.assign(spot.style,{top:(r.top-p)+'px',left:(r.left-p)+'px',width:(r.width+p*2)+'px',height:(Math.min(r.height,innerHeight*.7)+p*2)+'px'});spot.classList.add('on')}
+  addEventListener('scroll',()=>requestAnimationFrame(place),{passive:true});addEventListener('resize',place);
+
+  function renderDots(){dots.innerHTML='';const n=tour.length;for(let i=0;i<n;i++){const d=document.createElement('i');if(i===idx)d.className='on';dots.appendChild(d)}}
+  function welcome(){idx=-1;touring=false;place();choice.hidden=false;ctrl.hidden=true;ttl.textContent='';stepEl.textContent='';
+    type(L()==='ar'?`${greet.ar} أنا عبدو الصغير، النسخة الـ pixel من عبدالرحمن. تحب تتفرّج لوحدك ولا أخدك في جولة؟`:`${greet.en} I'm Abdu's pixel twin. Want to explore on your own, or should I give you the grand tour?`)}
+  function step(i){
+    if(i>=tour.length){end(true);return}
+    idx=Math.max(0,i);touring=true;choice.hidden=true;ctrl.hidden=false;
+    const s=tour[idx];target=document.querySelector(s.sel);
+    stepEl.textContent=(L()==='ar'?'الفصل ':'CHAPTER ')+(idx+1)+'/'+tour.length;ttl.textContent=s.t[L()];renderDots();
+    sfx('step');type(s.s[L()]);
+    if(target){target.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});setTimeout(place,reduce?0:500);place()}
+  }
+  function end(done){touring=false;target=null;place();choice.hidden=true;ctrl.hidden=false;dots.innerHTML='';stepEl.textContent='';ttl.textContent='';
+    if(done){type(L()==='ar'?'تقدر تشغّل الجولة تاني في أي وقت بالضغط عليّ.':'You can restart the tour any time by tapping me.')}
+    st.set('g-seen','1')}
+  function minimize(){g.classList.add('min');st.set('g-min','1');end(false);sfx('close');talk(false);clearInterval(typing);try{speechSynthesis.cancel()}catch(e){}}
+
+  $('gYes').onclick=()=>{arm();sfx('click');step(0)};
+  $('gNo').onclick=()=>{sfx('click');st.set('g-seen','1');minimize()};
+  $('gNext').onclick=()=>{sfx('click');touring?step(idx+1):step(0)};
+  $('gPrev').onclick=()=>{sfx('click');step(Math.max(0,idx-1))};
+  $('gSkip').onclick=()=>{sfx('click');minimize()};
+  $('gMin').onclick=minimize;
+  bSound.onclick=()=>{sound=!sound;st.set('g-sound',sound?'1':'0');bSound.setAttribute('aria-pressed',sound);if(sound){arm();sfx('click')}};
+  bVoice.onclick=()=>{voice=!voice;st.set('g-voice',voice?'1':'0');bVoice.setAttribute('aria-pressed',voice);sfx('click');if(voice)speak(txt.textContent);else try{speechSynthesis.cancel()}catch(e){}};
+  $('guideMe').onclick=()=>{if(g.classList.contains('min')){g.classList.remove('min');st.set('g-min','0');sfx('open');welcome()}else if(touring){step(idx+1)}else{step(0)}};
+  addEventListener('keydown',e=>{
+    if(!lb.hidden){if(e.key==='Escape')$('lbX').click();if(e.key==='ArrowRight')$('lbN').click();if(e.key==='ArrowLeft')$('lbP').click();return}
+    if(!touring||/INPUT|TEXTAREA/.test(document.activeElement.tagName))return;
+    const fwd=L()==='ar'?'ArrowLeft':'ArrowRight',back=L()==='ar'?'ArrowRight':'ArrowLeft';
+    if(e.key===fwd||e.key==='Enter'){e.preventDefault();step(idx+1)}else if(e.key===back){e.preventDefault();step(idx-1)}else if(e.key==='Escape'){minimize()}
+  });
+  new MutationObserver(()=>{touring?step(idx):welcome()}).observe(root,{attributes:true,attributeFilter:['lang']});
+
+  /* start: show the welcome after the intro; on phones start tucked away */
+  const gm=st.get('g-min');
+  if(gm==='1'||(gm===null&&innerWidth<600)){g.classList.add('min')}
+  const begin=()=>{if(!g.classList.contains('min'))welcome()};
+  if(intro&&!intro.hidden&&!intro.classList.contains('done')){const mo=new MutationObserver(()=>{if(intro.classList.contains('done')||intro.hidden){mo.disconnect();setTimeout(begin,500)}});mo.observe(intro,{attributes:true})}else begin();
+})();
+</script>
 </body>
 </html>
