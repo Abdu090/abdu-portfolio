@@ -4,32 +4,41 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Abdelrahman (Abdu) Ibrahim — IT Teaching Assistant, Full-Stack Developer and Data Analyst in Giza, Egypt.">
-<meta property="og:title" content="Abdu Ibrahim">
+<link rel="canonical" href="https://abdu-portfolio-ten.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://abdu-portfolio-ten.vercel.app/">
+<meta property="og:title" content="Abdu Ibrahim — Full-Stack Developer &amp; Data Analyst">
+<meta property="og:description" content="I build business platforms, web applications and data solutions — from database design to production deployment. Based in Giza, Egypt.">
 <meta property="og:image" content="abdu-pro-portrait.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Abdu Ibrahim — Full-Stack Developer &amp; Data Analyst">
+<meta name="twitter:description" content="I build business platforms, web applications and data solutions — from database design to production deployment. Based in Giza, Egypt.">
+<meta name="twitter:image" content="abdu-pro-portrait.webp">
 <link rel="icon" href="abdu.webp">
 <style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Abdu Ibrahim</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Press+Start+2P&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Press+Start+2P&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
 /* Layout: one long page on a faint data-grid, a SQL query as the hero's signature, sections tagged like SQL comments */
 :root{
-  --bg:#eef1ee; --surface:#ffffff; --ink:#10202a; --muted:#56676d; --line:#d2dbd7;
-  --accent:#0d7a6b; --accent-ink:#ffffff; --sand:#b9780c; --soft:#dfe9e5;
-  --f-display:"Bricolage Grotesque","IBM Plex Sans Arabic",system-ui,sans-serif;
+  /* Espresso / Bone / Stone Taupe / Terracotta — editorial, architectural, warm */
+  --bg:#f0ebe1; --surface:#faf7f0; --ink:#302720; --muted:#5b4f44; --line:#e4dacb;
+  --accent:#bc694d; --accent-ink:#ffffff; --sand:#8b7b6b; --soft:#eae1d3;
+  --f-display:"Manrope","IBM Plex Sans Arabic",system-ui,sans-serif;
   --f-body:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-pixel:"Press Start 2P",ui-monospace,monospace;
   --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --r:14px; --max:1180px;
+  --r:10px; --max:1200px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0b1316; --surface:#111d21; --ink:#e4ecea; --muted:#8ea1a2; --line:#22353a;
-  --accent:#3cc4ab; --accent-ink:#06201b; --sand:#f0bb4c; --soft:#16282c; color-scheme:dark}}
+  --bg:#241c16; --surface:#302720; --ink:#f0ebe1; --muted:#c9bbab; --line:#43362c;
+  --accent:#d1795c; --accent-ink:#241c16; --sand:#a8988a; --soft:#2c241d; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0b1316; --surface:#111d21; --ink:#e4ecea; --muted:#8ea1a2; --line:#22353a;
-  --accent:#3cc4ab; --accent-ink:#06201b; --sand:#f0bb4c; --soft:#16282c; color-scheme:dark}
+  --bg:#241c16; --surface:#302720; --ink:#f0ebe1; --muted:#c9bbab; --line:#43362c;
+  --accent:#d1795c; --accent-ink:#241c16; --sand:#a8988a; --soft:#2c241d; color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -72,9 +81,9 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backdrop-
 .links a{text-decoration:none;font-size:.9rem;color:var(--muted);padding:6px 10px;border-radius:8px}
 .links a:hover{color:var(--ink);background:var(--soft)}
 .tools{display:flex;gap:8px;align-items:center}
-.chip-btn{font:600 .78rem var(--f-mono);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 12px;cursor:pointer}
+.chip-btn{font:600 .78rem var(--f-mono);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:10px 14px;cursor:pointer;min-height:40px}
 .chip-btn:hover{border-color:var(--accent)}
-.btn{display:inline-flex;align-items:center;gap:8px;font:600 .95rem var(--f-body);text-decoration:none;border-radius:999px;padding:12px 20px;border:1px solid transparent;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 .95rem var(--f-body);text-decoration:none;border-radius:10px;padding:12px 20px;border:1px solid transparent;cursor:pointer}
 .btn.primary{background:var(--accent);color:var(--accent-ink)}
 .btn.primary:hover{filter:brightness(1.08)}
 .btn.ghost{border-color:var(--line);background:var(--surface);color:var(--ink)}
@@ -93,7 +102,7 @@ html[lang="ar"] .eyebrow{text-align:right}
 .hero{padding-block:clamp(48px,7vw,96px) clamp(56px,8vw,100px)}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,64px);align-items:center}
 .hero-grid>*{min-width:0}
-.status{display:inline-flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted);border:1px solid var(--line);background:var(--surface);padding:6px 14px 6px 10px;border-radius:999px}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted);border:1px solid var(--line);background:var(--surface);padding:6px 14px 6px 10px;border-radius:10px}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent);animation:pulse 2s infinite}
 @keyframes pulse{50%{box-shadow:0 0 0 8px transparent}}
 .hero h1{font-size:clamp(3rem,8vw,6.4rem);font-weight:800;letter-spacing:-.035em;margin-top:22px}
@@ -133,6 +142,7 @@ html[lang="ar"] .stat{padding:18px 0 0 16px}
 .proj.feature{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
 .proj.feature>*{min-width:0}
 .ptype{font-family:var(--f-mono);font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.proj .role{font-family:var(--f-mono);font-size:.78rem;color:var(--accent);font-weight:600}
 .proj h3{font-size:1.6rem}
 .proj p{color:var(--muted)}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
@@ -178,19 +188,8 @@ html[lang="ar"] .stat{padding:18px 0 0 16px}
 .teach-row span{font-size:.88rem;color:color-mix(in srgb,var(--bg) 68%,transparent)}
 @media (max-width:820px){.labs,.teach-row{grid-template-columns:1fr}}
 
-/* timeline */
-.tl{list-style:none;margin:48px 0 0;padding:0;position:relative}
-.tl::before{content:"";position:absolute;top:8px;bottom:8px;inset-inline-start:118px;width:2px;background:var(--line)}
-.tl li{display:grid;grid-template-columns:100px 1fr;gap:38px;padding-block:18px;position:relative}
-.tl li::before{content:"";position:absolute;inset-inline-start:112px;top:28px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
-.tl li.next::before{border-style:dashed;border-color:var(--sand)}
-.tl time{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);padding-top:4px;font-variant-numeric:tabular-nums}
-.tl h3{font-size:1.25rem}
-.tl p{color:var(--muted);margin-top:6px;max-width:60ch}
-@media (max-width:560px){.tl::before{inset-inline-start:6px}.tl li{grid-template-columns:1fr;gap:4px;padding-inline-start:34px}.tl li::before{inset-inline-start:0}}
-
 /* stack */
-.stack{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
 .cat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;min-width:0}
 .cat h3{font-size:1.05rem;display:flex;justify-content:space-between;align-items:baseline}
 .cat h3 small{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);font-weight:400}
@@ -216,29 +215,23 @@ html[lang="ar"] .stat{padding:18px 0 0 16px}
 @media (max-width:480px){.services,.steps{grid-template-columns:1fr}.steps div{border-inline-end:0;border-bottom:1px solid var(--line)}}
 
 /* terminal */
-.term{background:#0a1214;color:#cfe3de;border-radius:18px;overflow:hidden;border:1px solid #1d3236;direction:ltr;text-align:left;margin-top:32px}
-.term-bar{display:flex;gap:8px;align-items:center;padding:12px 16px;background:#0f1b1e;font-family:var(--f-mono);font-size:.75rem;color:#7d9894}
-.term-bar i{width:10px;height:10px;border-radius:50%;background:#28403f;display:block}
+.term{background:#1c1712;color:#f0ebe1;border-radius:18px;overflow:hidden;border:1px solid #3a2e25;direction:ltr;text-align:left;margin-top:32px}
+.term-bar{display:flex;gap:8px;align-items:center;padding:12px 16px;background:#241c16;font-family:var(--f-mono);font-size:.75rem;color:#8b7b6b}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:#3a2e25;display:block}
 .term-bar span{margin-left:8px}
 .term-out{padding:18px 20px 6px;font-family:var(--f-mono);font-size:.85rem;line-height:1.7;height:280px;overflow-y:auto;white-space:pre-wrap;word-break:break-word}
-.term-out .p{color:#3cc4ab}.term-out .y{color:#f0bb4c}.term-out .m{color:#7d9894}
+.term-out .p{color:#d1795c}.term-out .y{color:#c9bbab}.term-out .m{color:#8b7b6b}
 .term-in{display:flex;align-items:center;gap:8px;padding:6px 20px 18px;font-family:var(--f-mono);font-size:.85rem}
-.term-in label{color:#3cc4ab}
-.term-in input{flex:1;min-width:0;background:transparent;border:0;color:#e9f4f1;font:inherit;outline:none;caret-color:#f0bb4c}
+.term-in label{color:#d1795c}
+.term-in input{flex:1;min-width:0;background:transparent;border:0;color:#f0ebe1;font:inherit;outline:none;caret-color:#d1795c}
 .term-hints{display:flex;flex-wrap:wrap;gap:6px;padding:0 20px 16px}
-.term-hints button{font:.75rem var(--f-mono);background:#13262a;color:#cfe3de;border:1px solid #23393c;border-radius:6px;padding:4px 9px;cursor:pointer}
-.term-hints button:hover{border-color:#3cc4ab}
+.term-hints button{font:.75rem var(--f-mono);background:#241c16;color:#f0ebe1;border:1px solid #3a2e25;border-radius:6px;padding:4px 9px;cursor:pointer}
+.term-hints button:hover{border-color:#d1795c}
 
 /* contact */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
 .contact-grid>*{min-width:0}
-form{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:14px}
-label.f{display:grid;gap:6px;font-size:.85rem;font-weight:500}
-input.i,textarea.i{font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
-input.i:focus,textarea.i:focus{outline:none;border-color:var(--accent)}
-textarea.i{min-height:130px;resize:vertical}
-.form-msg{font-size:.88rem;color:var(--accent);min-height:1.3em}
-.channels{display:grid;gap:12px;margin-top:28px}
+.channels{display:grid;gap:12px}
 .ch{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);min-width:0}
 .ch small{display:block;font-family:var(--f-mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
 .ch span{font-weight:600;word-break:break-all;user-select:all}
@@ -250,13 +243,14 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
 .foot{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center;font-size:.88rem;color:var(--muted)}
 .foot nav{display:flex;flex-wrap:wrap;gap:14px}
 .foot a{text-decoration:none}.foot a:hover{color:var(--accent)}
+.foot nav:not(.socials) a{color:var(--ink);font-weight:600}
 
 
 /* added: photo, project mockups, course chips */
 .avatar{width:22px;height:22px;border-radius:50%;object-fit:cover;background:var(--accent);margin-inline-start:-4px}
-.portrait{background:linear-gradient(165deg,var(--accent),color-mix(in srgb,var(--accent) 35%,#04100e));padding:0;justify-content:flex-end}
+.portrait{background:linear-gradient(165deg,var(--accent),color-mix(in srgb,var(--accent) 35%,#241c16));padding:0;justify-content:flex-end}
 .portrait img{position:absolute;inset:auto 0 0 0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0}
-.portrait .meta{position:relative;z-index:1;padding:60px 22px 20px;background:linear-gradient(transparent,rgba(4,16,14,.82));color:#fff}
+.portrait .meta{position:relative;z-index:1;padding:60px 22px 20px;background:linear-gradient(transparent,rgba(36,28,22,.82));color:#fff}
 .portrait::after{z-index:0;opacity:.5}
 .portrait img{z-index:0}
 .plinks{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
@@ -303,9 +297,6 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
 /* ===== v2: clearer type, more room ===== */
 body{font-size:17px;line-height:1.75}
 html[lang="ar"] body{font-size:17.5px;line-height:1.95}
-:root{--muted:#46575d;--max:1200px}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--muted:#a3b5b5}}
-:root[data-theme="dark"]{--muted:#a3b5b5}
 body{background-size:64px 64px}
 body::after{background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--bg) 40%,transparent) 0%,var(--bg) 70%)}
 section{padding-block:clamp(88px,11vw,144px)}
@@ -332,12 +323,10 @@ html[lang="ar"] h2{line-height:1.35}
 .facts div{padding:20px 22px}
 .teach{padding:clamp(32px,6vw,80px)}
 .labs,.teach-row{gap:20px}.lab{padding:26px}
-.tl li{padding-block:24px}.tl p{font-size:1rem}
 .stack,.services{gap:20px}.cat,.svc{padding:28px}
 .svc p{font-size:.98rem;line-height:1.7}
 .steps div{padding:22px 24px}
 .channels{gap:14px}.ch{padding:18px 20px}
-form{padding:32px;gap:18px}
 @media (max-width:1000px){.projects{grid-template-columns:1fr 1fr}}
 @media (max-width:700px){.projects{grid-template-columns:1fr}.proj,.proj.feature{padding:24px}body{font-size:16.5px}}
 
@@ -347,7 +336,6 @@ form{padding:32px;gap:18px}
 .typer{margin-top:14px;font-family:var(--f-display);font-size:clamp(1.3rem,2.4vw,1.75rem);font-weight:700;letter-spacing:-.01em;min-height:1.5em}
 html[lang="ar"] .typer{font-family:var(--f-body);font-weight:600}
 .typer b{color:var(--accent);font-weight:inherit}
-.typer i{display:inline-block;width:.5em;height:1em;background:var(--sand);vertical-align:-3px;margin-inline-start:4px;animation:blink 1s steps(2) infinite}
 
 /* tech marquee */
 .marquee{border-block:1px solid var(--line);background:var(--surface);overflow:hidden;padding-block:20px;direction:ltr}
@@ -381,7 +369,7 @@ html[lang="ar"] .typer{font-family:var(--f-body);font-weight:600}
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:120;background:rgba(4,10,12,.92);display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left,0px))}
 .lb img{max-width:min(1000px,100%);max-height:80vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
-.lb-cap{color:#dfe9e5;font-size:.95rem;margin-top:14px;text-align:center;font-family:var(--f-mono)}
+.lb-cap{color:#f0ebe1;font-size:.95rem;margin-top:14px;text-align:center;font-family:var(--f-mono)}
 .lb button{position:absolute;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;width:48px;height:48px;font-size:1.3rem;cursor:pointer;display:grid;place-items:center}
 .lb button:hover{background:rgba(255,255,255,.2)}
 .lb .x{top:calc(16px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px))}
@@ -407,7 +395,7 @@ html[lang="ar"] .guide-bubble{transform-origin:bottom left;text-align:right;dire
 html[lang="ar"] .guide-bubble::after{right:auto;left:-9px;transform:rotate(135deg)}
 .guide.min .guide-bubble{transform:scale(.6);opacity:0;pointer-events:none;width:0;padding:0;border-width:0;overflow:hidden}
 .guide-name{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:8px;direction:ltr}
-.guide-name b{background:var(--sand);color:#1a1205;padding:2px 8px;border-radius:4px;font-weight:600}
+.guide-name b{background:var(--sand);color:#f0ebe1;padding:2px 8px;border-radius:4px;font-weight:600}
 .guide-name span{color:var(--muted)}
 .guide-title{font-family:var(--f-display);font-weight:700;font-size:1.08rem;color:var(--accent);margin-bottom:2px}
 html[lang="ar"] .guide-title{font-family:var(--f-body)}
@@ -415,21 +403,21 @@ html[lang="ar"] .guide-title{font-family:var(--f-body)}
 .guide-text .cur{display:inline-block;width:.55em;height:1em;background:var(--accent);vertical-align:-2px;margin-inline-start:2px;animation:blink 1s steps(2) infinite}
 .guide-choice{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .guide-choice button{font:600 .88rem var(--f-body);padding:10px 12px;border-radius:10px;cursor:pointer;border:2px solid var(--ink)}
-.guide-choice .yes{background:var(--sand);color:#1a1205;box-shadow:3px 3px 0 var(--ink)}
+.guide-choice .yes{background:var(--sand);color:#f0ebe1;box-shadow:3px 3px 0 var(--ink)}
 .guide-choice .no{background:var(--bg);color:var(--ink)}
 .guide-ctrl{display:flex;align-items:center;gap:6px;margin-top:10px;border-top:1px dashed var(--line);padding-top:10px;direction:ltr;flex-wrap:wrap}
 .guide-ctrl button{display:grid;place-items:center;min-width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;padding:0 8px;font:600 .75rem var(--f-mono)}
 .guide-ctrl button:hover{border-color:var(--accent)}
 .guide-ctrl button[aria-pressed="false"]{opacity:.45}
 .guide-ctrl button svg{width:16px;height:16px}
-.guide-ctrl .go{background:var(--sand);color:#1a1205;border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);margin-inline-start:auto;padding:0 12px}
+.guide-ctrl .go{background:var(--sand);color:#f0ebe1;border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);margin-inline-start:auto;padding:0 12px}
 .dots{display:flex;gap:3px;align-items:center;margin-inline:auto}
 .dots i{width:6px;height:6px;border-radius:2px;background:var(--line)}
 .dots i.on{background:var(--sand);width:14px}
 .guide-hint{font-family:var(--f-mono);font-size:.68rem;color:var(--muted);margin-top:6px;direction:ltr}
 html[lang="ar"] .guide-hint{text-align:right}
 .guide-me{width:83px;height:126px;flex:none;padding:0;cursor:pointer;background:none;border:0;position:relative;filter:drop-shadow(3px 4px 0 rgba(0,0,0,.35))}
-.guide-me i{position:absolute;inset:0;background:url(abdu-character.png?v=2) 0 0/400% 100% no-repeat;animation:bob 1.6s ease-in-out infinite}
+.guide-me i{position:absolute;inset:0;background:url(abdu-character.png?v=3) 0 0/400% 100% no-repeat;animation:bob 1.6s ease-in-out infinite}
 .guide-me i.talk{background-position:33.333% 0}
 .guide-me i.blink{background-position:66.667% 0}
 .guide-me i.wave{background-position:100% 0;animation:wave .5s ease-in-out 3}
@@ -443,11 +431,11 @@ html[lang="ar"] .guide-hint{text-align:right}
 @media (prefers-reduced-motion:reduce){.guide-me i,.marquee-track{animation:none}.spot{transition:none}}
 
 /* ===== v3: pixel font, menu, progress, launcher, walker ===== */
-.intro{background:#070d10;color:#e4ecea;background-image:linear-gradient(rgba(60,196,171,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(60,196,171,.07) 1px,transparent 1px);background-size:32px 32px}
-.intro .big{font-family:var(--f-pixel);font-weight:400;font-size:clamp(2rem,8vw,4.6rem);letter-spacing:0;line-height:1.1;text-shadow:4px 4px 0 #0d7a6b}
+.intro{background:#1c1712;color:#f0ebe1;background-image:linear-gradient(rgba(188,105,77,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(188,105,77,.09) 1px,transparent 1px);background-size:32px 32px}
+.intro .big{font-family:var(--f-pixel);font-weight:400;font-size:clamp(2rem,8vw,4.6rem);letter-spacing:0;line-height:1.1;text-shadow:4px 4px 0 #bc694d}
 .intro .sub{font-family:var(--f-pixel);font-size:clamp(.5rem,1.6vw,.7rem);letter-spacing:.1em;line-height:2;margin-top:22px}
-.intro .start{margin-top:40px;font:400 clamp(.75rem,2.4vw,1rem) var(--f-pixel);letter-spacing:.06em;background:#f0bb4c;color:#1a1205;border:3px solid #1a1205;box-shadow:5px 5px 0 #0d7a6b;padding:16px 22px;cursor:pointer;animation:none}
-.intro .start:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 #0d7a6b}
+.intro .start{margin-top:40px;font:400 clamp(.75rem,2.4vw,1rem) var(--f-pixel);letter-spacing:.06em;background:#bc694d;color:#f0ebe1;border:3px solid #f0ebe1;box-shadow:5px 5px 0 #8b7b6b;padding:16px 22px;cursor:pointer;animation:none}
+.intro .start:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 #8b7b6b}
 .intro .load{font-family:var(--f-pixel);font-size:.65rem;margin-top:40px}
 .intro .hint{font-family:var(--f-pixel);font-size:.55rem;opacity:.5;margin-top:16px}
 .guide-name b{font-family:var(--f-pixel);font-size:.62rem;font-weight:400;padding:5px 8px}
@@ -483,13 +471,6 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
 .menu-social{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:40px}
 .menu-social a{color:var(--muted);text-decoration:none;font-size:1.05rem}
 .menu-social a:hover{color:var(--accent)}
-/* timeline walker */
-.tl-walker{position:absolute!important;padding:0!important;display:block!important;inset-inline-start:99px;top:0;width:40px;height:61px;z-index:2;transition:top .25s ease-out;pointer-events:none;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--accent) 45%,transparent))}
-.tl-walker::before{display:none!important}
-.tl-walker i{position:absolute;inset:0;background:url(abdu-character.png?v=2) 0 0/400% 100% no-repeat}
-.tl-walker.walk i{animation:bob .35s ease-in-out infinite}
-.tl-walker.wave i{background-position:100% 0}
-@media (max-width:560px){.tl-walker{inset-inline-start:-14px}}
 /* contact tidy */
 .ch span{word-break:normal;overflow-wrap:anywhere}
 .ch .chip-btn,.chip-btn{white-space:nowrap;flex:none}
@@ -497,7 +478,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
 .foot .socials{display:flex;flex-wrap:wrap;gap:14px}
 .foot .vibe{font-family:var(--f-mono);font-size:.78rem}
 @media (max-width:480px){.ch{flex-wrap:wrap}.ch span{font-size:.95rem}}
-@media (prefers-reduced-motion:reduce){.menu-list a{transition:none}.tl-walker{transition:none}}
+@media (prefers-reduced-motion:reduce){.menu-list a{transition:none}}
 </style>
 
 </head>
@@ -519,9 +500,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
       <a href="#work"><span class="en">Work</span><span class="ar">الأعمال</span></a>
       <a href="#about"><span class="en">About</span><span class="ar">عنّي</span></a>
       <a href="#teaching"><span class="en">Teaching</span><span class="ar">التدريس</span></a>
-      <a href="#linkedin"><span class="en">Posts</span><span class="ar">المنشورات</span></a>
-      <a href="#journey"><span class="en">Journey</span><span class="ar">المسيرة</span></a>
-      <a href="#services"><span class="en">Services</span><span class="ar">الخدمات</span></a>
+      <a href="#contact"><span class="en">Contact</span><span class="ar">تواصل</span></a>
     </nav>
     <div class="tools">
       <button class="chip-btn" id="langBtn" type="button" aria-label="Switch language"><span class="en">عربي</span><span class="ar">EN</span></button>
@@ -534,7 +513,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
 
 <div class="progress" id="progress" aria-hidden="true"></div>
 <div class="menu" id="menu" hidden role="dialog" aria-label="Menu">
-  <ol class="menu-list"><li><a href="#work"><small>01</small><span class="en">Work</span><span class="ar">الأعمال</span></a></li><li><a href="#about"><small>02</small><span class="en">About</span><span class="ar">عنّي</span></a></li><li><a href="#teaching"><small>03</small><span class="en">Teaching</span><span class="ar">التدريس</span></a></li><li><a href="#linkedin"><small>04</small><span class="en">Posts</span><span class="ar">المنشورات</span></a></li><li><a href="#journey"><small>05</small><span class="en">Journey</span><span class="ar">المسيرة</span></a></li><li><a href="#services"><small>06</small><span class="en">Services</span><span class="ar">الخدمات</span></a></li><li><a href="#contact"><small>07</small><span class="en">Contact</span><span class="ar">تواصل</span></a></li><li><a href="Abdelrahman_Ibrahim_CV.pdf" target="_blank" rel="noopener"><small>08</small><span class="en">Résumé</span><span class="ar">السيرة الذاتية</span></a></li></ol>
+  <ol class="menu-list"><li><a href="#work"><small>01</small><span class="en">Work</span><span class="ar">الأعمال</span></a></li><li><a href="#about"><small>02</small><span class="en">About</span><span class="ar">عنّي</span></a></li><li><a href="#teaching"><small>03</small><span class="en">Teaching</span><span class="ar">التدريس</span></a></li><li><a href="#linkedin"><small>04</small><span class="en">Posts</span><span class="ar">المنشورات</span></a></li><li><a href="#services"><small>05</small><span class="en">Services</span><span class="ar">الخدمات</span></a></li><li><a href="#contact"><small>06</small><span class="en">Contact</span><span class="ar">تواصل</span></a></li><li><a href="Abdelrahman_Ibrahim_CV.pdf" target="_blank" rel="noopener"><small>07</small><span class="en">Résumé</span><span class="ar">السيرة الذاتية</span></a></li></ol>
   <div class="menu-social"><a href="https://github.com/Abdu090" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/abdelrahman-ibrahim-77a171282/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://www.instagram.com/3bdo_661/" target="_blank" rel="noopener">Instagram ↗</a><a href="https://wa.me/message/EZZEJUWBDXTHB1" target="_blank" rel="noopener">WhatsApp ↗</a></div>
 </div>
 <main id="home">
@@ -545,12 +524,11 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
       <span class="status"><img class="avatar" src="abdu.webp" alt=""><span class="dot"></span><span class="en">Open to remote roles &amp; freelance projects</span><span class="ar">متاح للوظائف عن بُعد والمشاريع الحرة</span></span>
       <h1><span class="en">Hi, I'm <span class="hl">Abdu</span>.</span><span class="ar">أهلاً، أنا <span class="hl">عبدالرحمن</span>.</span></h1>
       <div class="roles"><span class="en">IT Teaching Assistant</span><span class="en">Full-Stack Developer</span><span class="en">Data Analyst</span><span class="ar">معيد تقنية معلومات</span><span class="ar">مطور Full-Stack</span><span class="ar">محلل بيانات</span></div>
-      <p class="typer" aria-live="off"><span class="en">I build </span><span class="ar">أنا ببني </span><b id="typer"></b><i></i></p>
-      <p class="lead"><span class="en">I teach AI, web and database labs at university, ship production web platforms with React, Next.js, Node and PostgreSQL, and turn data into decisions with SQL, Python and Power BI. Based in Giza, Egypt.</span><span class="ar">أدرّس معامل الذكاء الاصطناعي والويب وقواعد البيانات في الجامعة، وأطلق منصات ويب حقيقية باستخدام React وNext.js وNode وPostgreSQL، وأحوّل البيانات إلى قرارات باستخدام SQL وPython وPower BI. مقيم في الجيزة، مصر.</span></p>
+      <p class="typer"><span class="en">I turn complex ideas into <b>products people use</b>.</span><span class="ar">أحوّل الأفكار والمشاكل إلى <b>أنظمة حقيقية</b>.</span></p>
+      <p class="lead"><span class="en">I build business platforms, web applications and data solutions — from database design to production deployment. Based in Giza, Egypt.</span><span class="ar">أبني منصات أعمال وتطبيقات ويب وحلول بيانات، من تصميم قاعدة البيانات إلى الإطلاق الفعلي. مقيم في الجيزة، مصر.</span></p>
       <div class="cta">
         <a class="btn primary" href="#work"><span class="en">Explore my work</span><span class="ar">استكشف أعمالي</span> →</a>
         <a class="btn ghost" href="Abdelrahman_Ibrahim_CV.pdf" target="_blank" rel="noopener"><span class="en">View CV (PDF)</span><span class="ar">السيرة الذاتية (PDF)</span> ↗</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/abdelrahman-ibrahim-77a171282/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
       <div class="stats">
         <div class="stat"><b>13</b><small><span class="en">university lab courses taught</span><span class="ar">مقرراً معملياً درّستها</span></small></div>
@@ -601,6 +579,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
         <div style="display:grid;gap:14px">
           <span class="ptype">🔥 <span class="en">Just shipped</span><span class="ar">جديد</span> · <span class="en">Cloud POS</span><span class="ar">نقاط بيع سحابية</span></span>
           <h3>Mizan POS</h3>
+          <p class="role"><span class="en">Role: Solo full-stack developer</span><span class="ar">الدور: مطوّر Full-Stack منفرد</span></p>
           <p><span class="en">Cloud point-of-sale and inventory system for shops in Sudan. Multi-branch, works offline, bilingual RTL Arabic UI, with every shop's data isolated by PostgreSQL row-level security.</span><span class="ar">نظام نقاط بيع ومخزون سحابي للمحلات في السودان. متعدد الفروع، يعمل دون إنترنت، وواجهة عربية بالكامل، مع عزل بيانات كل محل بأمان عبر PostgreSQL RLS.</span></p>
           <div class="tags"><span>React 19</span><span>TypeScript</span><span>Express</span><span>Prisma</span><span>PostgreSQL RLS</span></div>
           <div class="plinks"><a class="btn primary" href="https://mizan-pos-web.vercel.app/" target="_blank" rel="noopener"><span class="en">Live demo</span><span class="ar">جرّب المنصة</span> ↗</a></div>
@@ -611,12 +590,13 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
         </div>
       </article>
 
-      <article class="proj reveal">
+      <article class="proj feature reveal">
         <div style="display:grid;gap:14px">
           <span class="ptype">2026 · <span class="en">Business operations platform</span><span class="ar">منصة إدارة أعمال</span></span>
           <h3>Officify Enterprise OS</h3>
-          <p><span class="en">Offline-first ERP-style platform for Saudi SMEs, fully bilingual (Arabic RTL / English). Finance posting, inventory, procurement and team modules, a full audit log with undo, JWT auth and a 5-role permission matrix. Works offline in IndexedDB and syncs to PostgreSQL.</span><span class="ar">منصة ERP تعمل دون اتصال للشركات الصغيرة والمتوسطة في السعودية، ثنائية اللغة بالكامل (عربي/إنجليزي). وحدات للمالية والمخزون والمشتريات والفريق، وسجل تدقيق كامل مع التراجع، وتسجيل دخول JWT وصلاحيات لخمسة أدوار. تعمل دون إنترنت عبر IndexedDB وتتزامن مع PostgreSQL.</span></p>
-          <div class="tags"><span>React 19</span><span>TypeScript</span><span>Vite</span><span>IndexedDB</span><span>PostgreSQL</span><span>JWT · RBAC</span><span>Shopify API</span></div>
+          <p class="role"><span class="en">Role: Solo full-stack developer</span><span class="ar">الدور: مطوّر Full-Stack منفرد</span></p>
+          <p><span class="en">Offline-first ERP for Saudi SMEs, fully bilingual (Arabic RTL / English) — finance, inventory, procurement and team management with a full audit log, JWT auth and 5-role permissions. Works offline in IndexedDB and syncs to PostgreSQL.</span><span class="ar">منصة ERP تعمل دون اتصال للشركات الصغيرة والمتوسطة في السعودية، ثنائية اللغة بالكامل — مالية ومخزون ومشتريات وإدارة فريق مع سجل تدقيق كامل وتسجيل دخول JWT وصلاحيات لخمسة أدوار. تعمل دون إنترنت عبر IndexedDB وتتزامن مع PostgreSQL.</span></p>
+          <div class="tags"><span>React 19</span><span>TypeScript</span><span>IndexedDB</span><span>PostgreSQL</span><span>JWT · RBAC</span><span>Shopify API</span></div>
           <div class="plinks"><a class="btn primary" href="https://officify-enterprise-os.vercel.app/" target="_blank" rel="noopener"><span class="en">Live demo</span><span class="ar">جرّب المنصة</span> ↗</a></div>
         </div>
         <div class="shot" aria-hidden="true">
@@ -632,6 +612,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
         </div>
         <span class="ptype">2026 · <span class="en">Payments &amp; reconciliation</span><span class="ar">مدفوعات ومطابقة</span></span>
         <h3><span class="en">Durjak – Bankak Reports</span><span class="ar">دُرجك – تقارير بنكك</span></h3>
+        <p class="role"><span class="en">Role: Backend developer</span><span class="ar">الدور: مطوّر Backend</span></p>
         <p><span class="en">Matches payment receipts from Bankak (Bank of Khartoum mobile banking) to client records, with correct Sudan time-zone handling and zero-downtime schema migrations.</span><span class="ar">يطابق إيصالات الدفع من تطبيق بنكك (بنك الخرطوم) مع سجلات العملاء، مع ضبط توقيت السودان وترحيل قاعدة البيانات دون توقف.</span></p>
         <div class="tags"><span>Next.js</span><span>TypeScript</span><span>SQL</span><span>GitHub Actions CI</span></div>
         <div class="plinks"><a class="chip-btn" href="https://bankak-reports.vercel.app/" target="_blank" rel="noopener"><span class="en">Live</span><span class="ar">مباشر</span> ↗</a></div>
@@ -644,6 +625,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
         </div>
         <span class="ptype"><span class="en">B2B2C · Medical tourism</span><span class="ar">B2B2C · سياحة علاجية</span></span>
         <h3>CarePath World Wide</h3>
+        <p class="role"><span class="en">Role: Full-stack developer</span><span class="ar">الدور: مطوّر Full-Stack</span></p>
         <p><span class="en">Medical-tourism platform in English, Arabic and French that connects international patients with partner hospitals across Egypt. Online treatment booking, agency referral links, and an admin panel for patients, agencies, departments, hospitals and promotions.</span><span class="ar">منصة سياحة علاجية بالإنجليزية والعربية والفرنسية تربط المرضى الدوليين بالمستشفيات الشريكة في مصر. حجز العلاج أونلاين، وروابط إحالة للوكالات، ولوحة إدارة للمرضى والوكالات والأقسام والمستشفيات والعروض.</span></p>
         <div class="tags"><span>Next.js</span><span>Node.js / Express</span><span>PostgreSQL</span><span>AWS S3</span><span>EN · AR · FR</span></div>
         <div class="plinks"><a class="chip-btn" href="https://carepathworldwide.com" target="_blank" rel="noopener"><span class="en">Live</span><span class="ar">مباشر</span> ↗</a></div>
@@ -656,6 +638,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
         </div>
         <span class="ptype">2024 · <span class="en">Data analytics</span><span class="ar">تحليل بيانات</span></span>
         <h3><span class="en">E-Commerce Analytics Dashboard</span><span class="ar">لوحة تحليلات متجر إلكتروني</span></h3>
+        <p class="role"><span class="en">Role: Data analyst</span><span class="ar">الدور: محلل بيانات</span></p>
         <p><span class="en">Interactive Power BI dashboard on a SQL data model tracking sales, customers and product performance. AMIT diploma capstone.</span><span class="ar">لوحة Power BI تفاعلية على نموذج بيانات SQL تتابع المبيعات والعملاء وأداء المنتجات. مشروع التخرج في دبلومة AMIT.</span></p>
         <div class="tags"><span>Power BI</span><span>DAX</span><span>SQL</span><span>Excel</span></div>
       </article>
@@ -668,8 +651,8 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   <div class="wrap about-grid">
     <div class="portrait reveal" tabindex="0">
       <span class="badge">B.Sc. IT (Hons) · 2024</span>
-      <img src="abdu-pro-portrait.webp" alt="Portrait of Abdelrahman Ibrahim" width="864" height="1080">
-      <img class="real" src="abdu-illustrated.webp" alt="Illustrated portrait of Abdelrahman Ibrahim" width="720" height="720">
+      <img src="abdu-pro-portrait.webp" alt="Portrait of Abdelrahman Ibrahim" width="864" height="1080" loading="lazy">
+      <img class="real" src="abdu-illustrated.webp" alt="Illustrated portrait of Abdelrahman Ibrahim" width="720" height="720" loading="lazy">
       <span class="swap-hint"><span class="en">hover or tap for the comic version</span><span class="ar">اضغط لترى النسخة الكرتونية</span></span>
       <div class="meta">Abdelrahman Mohamed Hassan Ibrahim<br>Giza · Egypt — GMT+2</div>
     </div>
@@ -677,10 +660,10 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
       <span class="eyebrow">-- about</span>
       <h2><span class="en">The teacher behind the code</span><span class="ar">المعلّم خلف الكود</span></h2>
       <div style="margin-top:24px">
-        <p class="en">I'm <strong>Abdelrahman (Abdu) Ibrahim</strong>. I earned a <strong>B.Sc. (Honours) in Information Technology</strong> from National University, Sudan, finishing with a <strong>3.72 final-year GPA</strong> and an A on my graduation project. Months later I was back in the lab as a <strong>Teaching Assistant</strong>, now running 13 lab courses across two universities, from AI and Advanced Databases to Compilers and Distributed Computing.</p>
+        <p class="en">I'm <strong>Abdelrahman (Abdu) Ibrahim</strong>. I earned a <strong>B.Sc. (Honours) in Information Technology</strong> from National University, Sudan, finishing with a <strong>3.72 final-year GPA</strong> and an A on my graduation project. Months later I was back in the lab as a <strong>Teaching Assistant</strong> — the role I still hold today, and the one that shapes how I build software.</p>
         <p class="en">Teaching made me a better engineer. I explain things simply, document what I build and care about the person using it. I bring the same habits to client work: bilingual business platforms, payment reconciliation and data dashboards that people use every day.</p>
         <p class="en">I'm also upfront about how I work: <strong>I vibe-code</strong>. I plan the product and the data model, pair with AI tools like Claude and Gemini to write code faster, then review, test and take responsibility for every line that ships.</p>
-        <p class="ar">أنا <strong>عبدالرحمن محمد حسن إبراهيم (عبدو)</strong>. حصلت على <strong>بكالوريوس تقنية المعلومات (مرتبة الشرف)</strong> من الجامعة الوطنية بالسودان، بمعدل <strong>3.72 في السنة النهائية</strong> وتقدير A في مشروع التخرج. وبعد أشهر عدت إلى المعمل <strong>معيداً</strong>، وأدرّس اليوم 13 مقرراً معملياً في جامعتين، من الذكاء الاصطناعي وقواعد البيانات المتقدمة إلى المترجمات والحوسبة الموزعة.</p>
+        <p class="ar">أنا <strong>عبدالرحمن محمد حسن إبراهيم (عبدو)</strong>. حصلت على <strong>بكالوريوس تقنية المعلومات (مرتبة الشرف)</strong> من الجامعة الوطنية بالسودان، بمعدل <strong>3.72 في السنة النهائية</strong> وتقدير A في مشروع التخرج. وبعد أشهر عدت إلى المعمل <strong>معيداً</strong> — وهو الدور اللي لسه بشغله، وهو اللي بيشكّل طريقتي في بناء البرمجيات.</p>
         <p class="ar">التدريس جعلني مهندساً أفضل: أشرح ببساطة، وأوثّق ما أبنيه، وأهتم بالمستخدم. وأحمل هذه العادات إلى أعمال العملاء: منصات أعمال ثنائية اللغة، ومطابقة مدفوعات، ولوحات بيانات يستخدمها الناس يومياً.</p>
         <p class="ar">وأنا صريح في طريقة عملي: <strong>أبرمج بأسلوب الـ vibe coding</strong>؛ أخطط للمنتج ونموذج البيانات، وأستعين بأدوات ذكاء اصطناعي مثل Claude وGemini لكتابة الكود أسرع، ثم أراجع وأختبر وأتحمّل مسؤولية كل سطر يُنشر.</p>
       </div>
@@ -712,6 +695,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
         <div><b><span class="en">"Teach Me, Thank You"</span><span class="ar">«علّمني شكراً»</span></b><span><span class="en">Organized free tech-literacy workshops at British International Center, Egypt.</span><span class="ar">نظّمت ورشاً مجانية لمحو الأمية التقنية في المركز البريطاني الدولي بمصر.</span></span></div>
         <div><b><span class="en">Community IT support</span><span class="ar">دعم تقني مجتمعي</span></b><span><span class="en">Repairing devices for underprivileged students since 2020.</span><span class="ar">صيانة أجهزة الطلاب غير القادرين منذ 2020.</span></span></div>
       </div>
+      <p class="lead" style="margin-top:28px"><span class="en">Thirteen courses, two universities, hundreds of students — it's the best training I know for explaining complex systems clearly, mentoring juniors, and solving problems with a non-technical audience in the room.</span><span class="ar">13 مقرراً وجامعتان ومئات الطلاب — أفضل تدريب أعرفه على شرح الأنظمة المعقدة ببساطة، وتوجيه المبتدئين، وحل المشكلات بحضور جمهور غير تقني.</span></p>
     </div>
   </div>
 </section>
@@ -756,32 +740,18 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   </div>
 </section>
 
-<!-- JOURNEY -->
-<section id="journey">
-  <div class="wrap">
-    <span class="eyebrow">-- journey</span>
-    <h2><span class="en">From student to teacher</span><span class="ar">من طالب إلى معلّم</span></h2>
-    <ol class="tl" id="tl">
-      <li class="tl-walker" id="tlWalker" aria-hidden="true"><i></i></li>
-      <li class="reveal"><time>2020</time><div><h3><span class="en">Started B.Sc. IT, National University</span><span class="ar">بداية بكالوريوس IT، الجامعة الوطنية</span></h3><p><span class="en">Also began volunteering as a community IT repair technician.</span><span class="ar">وبدأت التطوع في صيانة الأجهزة للمجتمع.</span></p></div></li>
-      <li class="reveal"><time>2024 · 07</time><div><h3><span class="en">Graduated with Honours</span><span class="ar">التخرج بمرتبة الشرف</span></h3><p><span class="en">Grade Very Good, final-year GPA 3.72, graduation project graded A.</span><span class="ar">تقدير جيد جداً، ومعدل 3.72 في السنة النهائية، ومشروع تخرج بتقدير A.</span></p></div></li>
-      <li class="reveal"><time>2024 · 11</time><div><h3><span class="en">Data Analysis Diploma, AMIT Cairo</span><span class="ar">دبلومة تحليل البيانات، AMIT القاهرة</span></h3><p><span class="en">80 hours, graded 90%: Python, SQL, Power BI, statistics.</span><span class="ar">80 ساعة بتقدير 90%: Python وSQL وPower BI والإحصاء.</span></p></div></li>
-      <li class="reveal"><time>2024 · 12</time><div><h3><span class="en">Teaching Assistant at two universities</span><span class="ar">معيد في جامعتين</span></h3><p><span class="en">National University and Bahri National University, after a TA internship and ICDL training for first-years.</span><span class="ar">الجامعة الوطنية وجامعة بحري الوطنية، بعد تدريب كمعيد وتدريس ICDL لطلاب السنة الأولى.</span></p></div></li>
-      <li class="reveal"><time>2026</time><div><h3><span class="en">Officify &amp; Durjak in production</span><span class="ar">إطلاق Officify ودُرجك</span></h3><p><span class="en">Two client platforms shipped to production on Vercel.</span><span class="ar">منصتان لعملاء تعملان فعلياً على Vercel.</span></p></div></li>
-    </ol>
-  </div>
-</section>
-
 <!-- STACK -->
 <section id="stack" style="padding-top:0">
   <div class="wrap">
     <span class="eyebrow">-- stack</span>
     <h2><span class="en">Tools I use every week</span><span class="ar">الأدوات التي أستخدمها أسبوعياً</span></h2>
     <div class="stack">
-      <div class="cat reveal"><h3><span class="en">Languages</span><span class="ar">اللغات البرمجية</span></h3><ul><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>Java</li><li>PHP</li><li>Dart</li></ul></div>
-      <div class="cat reveal"><h3><span class="en">Web &amp; Backend</span><span class="ar">الويب والخادم</span></h3><ul><li>React</li><li>Next.js</li><li>Node.js</li><li>Express</li><li>Vite</li><li>REST</li><li>JWT · RBAC</li></ul></div>
-      <div class="cat reveal"><h3><span class="en">Data</span><span class="ar">البيانات</span></h3><ul><li>PostgreSQL</li><li>MySQL</li><li>IndexedDB</li><li>Power BI</li><li>Pandas</li><li>Excel</li></ul></div>
-      <div class="cat reveal"><h3><span class="en">Cloud &amp; Tools</span><span class="ar">السحابة والأدوات</span></h3><ul><li>Vercel</li><li>AWS S3</li><li>Hostinger VPS</li><li>GitHub Actions</li><li>Flutter</li><li>Moodle</li><li>Claude · Gemini</li><li>Vibe coding</li></ul></div>
+      <div class="cat reveal"><h3><span class="en">Frontend Engineering</span><span class="ar">هندسة الواجهات</span></h3><ul><li>React</li><li>Next.js</li><li>TypeScript</li><li>JavaScript</li><li>Vite</li></ul></div>
+      <div class="cat reveal"><h3><span class="en">Backend &amp; APIs</span><span class="ar">الخادم وواجهات البرمجة</span></h3><ul><li>Node.js</li><li>Express</li><li>REST APIs</li><li>JWT · RBAC</li><li>Java</li><li>PHP</li></ul></div>
+      <div class="cat reveal"><h3><span class="en">Database &amp; Architecture</span><span class="ar">قواعد البيانات والمعمارية</span></h3><ul><li>PostgreSQL</li><li>MySQL</li><li>IndexedDB</li><li>SQL</li></ul></div>
+      <div class="cat reveal"><h3><span class="en">Data Analytics</span><span class="ar">تحليل البيانات</span></h3><ul><li>Python</li><li>Power BI</li><li>Pandas</li><li>Excel</li></ul></div>
+      <div class="cat reveal"><h3><span class="en">DevOps &amp; Deployment</span><span class="ar">النشر والتشغيل</span></h3><ul><li>Vercel</li><li>AWS S3</li><li>Hostinger VPS</li><li>GitHub Actions</li></ul></div>
+      <div class="cat reveal"><h3><span class="en">Tools &amp; Workflow</span><span class="ar">الأدوات وطريقة العمل</span></h3><ul><li>Git · GitHub</li><li>Moodle</li><li>Flutter · Dart</li><li>Claude · Gemini</li></ul></div>
     </div>
   </div>
 </section>
@@ -819,24 +789,21 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   <div class="wrap contact-grid">
     <div>
       <span class="eyebrow">-- contact</span>
-      <h2><span class="en">Have a project or a role in mind?</span><span class="ar">لديك مشروع أو وظيفة؟</span></h2>
-      <p class="lead"><span class="en">I usually reply within a day.</span><span class="ar">عادةً أرد خلال يوم.</span></p>
-      <div class="channels">
-        <div class="ch"><div style="min-width:0"><small>Email</small><span id="mail">abdelrahman.ibrahim.job@gmail.com</span></div><button class="chip-btn" type="button" data-copy="abdelrahman.ibrahim.job@gmail.com"><span class="en">Copy</span><span class="ar">نسخ</span></button></div>
-        <div class="ch"><div style="min-width:0"><small>WhatsApp</small><span><span class="en">Message me on WhatsApp</span><span class="ar">راسلني على واتساب</span></span></div><a class="chip-btn" href="https://wa.me/message/EZZEJUWBDXTHB1" target="_blank" rel="noopener"><span class="en">Chat</span><span class="ar">محادثة</span> ↗</a></div>
-        <div class="ch"><div style="min-width:0"><small>Instagram</small><span>@3bdo_661</span></div><a class="chip-btn" href="https://www.instagram.com/3bdo_661/" target="_blank" rel="noopener"><span class="en">Follow</span><span class="ar">متابعة</span> ↗</a></div>
-        <div class="ch"><div style="min-width:0"><small>LinkedIn</small><span>abdelrahman-ibrahim-77a171282</span></div><a class="chip-btn" href="https://www.linkedin.com/in/abdelrahman-ibrahim-77a171282/" target="_blank" rel="noopener"><span class="en">Open</span><span class="ar">فتح</span> ↗</a></div>
-        <div class="ch"><div style="min-width:0"><small>GitHub</small><span>github.com/Abdu090</span></div><a class="chip-btn" href="https://github.com/Abdu090" target="_blank" rel="noopener"><span class="en">Open</span><span class="ar">فتح</span> ↗</a></div>
+      <h2><span class="en">Have a project, an opportunity, or an interesting problem?</span><span class="ar">عندك مشروع أو فرصة أو مشكلة مثيرة للاهتمام؟</span></h2>
+      <p class="lead"><span class="en">Let's talk — I usually reply within a day.</span><span class="ar">يلا نتكلم — عادةً أرد خلال يوم.</span></p>
+      <div class="cta" style="margin-top:28px">
+        <a class="btn primary" href="mailto:abdelrahman.ibrahim.job@gmail.com?subject=Let%27s%20talk"><span class="en">Email me</span><span class="ar">راسلني بالإيميل</span> ↗</a>
+        <a class="btn ghost" href="Abdelrahman_Ibrahim_CV.pdf" target="_blank" rel="noopener"><span class="en">View CV (PDF)</span><span class="ar">السيرة الذاتية (PDF)</span> ↗</a>
       </div>
       <p class="where">Giza, Egypt · GMT+2</p>
     </div>
-    <form id="form" novalidate>
-      <label class="f" for="fName"><span class="en">Your name</span><span class="ar">اسمك</span><input class="i" id="fName" required></label>
-      <label class="f" for="fEmail"><span class="en">Your email</span><span class="ar">بريدك الإلكتروني</span><input class="i" id="fEmail" type="email" required></label>
-      <label class="f" for="fMsg"><span class="en">What do you have in mind?</span><span class="ar">ما الذي تفكر فيه؟</span><textarea class="i" id="fMsg" required></textarea></label>
-      <button class="btn primary" type="submit" style="justify-content:center"><span class="en">Copy message for email</span><span class="ar">انسخ الرسالة للإرسال</span></button>
-      <p class="form-msg" id="formMsg" role="status"></p>
-    </form>
+    <div class="channels">
+      <div class="ch"><div style="min-width:0"><small>Email</small><span id="mail">abdelrahman.ibrahim.job@gmail.com</span></div><button class="chip-btn" type="button" data-copy="abdelrahman.ibrahim.job@gmail.com"><span class="en">Copy</span><span class="ar">نسخ</span></button></div>
+      <div class="ch"><div style="min-width:0"><small>LinkedIn</small><span>abdelrahman-ibrahim-77a171282</span></div><a class="chip-btn" href="https://www.linkedin.com/in/abdelrahman-ibrahim-77a171282/" target="_blank" rel="noopener"><span class="en">Open</span><span class="ar">فتح</span> ↗</a></div>
+      <div class="ch"><div style="min-width:0"><small>GitHub</small><span>github.com/Abdu090</span></div><a class="chip-btn" href="https://github.com/Abdu090" target="_blank" rel="noopener"><span class="en">Open</span><span class="ar">فتح</span> ↗</a></div>
+      <div class="ch"><div style="min-width:0"><small>WhatsApp</small><span><span class="en">Message me on WhatsApp</span><span class="ar">راسلني على واتساب</span></span></div><a class="chip-btn" href="https://wa.me/message/EZZEJUWBDXTHB1" target="_blank" rel="noopener"><span class="en">Chat</span><span class="ar">محادثة</span> ↗</a></div>
+      <div class="ch"><div style="min-width:0"><small>Instagram</small><span>@3bdo_661</span></div><a class="chip-btn" href="https://www.instagram.com/3bdo_661/" target="_blank" rel="noopener"><span class="en">Follow</span><span class="ar">متابعة</span> ↗</a></div>
+    </div>
   </div>
 </section>
 </main>
@@ -871,13 +838,14 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   // intro: counts up, closes itself, or on click / Enter
   const intro=document.getElementById('intro'),load=document.getElementById('load');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let p=0,closed=false;
-  function close(){if(closed)return;closed=true;intro.classList.add('done');setTimeout(()=>intro.hidden=true,600)}
+  let p=0,closed=false,autoT=null;
+  function close(){if(closed)return;closed=true;clearTimeout(autoT);intro.classList.add('done');setTimeout(()=>intro.hidden=true,500)}
   let seen=null;try{seen=sessionStorage.getItem('started')}catch(e){}
   if(seen){intro.hidden=true;closed=true}
   else{
     const t=setInterval(()=>{p=Math.min(100,p+Math.ceil(Math.random()*9));load.textContent='LOADING '+String(p).padStart(3,'0')+'%';
-      if(p>=100){clearInterval(t);document.getElementById('startBtn').hidden=false;document.getElementById('startHint').hidden=false;load.hidden=true}},reduce?1:40);
+      if(p>=100){clearInterval(t);document.getElementById('startBtn').hidden=false;document.getElementById('startHint').hidden=false;load.hidden=true;
+        autoT=setTimeout(go,reduce?0:300)}},reduce?1:40);
     const go=()=>{try{sessionStorage.setItem('started','1')}catch(e){}close()};
     intro.addEventListener('click',go);
     addEventListener('keydown',e=>{if(!closed&&(e.key==='Enter'||e.key===' ')){e.preventDefault();go()}});
@@ -900,25 +868,12 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
       ()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('mail'));const s=getSelection();s.removeAllRanges();s.addRange(r)});
   }));
 
-  // contact form: builds the message and copies it
-  const form=document.getElementById('form'),msg=document.getElementById('formMsg');
-  form.addEventListener('submit',e=>{
-    e.preventDefault();
-    const n=fName.value.trim(),m=fEmail.value.trim(),t=fMsg.value.trim(),ar=root.lang==='ar';
-    if(!n||!m||!t){msg.style.color='var(--sand)';msg.textContent=ar?'من فضلك املأ الحقول الثلاثة.':'Please fill in all three fields.';return}
-    if(!/^\S+@\S+\.\S+$/.test(m)){msg.style.color='var(--sand)';msg.textContent=ar?'البريد الإلكتروني غير صحيح.':'That email address looks incomplete.';return}
-    const body='Hi Abdu,\n\n'+t+'\n\n— '+n+' ('+m+')';
-    msg.style.color='var(--accent)';
-    copy(body,()=>{msg.textContent=ar?'تم نسخ رسالتك. الصقها في بريدك وأرسلها إلى abdelrahman.ibrahim.job@gmail.com':'Your message is copied. Paste it into an email to abdelrahman.ibrahim.job@gmail.com.'},
-      ()=>{fMsg.select();msg.textContent=ar?'حدّد الرسالة وانسخها، ثم أرسلها إلى abdelrahman.ibrahim.job@gmail.com':'Select and copy your message, then send it to abdelrahman.ibrahim.job@gmail.com.'});
-  });
-
   // terminal
   const out=document.getElementById('termOut'),inp=document.getElementById('termIn'),hints=document.getElementById('termHints');
   const cmds={
     help:()=>'<span class="y">available commands</span>\n  about     who I am\n  cv        open my CV\n  skills    my stack\n  projects  what I built\n  teach     what I teach\n  goals     what\'s next\n  contact   how to reach me\n  lang      switch English / عربي\n  clear     clear the screen',
     about:()=>'Abdelrahman "Abdu" Ibrahim — B.Sc. (Hons) IT, Teaching Assistant at National University, full-stack developer and data analyst in Giza, Egypt.',
-    cv:()=>'open <a href="Abdelrahman_Ibrahim_CV.pdf" target="_blank" rel="noopener" style="color:#f0bb4c">Abdelrahman_Ibrahim_CV.pdf</a>',
+    cv:()=>'open <a href="Abdelrahman_Ibrahim_CV.pdf" target="_blank" rel="noopener" style="color:#d1795c">Abdelrahman_Ibrahim_CV.pdf</a>',
     skills:()=>'<span class="p">lang</span>   Python · TypeScript · SQL · Java · PHP\n<span class="p">web</span>    React · Next.js · Node.js · Express\n<span class="p">data</span>   PostgreSQL · Power BI · Pandas · Excel\n<span class="p">cloud</span>  Vercel · AWS S3 · GitHub Actions',
     projects:()=>'1. Officify Enterprise OS  bilingual ERP for SMEs (live)\n2. Durjak                  Bankak payment reconciliation (live)\n3. CarePath World Wide    medical tourism, EN/AR/FR (live)\n4. E-Commerce Dashboard    Power BI analytics',
     teach:()=>'13 lab courses incl. AI · Web Systems · Advanced Databases · Compilers\n+ Moodle admin and graduation-project mentoring',
@@ -981,17 +936,6 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   const L=()=>root.lang==='ar'?'ar':'en';
   const $=id=>document.getElementById(id);
 
-  /* ---------- hero typer ---------- */
-  const phrases={en:['bilingual ERP platforms.','payment reconciliation tools.','Power BI dashboards.','AI & database labs.','medical-tourism platforms.'],
-                 ar:['منصات ERP ثنائية اللغة.','أنظمة لمطابقة المدفوعات.','لوحات Power BI.','معامل الذكاء الاصطناعي وقواعد البيانات.','منصات سياحة علاجية.']};
-  const typer=$('typer');let pi=0,ci=0,del=false;
-  function tick(){if(!typer)return;const list=phrases[L()],w=list[pi%list.length];
-    if(reduce){typer.textContent=w;return setTimeout(()=>{pi++;tick()},2600)}
-    ci+=del?-1:1;typer.textContent=w.slice(0,ci);
-    let t=del?28:55;if(!del&&ci>=w.length){del=true;t=1700}else if(del&&ci<=0){del=false;pi++;t=300}
-    setTimeout(tick,t)}
-  tick();
-
   /* ---------- count-up stats ---------- */
   const nums=[...document.querySelectorAll('.stat b')];
   nums.forEach(b=>{const m=b.textContent.trim().match(/^([\d.]+)(.*)$/);if(!m)return;b.dataset.to=m[1];b.dataset.suf=m[2];b.dataset.dec=(m[1].split('.')[1]||'').length});
@@ -1040,7 +984,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   const greet={en:hr<5?'Up late?':hr<12?'Good morning!':hr<18?'Good afternoon!':'Good evening!',ar:hr<5?'سهران؟':hr<12?'صباح الخير!':hr<18?'مساء النور!':'مساء الخير!'};
   const tour=[
     {sel:'.hero h1',t:{en:'Meet Abdu',ar:'تعرّف على عبدو'},s:{en:'First things first: this is Abdelrahman, but everyone calls me Abdu. Teaching Assistant, full-stack developer and data analyst.',ar:'أول حاجة: ده عبدالرحمن، بس الكل بيقولّي عبدو. معيد ومطوّر Full-Stack ومحلل بيانات.'}},
-    {sel:'.typer',t:{en:'What I build',ar:'بعمل إيه'},s:{en:'Watch this line type itself. These are the kinds of things I build and teach every week.',ar:'شوف السطر ده وهو بيكتب نفسه. دي الحاجات اللي ببنيها وبدرّسها كل أسبوع.'}},
+    {sel:'.typer',t:{en:'What I do',ar:'بعمل إيه'},s:{en:'That line sums it up: I turn ideas into real, working systems.',ar:'السطر ده بيلخّص كل حاجة: بحوّل الأفكار لأنظمة شغالة فعلاً.'}},
     {sel:'.stats',t:{en:'The numbers',ar:'بالأرقام'},s:{en:'13 lab courses taught, a 3.72 final-year GPA, 90% in my data diploma, and 3 apps running in production.',ar:'13 مقرر عملي درّستها، ومعدل 3.72 في السنة النهائية، و90% في دبلومة البيانات، و3 تطبيقات شغالة فعلاً.'}},
     {sel:'.sql',t:{en:'Me, as a query',ar:'أنا كاستعلام SQL'},s:{en:'I teach databases, so here is my CV written as SQL. Every row is a role I hold right now.',ar:'بدرّس قواعد بيانات، فكتبت الـ CV بتاعي كاستعلام SQL. كل صف دور أنا شغال فيه دلوقتي.'}},
     {sel:'#work .proj.feature',t:{en:'Featured: Officify',ar:'المشروع المميز: Officify'},s:{en:'An offline-first ERP for Saudi SMEs in Arabic and English. Finance, inventory, procurement and 5 user roles. Hit "Live demo" to try it.',ar:'نظام ERP للشركات السعودية بيشتغل من غير إنترنت، عربي وإنجليزي. مالية ومخزون ومشتريات و5 صلاحيات. اضغط «جرّب المنصة».'}},
@@ -1048,7 +992,6 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
     {sel:'.portrait',t:{en:'Two of me',ar:'نسختين مني'},s:{en:'That’s me, studio edition. Hover or tap the photo to flip it into my comic-book version.',ar:'ده أنا بنسخة الاستوديو. مرّر الماوس أو اضغط على الصورة عشان تتحول لنسخة الكوميكس.'}},
     {sel:'.teach',t:{en:'In the lab',ar:'في المعمل'},s:{en:'13 lab courses across two universities, Moodle admin, and graduation-project mentoring.',ar:'13 مقرر عملي في جامعتين، وإدارة Moodle، والإشراف على مشاريع التخرج.'}},
     {sel:'#linkedin .posts',t:{en:'Straight from LinkedIn',ar:'من LinkedIn مباشرة'},s:{en:'Real moments: co-supervising the Bayan sign-language AI project, first-year labs, and my Power BI work. Tap a photo for the gallery.',ar:'لحظات حقيقية: إشرافي على مشروع «بيان» لترجمة لغة الإشارة، ومعامل سنة أولى، وشغلي في Power BI. اضغط على أي صورة.'}},
-    {sel:'.tl',t:{en:'The journey',ar:'المسيرة'},s:{en:'From starting my degree in 2020 to teaching at two universities. Next stop: a remote team where I can build and teach.',ar:'من أول يوم في الجامعة سنة 2020 لحد ما بقيت معيد في جامعتين. المحطة الجاية: فريق عن بُعد أبني وأعلّم فيه.'}},
     {sel:'#term',t:{en:'Try the terminal',ar:'جرّب الـ terminal'},s:{en:'Type "help", "projects" or "cv" in here. It actually answers.',ar:'اكتب help أو projects أو cv هنا. هيرد عليك فعلاً.'}},
     {sel:'#contact .channels',t:{en:'Let’s talk',ar:'يلا نتكلم'},s:{en:'That’s the tour! Email, WhatsApp or LinkedIn, I usually reply within a day. Thanks for visiting.',ar:'كده خلصنا الجولة! إيميل أو واتساب أو LinkedIn، عادةً برد خلال يوم. شكراً لزيارتك.'}}
   ];
@@ -1132,13 +1075,9 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   menu.addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
   addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden)setMenu(false)});
   [...menu.querySelectorAll('.menu-list a')].forEach((a,i)=>a.style.transitionDelay=(i*40)+'ms');
-  /* scroll progress + timeline walker */
-  const bar=$('progress'),tl=$('tl'),walker=$('tlWalker');let stopT=null,waved=false;
-  function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(h>0?scrollY/h*100:0)+'%';
-    if(tl&&walker){const r=tl.getBoundingClientRect(),mid=innerHeight*.5;let pr=(mid-r.top)/(r.height);pr=Math.max(0,Math.min(1,pr));
-      walker.style.top=(pr*(r.height-61))+'px';
-      if(!reduce){walker.classList.add('walk');clearTimeout(stopT);stopT=setTimeout(()=>walker.classList.remove('walk'),180)}
-      if(pr>.92&&!waved){waved=true;walker.classList.add('wave');setTimeout(()=>walker.classList.remove('wave'),1600)}if(pr<.8)waved=false}}
+  /* scroll progress */
+  const bar=$('progress');
+  function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(h>0?scrollY/h*100:0)+'%'}
   addEventListener('scroll',()=>requestAnimationFrame(onScroll),{passive:true});addEventListener('resize',onScroll);onScroll();
 })();
 </script>
