@@ -9,11 +9,12 @@
 <meta property="og:url" content="https://abdu-portfolio-ten.vercel.app/">
 <meta property="og:title" content="Abdu Ibrahim — Full-Stack Developer &amp; Data Analyst">
 <meta property="og:description" content="I build business platforms, web applications and data solutions — from database design to production deployment. Based in Giza, Egypt.">
-<meta property="og:image" content="abdu-pro-portrait.webp">
+<meta property="og:image" content="https://abdu-portfolio-ten.vercel.app/abdu-pro-portrait.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Abdu Ibrahim — Full-Stack Developer &amp; Data Analyst">
 <meta name="twitter:description" content="I build business platforms, web applications and data solutions — from database design to production deployment. Based in Giza, Egypt.">
-<meta name="twitter:image" content="abdu-pro-portrait.webp">
+<meta name="twitter:image" content="https://abdu-portfolio-ten.vercel.app/abdu-pro-portrait.webp">
+<script defer src="/_vercel/insights/script.js"></script>
 <link rel="icon" href="abdu.webp">
 <style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Abdu Ibrahim</title>
@@ -203,12 +204,6 @@ html[lang="ar"] .stat{padding:18px 0 0 16px}
 .svc:nth-child(even){border-top-color:var(--sand)}
 .svc h3{font-size:1.15rem}
 .svc p{color:var(--muted);font-size:.92rem;margin-top:8px}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:28px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
-.steps div{padding:18px 20px;border-inline-end:1px solid var(--line);min-width:0}
-.steps div:last-child{border-inline-end:0}
-.steps small{font-family:var(--f-mono);color:var(--accent);font-size:.75rem}
-.steps b{display:block;font-family:var(--f-display);font-size:1.1rem}
-.steps span{font-size:.85rem;color:var(--muted)}
 .note{margin-top:18px;color:var(--muted);font-size:.9rem}
 @media (max-width:900px){.services{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.steps div:nth-child(2){border-inline-end:0}.steps div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
 @media (max-width:480px){.services,.steps{grid-template-columns:1fr}.steps div{border-inline-end:0;border-bottom:1px solid var(--line)}}
@@ -285,8 +280,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;background:var(--bg)}
 .flow2{display:grid;gap:6px}
 .flow2 span{padding:7px 10px;border:1px dashed var(--line);border-radius:8px}
 .flow2 b{color:var(--accent);font-weight:600;display:inline-block;min-width:64px}
-.course-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.course-list span{font-size:.82rem;padding:6px 12px;border-radius:999px;border:1px solid color-mix(in srgb,var(--bg) 18%,transparent);color:color-mix(in srgb,var(--bg) 80%,transparent)}
+.course-line{margin-top:16px;color:color-mix(in srgb,var(--bg) 72%,transparent)}
 
 .reveal{transition:transform .7s ease,opacity .7s ease}
 .reveal.pre{transform:translateY(18px);opacity:.35}
@@ -324,7 +318,6 @@ html[lang="ar"] h2{line-height:1.35}
 .labs,.teach-row{gap:20px}.lab{padding:26px}
 .stack,.services{gap:20px}.cat,.svc{padding:28px}
 .svc p{font-size:.98rem;line-height:1.7}
-.steps div{padding:22px 24px}
 .channels{gap:14px}.ch{padding:18px 20px}
 @media (max-width:1000px){.projects{grid-template-columns:1fr 1fr}}
 @media (max-width:700px){.projects{grid-template-columns:1fr}.proj,.proj.feature{padding:24px}body{font-size:16.5px}}
@@ -531,7 +524,6 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
       </div>
       <div class="stats">
         <div class="stat"><b>13</b><small><span class="en">university lab courses taught</span><span class="ar">مقرراً معملياً درّستها</span></small></div>
-        <div class="stat"><b>3.72</b><small><span class="en">final-year GPA · project graded A</span><span class="ar">معدل السنة النهائية · مشروع التخرج A</span></small></div>
         <div class="stat"><b>90%</b><small><span class="en">Data Analysis Diploma, AMIT</span><span class="ar">دبلومة تحليل البيانات، AMIT</span></small></div>
         <div class="stat"><b>3</b><small><span class="en">apps live in production</span><span class="ar">تطبيقات تعمل فعلياً</span></small></div>
       </div>
@@ -550,17 +542,15 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
           <tbody>
             <tr><td>Teaching Assistant</td><td>National Univ.</td><td>2024-12</td></tr>
             <tr><td>E-Learning Admin</td><td>National Univ.</td><td>2024-12</td></tr>
-            <tr><td>Marketing &amp; CX</td><td>AIALT</td><td>2024-10</td></tr>
             <tr><td>Tech Partner</td><td>Comerica LLC</td><td>—</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="sql-foot"><span style="color:var(--accent)">✓</span> 4 rows · status: <span style="color:var(--sand)">available for work</span></div>
+      <div class="sql-foot"><span style="color:var(--accent)">✓</span> 3 rows · status: <span style="color:var(--sand)">available for work</span></div>
     </div>
   </div>
 </section>
 
-<div class="marquee" aria-label="Technologies"><div class="marquee-track"><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span><span>Python</span><span>Power BI</span><span>SQL</span><span>Vercel</span><span>AWS S3</span><span>GitHub Actions</span><span>IndexedDB</span><span>Flutter</span><span>Moodle</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span><span>Python</span><span>Power BI</span><span>SQL</span><span>Vercel</span><span>AWS S3</span><span>GitHub Actions</span><span>IndexedDB</span><span>Flutter</span><span>Moodle</span></div></div>
 
 <!-- WORK -->
 <section id="work">
@@ -651,8 +641,8 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
     <div class="portrait reveal" tabindex="0">
       <span class="badge">B.Sc. IT (Hons) · 2024</span>
       <img src="abdu-pro-portrait.webp" alt="Portrait of Abdelrahman Ibrahim" width="864" height="1080" loading="lazy">
-      <img class="real" src="abdu-illustrated.webp" alt="Illustrated portrait of Abdelrahman Ibrahim" width="720" height="720" loading="lazy">
-      <span class="swap-hint"><span class="en">hover or tap for the comic version</span><span class="ar">اضغط لترى النسخة الكرتونية</span></span>
+      <img class="real" src="abdu-pixel.webp" alt="Pixel-art version of Abdelrahman Ibrahim" width="864" height="1080" loading="lazy">
+      <span class="swap-hint" aria-hidden="true">✦ Pixel me</span>
       <div class="meta">Abdelrahman Mohamed Hassan Ibrahim<br>Giza · Egypt — GMT+2</div>
     </div>
     <div class="about-text">
@@ -682,19 +672,18 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
     <div class="teach reveal">
       <span class="eyebrow">-- teaching &amp; community</span>
       <h2><span class="en">I teach what I build</span><span class="ar">أُدرّس ما أبنيه</span></h2>
-      <p class="lead"><span class="en">Teaching Assistant &amp; E-Learning Administrator at National University since December 2024. Also part-time TA at Bahri National University (Dec 2024 – Mar 2025).</span><span class="ar">معيد ومسؤول التعليم الإلكتروني في الجامعة الوطنية منذ ديسمبر 2024، ومعيد بدوام جزئي في جامعة بحري الوطنية (ديسمبر 2024 – مارس 2025).</span></p>
+      <p class="lead"><span class="en">Teaching Assistant at National University since Dec 2024, and part-time at Bahri National University.</span><span class="ar">معيد في الجامعة الوطنية منذ ديسمبر 2024، وبدوام جزئي في جامعة بحري الوطنية.</span></p>
       <div class="labs">
         <div class="lab"><span class="code">LAB · AI</span><h3><span class="en">Artificial Intelligence</span><span class="ar">الذكاء الاصطناعي</span></h3><p><span class="en">Search, ML basics and hands-on Python.</span><span class="ar">خوارزميات البحث وأساسيات تعلم الآلة وتطبيقات Python.</span></p></div>
         <div class="lab"><span class="code">LAB · WEB</span><h3><span class="en">Web Systems &amp; Applications</span><span class="ar">نظم وتطبيقات الويب</span></h3><p><span class="en">From HTML to full-stack apps with APIs.</span><span class="ar">من HTML إلى تطبيقات متكاملة مع واجهات برمجية.</span></p></div>
         <div class="lab"><span class="code">LAB · DB</span><h3><span class="en">Advanced Databases</span><span class="ar">قواعد البيانات المتقدمة</span></h3><p><span class="en">Schema design, complex SQL, indexing, transactions.</span><span class="ar">تصميم المخططات وSQL المتقدم والفهرسة والمعاملات.</span></p></div>
       </div>
-      <div class="course-list"><span>OOP</span><span>Parallel &amp; Distributed Computing</span><span>Compilers Design</span><span>IT Project Management</span><span>Internet Technology</span><span>Distributed Databases</span><span>Data Mining</span><span>E-Government</span><span>Advanced Multimedia</span><span>Software Engineering</span></div>
+      <p class="course-line"><span class="en">Plus 10 more labs, from OOP and Compilers to Distributed Databases and Data Mining.</span><span class="ar">وعشرة معامل أخرى، من البرمجة الكائنية والمترجمات إلى قواعد البيانات الموزعة والتنقيب في البيانات.</span></p>
       <div class="teach-row">
         <div><b><span class="en">Co-supervisor, "Bayan"</span><span class="ar">مشرف مشارك، «بيان»</span></b><span><span class="en">Graduation project that translates sign language with computer vision (MediaPipe). Plus Moodle admin.</span><span class="ar">مشروع تخرج يترجم لغة الإشارة بالرؤية الحاسوبية (MediaPipe)، بجانب إدارة Moodle.</span></span></div>
         <div><b><span class="en">"Teach Me, Thank You"</span><span class="ar">«علّمني شكراً»</span></b><span><span class="en">Organized free tech-literacy workshops at British International Center, Egypt.</span><span class="ar">نظّمت ورشاً مجانية لمحو الأمية التقنية في المركز البريطاني الدولي بمصر.</span></span></div>
         <div><b><span class="en">Community IT support</span><span class="ar">دعم تقني مجتمعي</span></b><span><span class="en">Repairing devices for underprivileged students since 2020.</span><span class="ar">صيانة أجهزة الطلاب غير القادرين منذ 2020.</span></span></div>
       </div>
-      <p class="lead" style="margin-top:28px"><span class="en">Thirteen courses, two universities, hundreds of students — it's the best training I know for explaining complex systems clearly, mentoring juniors, and solving problems with a non-technical audience in the room.</span><span class="ar">13 مقرراً وجامعتان ومئات الطلاب — أفضل تدريب أعرفه على شرح الأنظمة المعقدة ببساطة، وتوجيه المبتدئين، وحل المشكلات بحضور جمهور غير تقني.</span></p>
     </div>
   </div>
 </section>
@@ -705,14 +694,14 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   <div class="wrap">
     <span class="eyebrow">-- linkedin</span>
     <h2><span class="en">From my LinkedIn</span><span class="ar">من حسابي على LinkedIn</span></h2>
-    <p class="lead"><span class="en">Moments from the lab, the defense hall and my data work. Tap a photo to open the gallery.</span><span class="ar">لحظات من المعمل وقاعة المناقشات وشغلي في البيانات. اضغط على أي صورة لفتح المعرض.</span></p>
+    <p class="lead"><span class="en">Tap a photo to open the gallery.</span><span class="ar">اضغط على أي صورة لفتح المعرض.</span></p>
     <div class="posts">
       <article class="post reveal">
         <button class="post-media" type="button" data-gallery="bayan" aria-label="Open Bayan photos"><img src="images/li-bayan1.webp" alt="Bayan project team with the defense committee" loading="lazy" width="480" height="360"><span class="count">1/3</span></button>
         <div class="post-body">
           <span class="post-meta">Aug 2026 · <span class="en">Co-supervisor</span><span class="ar">مشرف مشارك</span></span>
           <h3><span class="en">"Bayan": sign language, translated by AI</span><span class="ar">«بيان»: ترجمة لغة الإشارة بالذكاء الاصطناعي</span></h3>
-          <p><span class="en">I co-supervised Batch 5's graduation project Bayan, which recognises sign language and translates it using computer vision (MediaPipe hand tracking). Watching the team defend it with confidence was the best reward.</span><span class="ar">كنت مشرفاً مشاركاً على مشروع تخرج الدفعة الخامسة «بيان»، اللي بيتعرّف على لغة الإشارة ويترجمها باستخدام الرؤية الحاسوبية (تتبع اليد بـ MediaPipe). أجمل مكافأة كانت إني أشوف الفريق بيقدّم شغله بثقة قدام اللجنة.</span></p>
+          <p><span class="en">Co-supervised a graduation project that translates sign language with computer vision (MediaPipe).</span><span class="ar">أشرفت على مشروع تخرج يترجم لغة الإشارة بالرؤية الحاسوبية (MediaPipe).</span></p>
           <a class="more" href="https://www.linkedin.com/feed/update/urn:li:activity:7489629301995335680/" target="_blank" rel="noopener"><span class="en">Read on LinkedIn</span><span class="ar">اقرأ على LinkedIn</span> ↗</a>
         </div>
       </article>
@@ -721,7 +710,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
         <div class="post-body">
           <span class="post-meta">Aug 2026 · <span class="en">Teaching</span><span class="ar">تدريس</span></span>
           <h3><span class="en">Strong foundations from day one</span><span class="ar">أساس قوي من أول يوم</span></h3>
-          <p><span class="en">Lab sessions for Computer 1 with first-year students across departments, bridging basic digital literacy and real problem-solving. Watching them go from day one to confidently handling lab tasks is why I teach.</span><span class="ar">معامل مقرر «حاسوب 1» مع طلاب السنة الأولى من أقسام مختلفة، بنربط فيها بين أساسيات الكمبيوتر وحل المشكلات العملية. إني أشوفهم من أول يوم لحد ما يحلّوا مهام المعمل بثقة، ده سبب حبي للتدريس.</span></p>
+          <p><span class="en">Computer 1 labs with first-year students across departments.</span><span class="ar">معامل «حاسوب 1» مع طلاب السنة الأولى من أقسام مختلفة.</span></p>
           <a class="more" href="https://www.linkedin.com/feed/update/urn:li:activity:7493866895725633536/" target="_blank" rel="noopener"><span class="en">Read on LinkedIn</span><span class="ar">اقرأ على LinkedIn</span> ↗</a>
         </div>
       </article>
@@ -730,7 +719,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
         <div class="post-body">
           <span class="post-meta">Jul 2026 · <span class="en">Data analysis</span><span class="ar">تحليل بيانات</span></span>
           <h3><span class="en">End-to-end Power BI project</span><span class="ar">مشروع Power BI متكامل</span></h3>
-          <p><span class="en">Cleaned raw e-commerce data in Power Query, wrote DAX measures for price, sales volume, ratings and climate-friendly products, and compared Amazon's Choice against Best Sellers in one dashboard.</span><span class="ar">نظّفت بيانات متجر إلكتروني بـ Power Query، وكتبت مقاييس DAX للسعر وحجم المبيعات والتقييمات والمنتجات الصديقة للبيئة، وقارنت Amazon's Choice بالـ Best Sellers في لوحة واحدة.</span></p>
+          <p><span class="en">Power Query cleaning, DAX measures and one dashboard comparing Amazon's Choice vs Best Sellers.</span><span class="ar">تنظيف بـ Power Query ومقاييس DAX ولوحة واحدة تقارن Amazon's Choice بالـ Best Sellers.</span></p>
           <a class="more" href="https://www.linkedin.com/feed/update/urn:li:activity:7486315947830444032/" target="_blank" rel="noopener"><span class="en">Read on LinkedIn</span><span class="ar">اقرأ على LinkedIn</span> ↗</a>
         </div>
       </article>
@@ -766,12 +755,6 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
       <div class="svc reveal"><h3><span class="en">Dashboards &amp; analysis</span><span class="ar">لوحات وتحليل</span></h3><p><span class="en">Power BI reports and data cleaning that answer business questions.</span><span class="ar">تقارير Power BI وتنظيف بيانات يجيب عن أسئلة العمل.</span></p></div>
       <div class="svc reveal"><h3><span class="en">Business systems</span><span class="ar">أنظمة الأعمال</span></h3><p><span class="en">Inventory, finance, procurement and reconciliation tools for SMEs.</span><span class="ar">أدوات المخزون والمالية والمشتريات والمطابقة للشركات الصغيرة.</span></p></div>
       <div class="svc reveal"><h3><span class="en">Training &amp; LMS</span><span class="ar">التدريب والتعليم الإلكتروني</span></h3><p><span class="en">Moodle setup and hands-on workshops in SQL, Python and web.</span><span class="ar">إعداد Moodle وورش عملية في SQL وPython والويب.</span></p></div>
-    </div>
-    <div class="steps">
-      <div><small>01</small><b><span class="en">Discover</span><span class="ar">الاكتشاف</span></b><span><span class="en">Understand the problem and users.</span><span class="ar">فهم المشكلة والمستخدمين.</span></span></div>
-      <div><small>02</small><b><span class="en">Design</span><span class="ar">التصميم</span></b><span><span class="en">Data model, flows and screens.</span><span class="ar">نموذج البيانات والمسارات والشاشات.</span></span></div>
-      <div><small>03</small><b><span class="en">Build</span><span class="ar">البناء</span></b><span><span class="en">Weekly demos, tested code.</span><span class="ar">عروض أسبوعية وكود مُختبر.</span></span></div>
-      <div><small>04</small><b><span class="en">Launch</span><span class="ar">الإطلاق</span></b><span><span class="en">Deploy, document, train your team.</span><span class="ar">النشر والتوثيق وتدريب فريقك.</span></span></div>
     </div>
 
     <div class="term" id="term">
@@ -983,15 +966,11 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   const greet={en:hr<5?'Up late?':hr<12?'Good morning!':hr<18?'Good afternoon!':'Good evening!',ar:hr<5?'سهران؟':hr<12?'صباح الخير!':hr<18?'مساء النور!':'مساء الخير!'};
   const tour=[
     {sel:'.hero h1',t:{en:'Meet Abdu',ar:'تعرّف على عبدو'},s:{en:'First things first: this is Abdelrahman, but everyone calls me Abdu. Teaching Assistant, full-stack developer and data analyst.',ar:'أول حاجة: ده عبدالرحمن، بس الكل بيقولّي عبدو. معيد ومطوّر Full-Stack ومحلل بيانات.'}},
-    {sel:'.typer',t:{en:'What I do',ar:'بعمل إيه'},s:{en:'That line sums it up: I turn ideas into real, working systems.',ar:'السطر ده بيلخّص كل حاجة: بحوّل الأفكار لأنظمة شغالة فعلاً.'}},
-    {sel:'.stats',t:{en:'The numbers',ar:'بالأرقام'},s:{en:'13 lab courses taught, a 3.72 final-year GPA, 90% in my data diploma, and 3 apps running in production.',ar:'13 مقرر عملي درّستها، ومعدل 3.72 في السنة النهائية، و90% في دبلومة البيانات، و3 تطبيقات شغالة فعلاً.'}},
-    {sel:'.sql',t:{en:'Me, as a query',ar:'أنا كاستعلام SQL'},s:{en:'I teach databases, so here is my CV written as SQL. Every row is a role I hold right now.',ar:'بدرّس قواعد بيانات، فكتبت الـ CV بتاعي كاستعلام SQL. كل صف دور أنا شغال فيه دلوقتي.'}},
+    {sel:'.stats',t:{en:'The numbers',ar:'بالأرقام'},s:{en:'13 lab courses, 90% in my data diploma, 3 apps live.',ar:'13 مقرر عملي، و90% في دبلومة البيانات، و3 تطبيقات شغالة.'}},
     {sel:'#work .proj.feature',t:{en:'Featured: Officify',ar:'المشروع المميز: Officify'},s:{en:'An offline-first ERP for Saudi SMEs in Arabic and English. Finance, inventory, procurement and 5 user roles. Hit "Live demo" to try it.',ar:'نظام ERP للشركات السعودية بيشتغل من غير إنترنت، عربي وإنجليزي. مالية ومخزون ومشتريات و5 صلاحيات. اضغط «جرّب المنصة».'}},
     {sel:'#work .projects',t:{en:'More shipped work',ar:'شغل تاني متسلّم'},s:{en:'Bankak payment reconciliation, CarePath medical tourism in 3 languages, and a Power BI dashboard. Hover a card, it tilts.',ar:'مطابقة مدفوعات بنكك، ومنصة CarePath للسياحة العلاجية بـ3 لغات، ولوحة Power BI. حرّك الماوس على أي كارت هتلاقيه بيتحرك.'}},
-    {sel:'.portrait',t:{en:'Two of me',ar:'نسختين مني'},s:{en:'That’s me, studio edition. Hover or tap the photo to flip it into my comic-book version.',ar:'ده أنا بنسخة الاستوديو. مرّر الماوس أو اضغط على الصورة عشان تتحول لنسخة الكوميكس.'}},
+    {sel:'.portrait',t:{en:'Real me. Pixel me.',ar:'أنا الحقيقي، وأنا الـ Pixel'},s:{en:'Tap the photo to meet pixel me.',ar:'اضغط على الصورة وقابل نسختي الـ pixel.'}},
     {sel:'.teach',t:{en:'In the lab',ar:'في المعمل'},s:{en:'13 lab courses across two universities, Moodle admin, and graduation-project mentoring.',ar:'13 مقرر عملي في جامعتين، وإدارة Moodle، والإشراف على مشاريع التخرج.'}},
-    {sel:'#linkedin .posts',t:{en:'Straight from LinkedIn',ar:'من LinkedIn مباشرة'},s:{en:'Real moments: co-supervising the Bayan sign-language AI project, first-year labs, and my Power BI work. Tap a photo for the gallery.',ar:'لحظات حقيقية: إشرافي على مشروع «بيان» لترجمة لغة الإشارة، ومعامل سنة أولى، وشغلي في Power BI. اضغط على أي صورة.'}},
-    {sel:'#term',t:{en:'Try the terminal',ar:'جرّب الـ terminal'},s:{en:'Type "help", "projects" or "cv" in here. It actually answers.',ar:'اكتب help أو projects أو cv هنا. هيرد عليك فعلاً.'}},
     {sel:'#contact .channels',t:{en:'Let’s talk',ar:'يلا نتكلم'},s:{en:'That’s the tour! Email, WhatsApp or LinkedIn, I usually reply within a day. Thanks for visiting.',ar:'كده خلصنا الجولة! إيميل أو واتساب أو LinkedIn، عادةً برد خلال يوم. شكراً لزيارتك.'}}
   ];
   const g=$('guide'),txt=$('guideText'),ttl=$('guideTitle'),stepEl=$('guideStep'),sprite=$('guideSprite'),spot=$('spot'),dots=$('gDots'),choice=$('guideChoice'),ctrl=$('guideCtrl');
