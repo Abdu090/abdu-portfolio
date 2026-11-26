@@ -118,7 +118,7 @@ html[lang="ar"] .hero h1{font-size:clamp(2.6rem,7vw,5.2rem);font-weight:600}
 html[lang="ar"] .stat{padding:18px 0 0 16px}
 .stat b{display:block;font-family:var(--f-display);font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .stat small{color:var(--muted);font-size:.82rem;line-height:1.35;display:block}
-@media (max-width:620px){.stats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.stats{grid-template-columns:repeat(2,1fr)}.stat:last-child:nth-child(odd){grid-column:1/-1}}
 
 /* sql card */
 .sql{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -30px color-mix(in srgb,var(--ink) 35%,transparent);direction:ltr;text-align:left}
@@ -132,6 +132,7 @@ html[lang="ar"] .stat{padding:18px 0 0 16px}
 .result th,.result td{padding:9px 16px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
 .result th{color:var(--muted);font-weight:400;background:var(--soft)}
 .result tr:last-child td{border-bottom:0}
+@media (max-width:620px){.result th,.result td{padding:8px 10px;white-space:normal}}
 .result .ok{color:var(--accent)}
 .sql-foot{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);padding:10px 16px;border-top:1px solid var(--line)}
 
@@ -454,6 +455,9 @@ html[lang="ar"] .guide.min{left:auto;right:max(16px,env(safe-area-inset-right,0p
 .menu-btn[aria-expanded="true"] i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
 body.menu-open .guide,body.menu-open .spot{display:none}
 footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+@media (pointer:coarse){.tools .chip-btn,.menu-btn{min-width:44px;min-height:44px}.guide-ctrl button{min-width:44px;height:44px}.foot a{display:inline-flex;align-items:center;min-height:44px}.term-hints button{min-height:40px}}
+/* phones: the guide steps aside while the visitor scrolls, so it never sits on content for long */
+@media (max-width:620px){.guide.min .guide-me{transition:opacity .25s,transform .25s}.guide.min.scrolling .guide-me{opacity:.15;transform:translateY(40%) scale(.8);pointer-events:none}}
 .menu{position:fixed;inset:0;z-index:45;background:var(--bg);padding:calc(96px + env(safe-area-inset-top,0px)) max(24px,env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(24px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;justify-content:space-between;overflow-y:auto}
 .menu-list{list-style:none;margin:0;padding:0;display:grid;gap:4px}
 .menu-list a{display:flex;align-items:baseline;gap:16px;text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:clamp(2.2rem,9vw,4rem);line-height:1.1;letter-spacing:-.02em;color:var(--ink);opacity:0;transform:translateY(14px);transition:opacity .35s,transform .35s,color .2s}
@@ -526,7 +530,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
       <div class="stats">
         <div class="stat"><b>13</b><small><span class="en">university lab courses taught</span><span class="ar">مقرراً معملياً درّستها</span></small></div>
         <div class="stat"><b>90%</b><small><span class="en">Data Analysis Diploma, AMIT</span><span class="ar">دبلومة تحليل البيانات، AMIT</span></small></div>
-        <div class="stat"><b>3</b><small><span class="en">apps live in production</span><span class="ar">تطبيقات تعمل فعلياً</span></small></div>
+        <div class="stat"><b>4</b><small><span class="en">apps live in production</span><span class="ar">تطبيقات تعمل فعلياً</span></small></div>
       </div>
     </div>
 
@@ -640,7 +644,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
 <section id="about">
   <div class="wrap about-grid">
     <div class="portrait reveal" tabindex="0">
-      <span class="badge">B.Sc. IT (Hons) · 2024</span>
+      <span class="badge">M.Sc. IT · 2026</span>
       <img src="abdu-pro-portrait.webp" alt="Portrait of Abdelrahman Ibrahim" width="864" height="1080" loading="lazy">
       <img class="real" src="abdu-pixel.webp" alt="Pixel-art version of Abdelrahman Ibrahim" width="864" height="1080" loading="lazy">
       <span class="swap-hint" aria-hidden="true">✦ Pixel me</span>
@@ -650,15 +654,16 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
       <span class="eyebrow">-- about</span>
       <h2><span class="en">The teacher behind the code</span><span class="ar">المعلّم خلف الكود</span></h2>
       <div style="margin-top:24px">
-        <p class="en">I'm <strong>Abdelrahman (Abdu) Ibrahim</strong>. I earned a <strong>B.Sc. (Honours) in Information Technology</strong> from National University, Sudan, finishing with a <strong>3.72 final-year GPA</strong> and an A on my graduation project. Months later I was back in the lab as a <strong>Teaching Assistant</strong> — the role I still hold today, and the one that shapes how I build software.</p>
+        <p class="en">I'm <strong>Abdelrahman (Abdu) Ibrahim</strong>. I earned a <strong>B.Sc. (Honours) in Information Technology</strong> from National University, Sudan, finishing with a <strong>3.72 final-year GPA</strong> and an A on my graduation project. Months later I was back in the lab as a <strong>Teaching Assistant</strong> — the role I still hold today, and the one that shapes how I build software. In 2026 I completed an <strong>M.Sc. in Information Technology</strong> at the Open University of Sudan, defending a thesis on “Friday”, an AI-assisted smart home system.</p>
         <p class="en">Teaching made me a better engineer. I explain things simply, document what I build and care about the person using it. I bring the same habits to client work: bilingual business platforms, payment reconciliation and data dashboards that people use every day.</p>
         <p class="en">I'm also upfront about how I work: <strong>I vibe-code</strong>. I plan the product and the data model, pair with AI tools like Claude and Gemini to write code faster, then review, test and take responsibility for every line that ships.</p>
-        <p class="ar">أنا <strong>عبدالرحمن محمد حسن إبراهيم (عبدو)</strong>. حصلت على <strong>بكالوريوس تقنية المعلومات (مرتبة الشرف)</strong> من الجامعة الوطنية بالسودان، بمعدل <strong>3.72 في السنة النهائية</strong> وتقدير A في مشروع التخرج. وبعد أشهر عدت إلى المعمل <strong>معيداً</strong> — وهو الدور اللي لسه بشغله، وهو اللي بيشكّل طريقتي في بناء البرمجيات.</p>
+        <p class="ar">أنا <strong>عبدالرحمن محمد حسن إبراهيم (عبدو)</strong>. حصلت على <strong>بكالوريوس تقنية المعلومات (مرتبة الشرف)</strong> من الجامعة الوطنية بالسودان، بمعدل <strong>3.72 في السنة النهائية</strong> وتقدير A في مشروع التخرج. وبعد أشهر عدت إلى المعمل <strong>معيداً</strong> — وهو الدور اللي لسه بشغله، وهو اللي بيشكّل طريقتي في بناء البرمجيات. وفي 2026 أكملت <strong>ماجستير تقنية المعلومات</strong> من جامعة السودان المفتوحة، وناقشت رسالة عن «Friday»، نظام منزل ذكي بمساعد ذكاء اصطناعي.</p>
         <p class="ar">التدريس جعلني مهندساً أفضل: أشرح ببساطة، وأوثّق ما أبنيه، وأهتم بالمستخدم. وأحمل هذه العادات إلى أعمال العملاء: منصات أعمال ثنائية اللغة، ومطابقة مدفوعات، ولوحات بيانات يستخدمها الناس يومياً.</p>
         <p class="ar">وأنا صريح في طريقة عملي: <strong>أبرمج بأسلوب الـ vibe coding</strong>؛ أخطط للمنتج ونموذج البيانات، وأستعين بأدوات ذكاء اصطناعي مثل Claude وGemini لكتابة الكود أسرع، ثم أراجع وأختبر وأتحمّل مسؤولية كل سطر يُنشر.</p>
       </div>
       <div class="facts">
-        <div><small><span class="en">Degree</span><span class="ar">المؤهل</span></small><span><span class="en">B.Sc. (Hons) IT, National University · 2024</span><span class="ar">بكالوريوس IT، الجامعة الوطنية · 2024</span></span></div>
+        <div><small><span class="en">Master's</span><span class="ar">الماجستير</span></small><span><span class="en">M.Sc. IT, Open University of Sudan · 2026</span><span class="ar">ماجستير IT، جامعة السودان المفتوحة · 2026</span></span></div>
+        <div><small><span class="en">Degree</span><span class="ar">البكالوريوس</span></small><span><span class="en">B.Sc. (Hons) IT, National University · 2024</span><span class="ar">بكالوريوس IT، الجامعة الوطنية · 2024</span></span></div>
         <div><small><span class="en">Teaching</span><span class="ar">التدريس</span></small><span><span class="en">TA, National University · since 2024</span><span class="ar">معيد، الجامعة الوطنية · منذ 2024</span></span></div>
         <div><small><span class="en">Programs</span><span class="ar">برامج</span></small><span>McKinsey Forward · AWS Student Builders</span></div>
         <div><small><span class="en">Languages</span><span class="ar">اللغات</span></small><span><span class="en">Arabic (native) · English (all study in English)</span><span class="ar">العربية (الأم) · الإنجليزية (الدراسة كاملة بها)</span></span></div>
@@ -853,25 +858,26 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
 
   // terminal
   const out=document.getElementById('termOut'),inp=document.getElementById('termIn'),hints=document.getElementById('termHints');
+  const T=(en,ar)=>root.lang==='ar'?ar:en;
   const cmds={
-    help:()=>'<span class="y">available commands</span>\n  about     who I am\n  cv        open my CV\n  skills    my stack\n  projects  what I built\n  teach     what I teach\n  goals     what\'s next\n  contact   how to reach me\n  lang      switch English / عربي\n  clear     clear the screen',
-    about:()=>'Abdelrahman "Abdu" Ibrahim — B.Sc. (Hons) IT, Teaching Assistant at National University, full-stack developer and data analyst in Giza, Egypt.',
+    help:()=>T('<span class="y">available commands</span>\n  about     who I am\n  cv        open my CV\n  skills    my stack\n  projects  what I built\n  teach     what I teach\n  goals     what\'s next\n  contact   how to reach me\n  lang      switch English / عربي\n  clear     clear the screen','<span class="y">الأوامر المتاحة</span>\n  about     مين أنا\n  cv        افتح السيرة الذاتية\n  skills    أدواتي\n  projects  مشاريعي\n  teach     ماذا أدرّس\n  goals     الخطوة الجاية\n  contact   طرق التواصل\n  lang      English / عربي\n  clear     امسح الشاشة'),
+    about:()=>T('Abdelrahman "Abdu" Ibrahim — M.Sc. IT (Open University of Sudan), B.Sc. (Hons) IT, Teaching Assistant at National University, full-stack developer and data analyst in Giza, Egypt.','عبدالرحمن «عبدو» إبراهيم — ماجستير IT (جامعة السودان المفتوحة)، بكالوريوس IT بمرتبة الشرف، معيد بالجامعة الوطنية، مطوّر Full-Stack ومحلل بيانات في الجيزة، مصر.'),
     cv:()=>'open <a href="Abdelrahman_Ibrahim_CV.pdf" target="_blank" rel="noopener" style="color:#f0bb4c">Abdelrahman_Ibrahim_CV.pdf</a>',
     skills:()=>'<span class="p">lang</span>   Python · TypeScript · SQL · Java · PHP\n<span class="p">web</span>    React · Next.js · Node.js · Express\n<span class="p">data</span>   PostgreSQL · Power BI · Pandas · Excel\n<span class="p">cloud</span>  Vercel · AWS S3 · GitHub Actions',
-    projects:()=>'1. Officify Enterprise OS  bilingual ERP for SMEs (live)\n2. Durjak                  Bankak payment reconciliation (live)\n3. CarePath World Wide    medical tourism, EN/AR/FR (live)\n4. E-Commerce Dashboard    Power BI analytics',
-    teach:()=>'13 lab courses incl. AI · Web Systems · Advanced Databases · Compilers\n+ Moodle admin and graduation-project mentoring',
-    goals:()=>'<span class="y">→</span> remote full-stack, backend & data roles\n<span class="y">→</span> freelance web platforms & dashboards',
-    vibe:()=>'yes, I vibe-code: I plan, AI (Claude, Gemini) helps me type,\nand I review, test and own every line.',
+    projects:()=>T('1. Mizan POS              cloud POS for shops in Sudan (live)\n2. Officify Enterprise OS  bilingual ERP for SMEs (live)\n3. Durjak                  Bankak payment reconciliation (live)\n4. CarePath World Wide     medical tourism, EN/AR/FR (live)\n5. E-Commerce Dashboard    Power BI analytics','1. Mizan POS              نقاط بيع سحابية لمحلات السودان (مباشر)\n2. Officify Enterprise OS  نظام ERP ثنائي اللغة (مباشر)\n3. Durjak                  مطابقة مدفوعات بنكك (مباشر)\n4. CarePath World Wide     سياحة علاجية بثلاث لغات (مباشر)\n5. E-Commerce Dashboard    تحليلات Power BI'),
+    teach:()=>T('13 lab courses incl. AI · Web Systems · Advanced Databases · Compilers\n+ Moodle admin and graduation-project mentoring','13 مقرراً عملياً منها الذكاء الاصطناعي · أنظمة الويب · قواعد البيانات المتقدمة · المترجمات\n+ إدارة Moodle والإشراف على مشاريع التخرج'),
+    goals:()=>T('<span class="y">→</span> remote full-stack, backend & data roles\n<span class="y">→</span> freelance web platforms & dashboards','<span class="y">→</span> وظائف Full-Stack وBackend وبيانات عن بُعد\n<span class="y">→</span> مشاريع حرة: منصات ويب ولوحات بيانات'),
+    vibe:()=>T('yes, I vibe-code: I plan, AI (Claude, Gemini) helps me type,\nand I review, test and own every line.','أيوه، أبرمج بأسلوب vibe coding: أنا أخطط، والذكاء الاصطناعي (Claude وGemini) يساعدني أكتب،\nوأنا أراجع وأختبر وأتحمّل مسؤولية كل سطر.'),
     contact:()=>'email     abdelrahman.ibrahim.job@gmail.com\nwhatsapp  wa.me/message/EZZEJUWBDXTHB1\ninstagram @3bdo_661\nlinkedin  linkedin.com/in/abdelrahman-ibrahim-77a171282\ngithub    github.com/Abdu090',
     lang:()=>{setLang(root.lang==='ar'?'en':'ar');return 'language → '+root.lang},
-    sudo:()=>'nice try. permission denied.',
+    sudo:()=>T('nice try. permission denied.','محاولة حلوة. الصلاحية مرفوضة.'),
     clear:()=>{out.innerHTML='';return null}
   };
-  function print(h){const d=document.createElement('div');d.innerHTML=h;out.appendChild(d);out.scrollTop=out.scrollHeight}
+  function print(h){const d=document.createElement('div');d.dir='auto';d.innerHTML=h;out.appendChild(d);out.scrollTop=out.scrollHeight}
   function run(c){c=c.trim().toLowerCase();if(!c)return;print('<span class="p">$</span> '+c.replace(/</g,'&lt;'));
-    const f=cmds[c];const r=f?f():'<span class="m">command not found: '+c.replace(/</g,'&lt;')+' — try help</span>';if(r!==null)print(r)}
-  print('<span class="m">Welcome to abdu.sh — type a command or tap one below.</span>');
-  run('help');
+    const f=cmds[c];const r=f?f():'<span class="m">'+T('command not found: ','أمر غير معروف: ')+c.replace(/</g,'&lt;')+T(' — try help',' — جرّب help')+'</span>';if(r!==null)print(r)}
+  function boot(){out.innerHTML='';print('<span class="m">'+T('Welcome to abdu.sh — type a command or tap one below.','أهلاً بيك في abdu.sh — اكتب أمر أو اضغط واحد تحت.')+'</span>');run('help')}
+  boot();new MutationObserver(boot).observe(root,{attributes:true,attributeFilter:['lang']});
   inp.addEventListener('keydown',e=>{if(e.key==='Enter'){run(inp.value);inp.value=''}});
   ['about','skills','projects','cv','contact','clear'].forEach(c=>{const b=document.createElement('button');b.type='button';b.textContent=c;b.onclick=()=>run(c);hints.appendChild(b)});
 })();
@@ -968,9 +974,9 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   /* ---------- tour script ---------- */
   const tour=[
     {sel:'.hero h1',t:{en:'Meet Abdu',ar:'تعرّف على عبدو'},s:{en:'First things first: this is Abdelrahman, but everyone calls me Abdu. Teaching Assistant, full-stack developer and data analyst.',ar:'أول حاجة: ده عبدالرحمن، والناس كلها بتقول ليهو عبدو. معيد، ومطوّر Full-Stack، ومحلل بيانات.'}},
-    {sel:'.stats',t:{en:'The numbers',ar:'بالأرقام'},s:{en:'13 lab courses, 90% in my data diploma, 3 apps live.',ar:'13 مقرر عملي، و90% في دبلومة البيانات، و3 تطبيقات شغّالة هسي.'}},
-    {sel:'#work .proj.feature',t:{en:'Featured: Officify',ar:'المشروع المميز: Officify'},s:{en:'An offline-first ERP for Saudi SMEs in Arabic and English. Finance, inventory, procurement and 5 user roles. Hit "Live demo" to try it.',ar:'ده Officify: نظام ERP للشركات السعودية، عربي وإنجليزي، وبيشتغل حتى من غير نت. اضغط «جرّب المنصة».'}},
-    {sel:'#work .projects',t:{en:'More shipped work',ar:'شغل تاني اتسلّم'},s:{en:'Bankak payment reconciliation, CarePath medical tourism in 3 languages, and a Power BI dashboard.',ar:'مطابقة مدفوعات بنكك، ومنصة CarePath للسياحة العلاجية، ولوحة Power BI.'}},
+    {sel:'.stats',t:{en:'The numbers',ar:'بالأرقام'},s:{en:'13 lab courses, 90% in my data diploma, 4 apps live right now.',ar:'13 مقرر عملي، و90% في دبلومة البيانات، و4 تطبيقات شغّالة هسي.'}},
+    {sel:'#work .proj.feature',t:{en:'Featured: Mizan & Officify',ar:'المميز: Mizan و Officify'},s:{en:'Two featured builds. Mizan POS, just shipped: a cloud point-of-sale for shops in Sudan that works offline. And Officify, a bilingual ERP for Saudi businesses. Hit "Live demo" on either.',ar:'ديل أهم مشروعين: Mizan، نظام نقاط بيع سحابي للمحلات في السودان، بيشتغل حتى من غير نت. و Officify، نظام ERP للشركات السعودية، عربي وإنجليزي. اضغط «جرّب المنصة».'}},
+    {sel:'#work .proj:not(.feature)',t:{en:'More shipped work',ar:'شغل تاني اتسلّم'},s:{en:'Bankak payment reconciliation, CarePath medical tourism in 3 languages, and a Power BI dashboard.',ar:'مطابقة مدفوعات بنكك، ومنصة CarePath للسياحة العلاجية، ولوحة Power BI.'}},
     {sel:'.portrait',t:{en:'Real me. Pixel me.',ar:'أنا الحقيقي، وأنا الـ Pixel'},s:{en:'Tap the photo to meet pixel me.',ar:'اضغط على الصورة، وقابل نسختي الـ pixel.'}},
     {sel:'.teach',t:{en:'In the lab',ar:'في المعمل'},s:{en:'13 lab courses across two universities, Moodle admin, and graduation-project mentoring.',ar:'13 مقرر عملي في جامعتين، وإدارة Moodle، والإشراف على مشاريع التخرج.'}},
     {sel:'#contact .channels',t:{en:'Let’s talk',ar:'يلا نتواصل'},s:{en:'That’s the tour! Email, WhatsApp or LinkedIn. I usually reply within a day. Thanks for visiting.',ar:'خلاص كده الجولة تمّت! أرسل لي إيميل، أو واتساب، أو LinkedIn، وغالباً برد عليك خلال يوم. شكراً على الزيارة.'}}
@@ -992,14 +998,15 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   const bd=$('gBackdrop');
   function bounds(){const hd=document.querySelector('header.top');const top=(hd?hd.getBoundingClientRect().bottom:64)+8;const bb=$('guideBubble').getBoundingClientRect();
     const bot=(g.classList.contains('min')||bb.height<10)?innerHeight-12:Math.min(innerHeight-12,bb.top-14);return {top,bot}}
-  function place(){if(!target||!touring){spot.classList.remove('on');return}const r=target.getBoundingClientRect(),p=8,{top,bot}=bounds();
+  function rect(){const rs=target.map(e=>e.getBoundingClientRect());return {top:Math.min(...rs.map(r=>r.top)),bottom:Math.max(...rs.map(r=>r.bottom)),left:Math.min(...rs.map(r=>r.left)),right:Math.max(...rs.map(r=>r.right)),get height(){return this.bottom-this.top}}}
+  function place(){if(!target||!touring){spot.classList.remove('on');return}const r=rect(),p=8,{top,bot}=bounds();
     const t=Math.max(r.top-p,top),b=Math.min(r.bottom+p,bot);if(b-t<36){spot.classList.remove('on');return}
     const l=Math.max(r.left-p,6),w=Math.min(r.right+p,innerWidth-6)-l;
     Object.assign(spot.style,{top:t+'px',left:l+'px',width:w+'px',height:(b-t)+'px'});spot.classList.add('on')}
-  function scrollToTarget(){const r=target.getBoundingClientRect(),{top,bot}=bounds(),avail=bot-top;let y=scrollY+r.top-top-10;if(r.height+20<avail)y-=(avail-r.height-20)/2;
+  function scrollToTarget(){if(!target)return;const r=rect(),{top,bot}=bounds(),avail=bot-top;let y=scrollY+r.top-top-10;if(r.height+20<avail)y-=(avail-r.height-20)/2;
     scrollTo({top:Math.max(0,y),behavior:reduce?'auto':'smooth'})}
   function center(on){g.classList.toggle('welcome',on);bd.classList.toggle('on',on)}
-  addEventListener('scroll',()=>requestAnimationFrame(place),{passive:true});addEventListener('resize',place);
+  let scT=null;addEventListener('scroll',()=>{requestAnimationFrame(place);g.classList.add('scrolling');clearTimeout(scT);scT=setTimeout(()=>g.classList.remove('scrolling'),700)},{passive:true});addEventListener('resize',place);
 
   function renderDots(){dots.innerHTML='';const n=tour.length;for(let i=0;i<n;i++){const d=document.createElement('i');if(i===idx)d.className='on';dots.appendChild(d)}}
   function welcome(){center(true);g.classList.remove('min');wave();idx=-1;touring=false;place();choice.hidden=false;ctrl.hidden=true;ttl.textContent='';stepEl.textContent='';
@@ -1007,7 +1014,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   function step(i){
     if(i>=tour.length){end(true);return}
     center(false);idx=Math.max(0,i);touring=true;choice.hidden=true;ctrl.hidden=false;
-    const s=tour[idx];target=document.querySelector(s.sel);
+    const s=tour[idx];target=[...document.querySelectorAll(s.sel)];if(!target.length)target=null;
     stepEl.textContent=(L()==='ar'?'الفصل ':'CHAPTER ')+(idx+1)+'/'+tour.length;const last=idx===tour.length-1;$('gNext').innerHTML=last?(L()==='ar'?'إنهاء ✓':'FINISH ✓'):(L()==='ar'?'التالي ◀':'NEXT ▶');ttl.textContent=s.t[L()];renderDots();
     sfx('step');type(s.s[L()],'t'+(idx+1));
     if(target){requestAnimationFrame(()=>{scrollToTarget();place()});setTimeout(place,reduce?0:700);setTimeout(place,1400)}
