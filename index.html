@@ -889,7 +889,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
     <div class="guide-text" id="guideText"></div>
     <div class="guide-choice" id="guideChoice" hidden>
       <button type="button" class="yes" id="gYes"><span class="en">▶ Show me around</span><span class="ar">▶ خذني في جولة</span></button>
-      <button type="button" class="no" id="gNo"><span class="en">I'll explore myself</span><span class="ar">هتفرّج لوحدي</span></button>
+      <button type="button" class="no" id="gNo"><span class="en">I'll explore myself</span><span class="ar">بتفرّج براي</span></button>
     </div>
     <div class="guide-ctrl" id="guideCtrl">
       <button type="button" id="gSkip"><span class="en">SKIP</span><span class="ar">تخطي</span></button>
@@ -959,20 +959,21 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   if(intro&&!intro.hidden){const go=()=>{arm();sfx('start')};intro.addEventListener('click',go,{once:true});addEventListener('keydown',e=>{if(!intro.classList.contains('done')&&(e.key==='Enter'||e.key===' '))go()},{once:true})}
 
   /* ---------- voice ---------- */
-  let voice=st.get('g-voice')==='1';
-  function speak(s){if(!voice||!('speechSynthesis' in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(s);u.lang=L()==='ar'?'ar-EG':'en-US';const v=speechSynthesis.getVoices().find(v=>v.lang&&v.lang.toLowerCase().startsWith(L()));if(v)u.voice=v;u.pitch=1.1;speechSynthesis.speak(u)}catch(e){}}
+  /* pre-recorded clips (ElevenLabs: Sudanese AR, EN), audio/<lang>-<id>.mp3
+     shortcut: each clip matches one bubble line; re-record if that line's text changes */
+  let voice=st.get('g-voice')==='1',clip=null,lastClip='w';
+  function hush(){try{clip&&clip.pause()}catch(e){}clip=null}
+  function speak(id){if(id)lastClip=id;hush();if(!voice)return;clip=new Audio('audio/'+L()+'-'+lastClip+'.mp3');clip.play().catch(()=>{})}
 
   /* ---------- tour script ---------- */
-  const hr=new Date().getHours();
-  const greet={en:hr<5?'Up late?':hr<12?'Good morning!':hr<18?'Good afternoon!':'Good evening!',ar:hr<5?'سهران؟':hr<12?'صباح الخير!':hr<18?'مساء النور!':'مساء الخير!'};
   const tour=[
-    {sel:'.hero h1',t:{en:'Meet Abdu',ar:'تعرّف على عبدو'},s:{en:'First things first: this is Abdelrahman, but everyone calls me Abdu. Teaching Assistant, full-stack developer and data analyst.',ar:'أول حاجة: ده عبدالرحمن، بس الكل بيقولّي عبدو. معيد ومطوّر Full-Stack ومحلل بيانات.'}},
-    {sel:'.stats',t:{en:'The numbers',ar:'بالأرقام'},s:{en:'13 lab courses, 90% in my data diploma, 3 apps live.',ar:'13 مقرر عملي، و90% في دبلومة البيانات، و3 تطبيقات شغالة.'}},
-    {sel:'#work .proj.feature',t:{en:'Featured: Officify',ar:'المشروع المميز: Officify'},s:{en:'An offline-first ERP for Saudi SMEs in Arabic and English. Finance, inventory, procurement and 5 user roles. Hit "Live demo" to try it.',ar:'نظام ERP للشركات السعودية بيشتغل من غير إنترنت، عربي وإنجليزي. مالية ومخزون ومشتريات و5 صلاحيات. اضغط «جرّب المنصة».'}},
-    {sel:'#work .projects',t:{en:'More shipped work',ar:'شغل تاني متسلّم'},s:{en:'Bankak payment reconciliation, CarePath medical tourism in 3 languages, and a Power BI dashboard. Hover a card, it tilts.',ar:'مطابقة مدفوعات بنكك، ومنصة CarePath للسياحة العلاجية بـ3 لغات، ولوحة Power BI. حرّك الماوس على أي كارت هتلاقيه بيتحرك.'}},
-    {sel:'.portrait',t:{en:'Real me. Pixel me.',ar:'أنا الحقيقي، وأنا الـ Pixel'},s:{en:'Tap the photo to meet pixel me.',ar:'اضغط على الصورة وقابل نسختي الـ pixel.'}},
+    {sel:'.hero h1',t:{en:'Meet Abdu',ar:'تعرّف على عبدو'},s:{en:'First things first: this is Abdelrahman, but everyone calls me Abdu. Teaching Assistant, full-stack developer and data analyst.',ar:'أول حاجة: ده عبدالرحمن، والناس كلها بتقول ليهو عبدو. معيد، ومطوّر Full-Stack، ومحلل بيانات.'}},
+    {sel:'.stats',t:{en:'The numbers',ar:'بالأرقام'},s:{en:'13 lab courses, 90% in my data diploma, 3 apps live.',ar:'13 مقرر عملي، و90% في دبلومة البيانات، و3 تطبيقات شغّالة هسي.'}},
+    {sel:'#work .proj.feature',t:{en:'Featured: Officify',ar:'المشروع المميز: Officify'},s:{en:'An offline-first ERP for Saudi SMEs in Arabic and English. Finance, inventory, procurement and 5 user roles. Hit "Live demo" to try it.',ar:'ده Officify: نظام ERP للشركات السعودية، عربي وإنجليزي، وبيشتغل حتى من غير نت. اضغط «جرّب المنصة».'}},
+    {sel:'#work .projects',t:{en:'More shipped work',ar:'شغل تاني اتسلّم'},s:{en:'Bankak payment reconciliation, CarePath medical tourism in 3 languages, and a Power BI dashboard.',ar:'مطابقة مدفوعات بنكك، ومنصة CarePath للسياحة العلاجية، ولوحة Power BI.'}},
+    {sel:'.portrait',t:{en:'Real me. Pixel me.',ar:'أنا الحقيقي، وأنا الـ Pixel'},s:{en:'Tap the photo to meet pixel me.',ar:'اضغط على الصورة، وقابل نسختي الـ pixel.'}},
     {sel:'.teach',t:{en:'In the lab',ar:'في المعمل'},s:{en:'13 lab courses across two universities, Moodle admin, and graduation-project mentoring.',ar:'13 مقرر عملي في جامعتين، وإدارة Moodle، والإشراف على مشاريع التخرج.'}},
-    {sel:'#contact .channels',t:{en:'Let’s talk',ar:'يلا نتكلم'},s:{en:'That’s the tour! Email, WhatsApp or LinkedIn, I usually reply within a day. Thanks for visiting.',ar:'كده خلصنا الجولة! إيميل أو واتساب أو LinkedIn، عادةً برد خلال يوم. شكراً لزيارتك.'}}
+    {sel:'#contact .channels',t:{en:'Let’s talk',ar:'يلا نتواصل'},s:{en:'That’s the tour! Email, WhatsApp or LinkedIn. I usually reply within a day. Thanks for visiting.',ar:'خلاص كده الجولة تمّت! أرسل لي إيميل، أو واتساب، أو LinkedIn، وغالباً برد عليك خلال يوم. شكراً على الزيارة.'}}
   ];
   const g=$('guide'),txt=$('guideText'),ttl=$('guideTitle'),stepEl=$('guideStep'),sprite=$('guideSprite'),spot=$('spot'),dots=$('gDots'),choice=$('guideChoice'),ctrl=$('guideCtrl');
   const bSound=$('gSound'),bVoice=$('gVoice');
@@ -982,7 +983,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   setInterval(()=>{if(sprite.classList.contains('talk')||sprite.classList.contains('wave'))return;sprite.classList.add('blink');setTimeout(()=>sprite.classList.remove('blink'),140)},3200);
   let waveT=null;function wave(){if(reduce)return;clearTimeout(waveT);sprite.classList.add('wave');waveT=setTimeout(()=>sprite.classList.remove('wave'),1800)}
   function talk(on){clearInterval(talkT);sprite.classList.remove('talk');if(on&&!reduce)talkT=setInterval(()=>{if(!sprite.classList.contains('wave'))sprite.classList.toggle('talk')},130)}
-  function type(s){clearInterval(typing);speak(s);if(reduce){txt.textContent=s;return}
+  function type(s,id){clearInterval(typing);speak(id);if(reduce){txt.textContent=s;return}
     let n=0;txt.textContent='';talk(true);const cur=document.createElement('span');cur.className='cur';
     typing=setInterval(()=>{n+=2;txt.textContent=s.slice(0,n);txt.appendChild(cur);if(n%4===0)sfx('blip');if(n>=s.length){clearInterval(typing);txt.textContent=s;txt.appendChild(cur);talk(false);place()}},24)}
 
@@ -1002,19 +1003,19 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
 
   function renderDots(){dots.innerHTML='';const n=tour.length;for(let i=0;i<n;i++){const d=document.createElement('i');if(i===idx)d.className='on';dots.appendChild(d)}}
   function welcome(){center(true);g.classList.remove('min');wave();idx=-1;touring=false;place();choice.hidden=false;ctrl.hidden=true;ttl.textContent='';stepEl.textContent='';
-    type(L()==='ar'?`${greet.ar} أنا عبدو الصغير، النسخة الـ pixel من عبدالرحمن. تحب تتفرّج لوحدك ولا أخدك في جولة؟`:`${greet.en} I'm Abdu's pixel twin, the 8-bit edition. Want to explore on your own, or should I give you the grand tour?`)}
+    type(L()==='ar'?'أهلاً وسهلاً! أنا عبدو الصغير، النسخة الـ pixel من عبدالرحمن. داير تتفرّج براك، ولا أوديك جولة سريعة؟':'Hey there! I\'m Abdu\'s pixel twin. Want to explore on your own, or should I give you the grand tour?','w')}
   function step(i){
     if(i>=tour.length){end(true);return}
     center(false);idx=Math.max(0,i);touring=true;choice.hidden=true;ctrl.hidden=false;
     const s=tour[idx];target=document.querySelector(s.sel);
     stepEl.textContent=(L()==='ar'?'الفصل ':'CHAPTER ')+(idx+1)+'/'+tour.length;const last=idx===tour.length-1;$('gNext').innerHTML=last?(L()==='ar'?'إنهاء ✓':'FINISH ✓'):(L()==='ar'?'التالي ◀':'NEXT ▶');ttl.textContent=s.t[L()];renderDots();
-    sfx('step');type(s.s[L()]);
+    sfx('step');type(s.s[L()],'t'+(idx+1));
     if(target){requestAnimationFrame(()=>{scrollToTarget();place()});setTimeout(place,reduce?0:700);setTimeout(place,1400)}
   }
   let finT=null;function end(done){clearTimeout(finT);center(false);touring=false;target=null;place();choice.hidden=true;ctrl.hidden=!!done;dots.innerHTML='';stepEl.textContent='';ttl.textContent='';
-    if(done){wave();sfx('start');type(L()==='ar'?'خلصت الجولة! شكراً لزيارتك. اضغط عليّ لو حبيت تعيدها.':'Tour complete! Thanks for visiting. Tap me any time to replay it.');finT=setTimeout(()=>{if(!touring)minimize()},5000)}
+    if(done){wave();sfx('start');type(L()==='ar'?'الجولة تمّت! شكراً على زيارتك. اضغط عليّ لو داير تعيدها.':'Tour complete! Thanks for visiting. Tap me any time to replay it.','f');finT=setTimeout(()=>{if(!touring)minimize()},5000)}
     st.set('g-seen','1')}
-  function minimize(){clearTimeout(finT);center(false);g.classList.add('min');ss.set('g-dismissed','1');end(false);sfx('close');talk(false);clearInterval(typing);try{speechSynthesis.cancel()}catch(e){}}
+  function minimize(){clearTimeout(finT);center(false);g.classList.add('min');ss.set('g-dismissed','1');end(false);sfx('close');talk(false);clearInterval(typing);hush()}
 
   $('gYes').onclick=()=>{arm();sfx('click');step(0)};
   $('gNo').onclick=()=>{sfx('click');minimize()};
@@ -1024,7 +1025,7 @@ html[lang="ar"] .menu-list a{font-family:var(--f-body)}
   $('gSkip').onclick=()=>{sfx('click');minimize()};
   $('gMin').onclick=minimize;
   bSound.onclick=()=>{sound=!sound;st.set('g-sound',sound?'1':'0');bSound.setAttribute('aria-pressed',sound);if(sound){arm();sfx('click')}};
-  bVoice.onclick=()=>{voice=!voice;st.set('g-voice',voice?'1':'0');bVoice.setAttribute('aria-pressed',voice);sfx('click');if(voice)speak(txt.textContent);else try{speechSynthesis.cancel()}catch(e){}};
+  bVoice.onclick=()=>{voice=!voice;st.set('g-voice',voice?'1':'0');bVoice.setAttribute('aria-pressed',voice);sfx('click');speak()};
   $('guideMe').onclick=()=>{if(g.classList.contains('min')){sfx('open');welcome()}else if(touring){step(idx+1)}else{step(0)}};
   addEventListener('keydown',e=>{
     if(!lb.hidden){if(e.key==='Escape')$('lbX').click();if(e.key==='ArrowRight')$('lbN').click();if(e.key==='ArrowLeft')$('lbP').click();return}
